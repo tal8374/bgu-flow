@@ -4789,6 +4789,8 @@ if (typeof mxVertexHandler != 'undefined')
 		 */
 		Graph.prototype.isCellResizable = function(cell)
 		{
+		  return false;
+
 			var result = mxGraph.prototype.isCellResizable.apply(this, arguments);
 
 			var state = this.view.getState(cell);
