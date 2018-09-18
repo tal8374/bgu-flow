@@ -3310,6 +3310,12 @@ TextFormatPanel.prototype.addFont = function(container)
 
 /////////////////////////////
 
+var acts = {'whatssap' : 'a'};
+
+function createWhatssapPanel() {
+  alert();
+}
+
 
 /**
  * Adds the label menu items to the given menu and parent.
@@ -3331,12 +3337,44 @@ ActionFormatPanel.prototype.init = function() {
   var graph = editor.graph;
   var ss = this.format.getSelectionState();
 
-  // console.log('current cell');
-  // console.log(graph.getSelectionCell());
+  var currentCell = graph.getSelectionCell();
+  var cellName = getCellName(currentCell);
 
-  this.container.appendChild(this.addStroke(this.createPanel()));
+  // acts[cellName.toLowerCase()]();
+
+  // console.log(this.getAct(cellName.toLowerCase()));
+
+  var act = this.getAct(cellName.toLowerCase());
+
+  if(!act) {
+    return;
+  }
+
+  this.container.appendChild(act);
+
+  // this.container.appendChild(this.addStroke(this.createPanel()));
 
 };
+
+ActionFormatPanel.prototype.getAct = function(cellName) {
+
+  console.log(cellName);
+
+  var options = {'whatsapp' : this.addStroke(this.createPanel())};
+
+  return options[cellName];
+
+};
+
+function getCellName(cell) {
+  var cellValue = cell.getValue();
+
+  var start_pos = cellValue.indexOf('<p>') + 3;
+  var end_pos = cellValue.indexOf('</p>',start_pos);
+  var cellName = cellValue.substring(start_pos,end_pos).trim();
+
+  return cellName;
+}
 
 
 //////////////////////////////
