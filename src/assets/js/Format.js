@@ -453,47 +453,6 @@ Format.prototype.refresh = function()
 
       addClickHandler(label, actionPanel, idx++);
     }
-
-
-		// // Style
-		// if (containsLabel)
-		// {
-		// 	label2.style.borderLeftWidth = '0px';
-		// }
-		// else
-		// {
-		// 	label.style.borderLeftWidth = '0px';
-		// 	mxUtils.write(label, mxResources.get('style'));
-		// 	div.appendChild(label);
-        //
-		// 	var stylePanel = div.cloneNode(false);
-		// 	stylePanel.style.display = 'none';
-		// 	this.panels.push(new StyleFormatPanel(this, ui, stylePanel));
-		// 	this.container.appendChild(stylePanel);
-        //
-		// 	addClickHandler(label, stylePanel, idx++);
-		// }
-
-		// Text
-		// mxUtils.write(label2, mxResources.get('text'));
-		// div.appendChild(label2);
-        //
-		// var textPanel = div.cloneNode(false);
-		// textPanel.style.display = 'none';
-		// this.panels.push(new TextFormatPanel(this, ui, textPanel));
-		// this.container.appendChild(textPanel);
-        //
-		// // Arrange
-		// mxUtils.write(label3, mxResources.get('arrange'));
-		// div.appendChild(label3);
-        //
-		// var arrangePanel = div.cloneNode(false);
-		// arrangePanel.style.display = 'none';
-		// this.panels.push(new ArrangePanel(this, ui, arrangePanel));
-		// this.container.appendChild(arrangePanel);
-        //
-		// addClickHandler(label2, textPanel, idx++);
-		// addClickHandler(label3, arrangePanel, idx++);
 	}
 };
 
@@ -3307,15 +3266,7 @@ TextFormatPanel.prototype.addFont = function(container)
 	return container;
 };
 
-
-/////////////////////////////
-
 var acts = {'whatssap' : 'a'};
-
-function createWhatssapPanel() {
-  alert();
-}
-
 
 /**
  * Adds the label menu items to the given menu and parent.
@@ -3339,10 +3290,6 @@ ActionFormatPanel.prototype.init = function() {
 
   var currentCell = graph.getSelectionCell();
   var cellName = getCellName(currentCell);
-
-  // acts[cellName.toLowerCase()]();
-
-  // console.log(this.getAct(cellName.toLowerCase()));
 
   var act = this.getAct(cellName);
 
@@ -3621,6 +3568,13 @@ ActionFormatPanel.prototype.addWhatssapAct = function(container)
 
   var targetInput = document.createElement('input');
   container.appendChild(targetInput);
+
+  var whatssapMessageHeader = document.createElement('h1');
+  whatssapMessageHeader.innerText = 'Message';
+  container.appendChild(whatssapMessageHeader);
+
+  var whatssapMessage = document.createElement('TextArea');
+  container.appendChild(whatssapMessage)
 
   var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
   {
