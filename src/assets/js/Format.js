@@ -3344,7 +3344,7 @@ ActionFormatPanel.prototype.init = function() {
 
   // console.log(this.getAct(cellName.toLowerCase()));
 
-  var act = this.getAct(cellName.toLowerCase());
+  var act = this.getAct(cellName);
 
   if(!act) {
     return;
@@ -3357,8 +3357,11 @@ ActionFormatPanel.prototype.init = function() {
 };
 
 ActionFormatPanel.prototype.getAct = function(cellName) {
+  if(!cellName) {
+    return;
+  }
 
-  console.log(cellName);
+  cellName = cellName.toLowerCase();
 
   var options = {'whatsapp' : this.addStroke(this.createPanel())};
 
@@ -3367,7 +3370,15 @@ ActionFormatPanel.prototype.getAct = function(cellName) {
 };
 
 function getCellName(cell) {
+  if (!cell) {
+    return;
+  }
+
   var cellValue = cell.getValue();
+
+  if(!cellValue || cellValue.indexOf('<p>') === -1) {
+    return;
+  }
 
   var start_pos = cellValue.indexOf('<p>') + 3;
   var end_pos = cellValue.indexOf('</p>',start_pos);
@@ -3375,11 +3386,6 @@ function getCellName(cell) {
 
   return cellName;
 }
-
-
-//////////////////////////////
-
-
 
 
 /**
