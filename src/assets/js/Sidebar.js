@@ -142,11 +142,6 @@ Sidebar.prototype.dropTargetDelay = 200;
 Sidebar.prototype.gearImage = STENCIL_PATH + '/clipart/Gear_128x128.png';
 
 /**
- * Specifies the URL of the whatsapp image.
- */
-Sidebar.prototype.whatsappImage = STENCIL_PATH + '/action/whatsapp-logo.jpg';
-
-/**
  * Specifies the width of the thumbnails.
  */
 Sidebar.prototype.thumbWidth = 36;
@@ -898,7 +893,7 @@ Sidebar.prototype.addActionPalette = function(expand)
 
 	var fns = [
 	 	this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843"> </img><p>Whatsapp</p></div>'
-      , 'Whatssap', null, null, 'Whatssap'),
+      , 'Whatssap', null, null, 'Whatssap', 'action'),
 	 ];
 
 	this.addPaletteFunctions('action', 'Action', (expand != null) ? expand : true, fns);
@@ -907,7 +902,7 @@ Sidebar.prototype.addActionPalette = function(expand)
 /**
  * Adds the action palette to the sidebar.
  */
-Sidebar.prototype.addResponsePalette =   function(expand)
+Sidebar.prototype.addResponsePalette = function(expand)
 {
   var lineTags = 'line lines connector connectors connection connections arrow arrows ';
 
@@ -915,7 +910,7 @@ Sidebar.prototype.addResponsePalette =   function(expand)
 
   var fns = [
     this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843"> </img><p>Whatsapp</p></div>'
-      , 'Whatssap', null, null, 'Whatssap'),
+      , 'Whatssap', null, null, 'Whatssap', 'response'),
   ];
 
   this.addPaletteFunctions('response', 'Response', (expand != null) ? expand : true, fns);
@@ -3110,23 +3105,25 @@ Sidebar.prototype.addClickHandler = function(elt, ds, cells)
 /**
  * Creates a drop handler for inserting the given cells.
  */
-Sidebar.prototype.createVertexTemplateEntry = function(style, width, height, value, title, showLabel, showTitle, tags)
+Sidebar.prototype.createVertexTemplateEntry = function(style, width, height, value, title, showLabel, showTitle, tags, type)
 {
 	tags = (tags != null && tags.length > 0) ? tags : title.toLowerCase();
 
 	return this.addEntry(tags, mxUtils.bind(this, function()
  	{
- 		return this.createVertexTemplate(style, width, height, value, title, showLabel, showTitle);
+ 		return this.createVertexTemplate(style, width, height, value, title, showLabel, showTitle, null, type);
  	}));
 }
 
 /**
  * Creates a drop handler for inserting the given cells.
  */
-Sidebar.prototype.createVertexTemplate = function(style, width, height, value, title, showLabel, showTitle, allowCellsInserted)
+Sidebar.prototype.createVertexTemplate = function(style, width, height, value, title, showLabel, showTitle, allowCellsInserted, type)
 {
 	var cells = [new mxCell((value != null) ? value : '', new mxGeometry(0, 0, width, height), style)];
 	cells[0].vertex = true;
+	cells[0].title = title;
+	cells[0].type = type;
 
 	return this.createVertexTemplateFromCells(cells, width, height, title, showLabel, showTitle, allowCellsInserted);
 };
