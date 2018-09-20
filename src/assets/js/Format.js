@@ -3363,7 +3363,7 @@ ActionFormatPanel.prototype.getAct = function(cellName) {
 
   cellName = cellName.toLowerCase();
 
-  var options = {'whatsapp' : this.addStroke(this.createPanel())};
+  var options = {'whatsapp' : this.addWhatssapAct(this.createPanel())};
 
   return options[cellName];
 
@@ -3595,7 +3595,7 @@ StyleFormatPanel.prototype.addFill = function(container)
 /**
  * Adds the label menu items to the given menu and parent.
  */
-ActionFormatPanel.prototype.addStroke = function(container)
+ActionFormatPanel.prototype.addWhatssapAct = function(container)
 {
 	var ui = this.editorUi;
 	var graph = ui.editor.graph;
