@@ -3266,8 +3266,6 @@ TextFormatPanel.prototype.addFont = function(container)
 	return container;
 };
 
-var acts = {'whatssap' : 'a'};
-
 /**
  * Adds the label menu items to the given menu and parent.
  */
@@ -3310,7 +3308,11 @@ ActionFormatPanel.prototype.getAct = function(cellName) {
 
   cellName = cellName.toLowerCase();
 
-  var options = {'whatsapp' : this.addWhatssapAct(this.createPanel())};
+  var options = {
+    'whatssapp' : this.addWhatssapAct(this.createPanel()),
+    'reception hours' : this.addReceptionTimeAct(this.createPanel()),
+    'forum message' : this.addForumMessageAct(this.createPanel()),
+  };
 
   return options[cellName];
 
@@ -3572,6 +3574,89 @@ ActionFormatPanel.prototype.addWhatssapAct = function(container)
   }));
   //
   // btn.setAttribute('title', mxResources.get('setAsDefaultStyle') + ' (' + this.editorUi.actions.get('setAsDefaultStyle').shortcut + ')');
+  btn.style.width = '202px';
+  btn.style.marginTop = '20px';
+  container.appendChild(btn);
+
+  return container;
+};
+
+ActionFormatPanel.prototype.addReceptionTimeAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  var fromHeader = document.createElement('h1');
+  fromHeader.innerText = "Course";
+  container.appendChild(fromHeader);
+
+  var selectElement = document.createElement('select');
+  container.appendChild(selectElement);
+
+  var option = document.createElement("option");
+  option.text = "Kiwi";
+  selectElement.add(option);
+
+  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
+  {
+    this.editorUi.actions.get('setAsDefaultStyle').funct();
+  }));
+
+  btn.style.width = '202px';
+  btn.style.marginTop = '20px';
+  container.appendChild(btn);
+
+  return container;
+};
+
+ActionFormatPanel.prototype.addForumMessageAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  var fromHeader = document.createElement('h1');
+  fromHeader.innerText = "Course";
+  container.appendChild(fromHeader);
+
+  var selectElement = document.createElement('select');
+  container.appendChild(selectElement);
+
+  var option = document.createElement("option");
+  option.text = "Kiwi";
+  selectElement.add(option);
+
+  var fromHeader = document.createElement('h1');
+  fromHeader.innerText = "Forum Name";
+  container.appendChild(fromHeader);
+
+  var selectElement = document.createElement('select');
+  container.appendChild(selectElement);
+
+  var option = document.createElement("option");
+  option.text = "Kiwi";
+  selectElement.add(option);
+
+  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
+  {
+    this.editorUi.actions.get('setAsDefaultStyle').funct();
+  }));
+
   btn.style.width = '202px';
   btn.style.marginTop = '20px';
   container.appendChild(btn);

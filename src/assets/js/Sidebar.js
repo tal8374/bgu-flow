@@ -92,7 +92,7 @@ Sidebar.prototype.init = function()
 
 	// this.addSearchPalette(true);
 	this.addActionPalette(true);
-	this.addResponsePalette(true);
+	this.addListenPalette(true);
 
 };
 
@@ -892,7 +892,7 @@ Sidebar.prototype.addActionPalette = function(expand)
 	//style, width, height, value, title, showLabel, showTitle, tags
 
 	var fns = [
-	 	this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843"> </img><p>Whatsapp</p></div>'
+	 	this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843"> </img></div>'
       , 'Whatssapp', null, null, 'Whatssapp', 'action'),
 	 ];
 
@@ -902,18 +902,22 @@ Sidebar.prototype.addActionPalette = function(expand)
 /**
  * Adds the action palette to the sidebar.
  */
-Sidebar.prototype.addResponsePalette = function(expand)
+Sidebar.prototype.addListenPalette = function(expand)
 {
   var lineTags = 'line lines connector connectors connection connections arrow arrows ';
 
   //style, width, height, value, title, showLabel, showTitle, tags
 
   var fns = [
-    this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843"> </img><p>Whatsapp</p></div>'
-      , 'Whatssapp', null, null, 'Whatssapp', 'response'),
+    this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843"> </img></div>'
+      , 'Whatssapp', null, null, 'Whatssapp', 'listen'),
+    this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://images-na.ssl-images-amazon.com/images/I/211D92qaFhL.png"> </img></div>'
+      , 'Forum Message', null, null, 'Forum Message', 'listen'),
+    this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://capitalfactory.com//wp-content/themes/cf-theme/images/calendar-icon.svg"> </img></div>'
+      , 'Reception Hours', null, null, 'Reception Hours', 'listen'),
   ];
 
-  this.addPaletteFunctions('response', 'Response', (expand != null) ? expand : true, fns);
+  this.addPaletteFunctions('listen', 'Listen', (expand != null) ? expand : true, fns);
 };
 
 /**
