@@ -893,7 +893,7 @@ Sidebar.prototype.addActionPalette = function(expand)
 
 	var fns = [
 	 	this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843"> </img><p>Whatsapp</p></div>'
-      , 'Whatsapp', null, null, 'Whatsapp', 'action'),
+      , 'Whatssapp', null, null, 'Whatssapp', 'action'),
 	 ];
 
 	this.addPaletteFunctions('action', 'Action', (expand != null) ? expand : true, fns);
@@ -910,7 +910,7 @@ Sidebar.prototype.addResponsePalette = function(expand)
 
   var fns = [
     this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843"> </img><p>Whatsapp</p></div>'
-      , 'Whatsapp', null, null, 'Whatsapp', 'response'),
+      , 'Whatssapp', null, null, 'Whatssapp', 'response'),
   ];
 
   this.addPaletteFunctions('response', 'Response', (expand != null) ? expand : true, fns);
