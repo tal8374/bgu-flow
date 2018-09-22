@@ -24,10 +24,55 @@ Actions.prototype.init = function()
 		return Action.prototype.isEnabled.apply(this, arguments) && graph.isEnabled();
 	};
 
-  this.addAction('whatssap-submit', function(data) {
-    var from = data['from'].value;
-    var to = data['to'].value;
-    var message = data['message'].value;
+  this.addAction('whatssapSubmit', function(data) {
+    var from = data['from'];
+    var to = data['to'];
+    var message = data['message'];
+  });
+
+  this.addAction('emailSubmit', function(data) {
+    var from = data['from'];
+    var to = data['to'];
+    var message = data['message'];
+  });
+
+  this.addAction('sendWeeklyTask', function(data) {
+    var course = data['course'].options[data['course'].options.selectedIndex].value;
+  });
+
+  this.addAction('reachedDateSubmit', function(data) {
+    var date = data['date'].value;
+
+    alert(date);
+  });
+
+  this.addAction('homeWorkSubmit', function(data) {
+    var course = data['course'].options[data['course'].options.selectedIndex].value;
+  });
+
+  this.addAction('examCheckedSubmit', function(data) {
+    var course = data['course'].options[data['course'].options.selectedIndex].value;
+  });
+
+  this.addAction('fileUploadSubmit', function(data) {
+    var course = data['course'].options[data['course'].options.selectedIndex].value;
+  });
+
+  this.addAction('videoUploadSubmit', function(data) {
+    var course = data['course'].options[data['course'].options.selectedIndex].value;
+  });
+
+  this.addAction('taskUploadSubmit', function(data) {
+    var course = data['course'].options[data['course'].options.selectedIndex].value;
+  });
+
+  this.addAction('receptionTime', function(data) {
+    var course = data['course'].options[data['course'].options.selectedIndex].value;
+  });
+
+  this.addAction('forumMessage', function(data) {
+    var course = data['course'].options[data['course'].options.selectedIndex].value;
+    var forumName = data['forumName'].options[data['forumName'].options.selectedIndex].value;
   });
 
 	// File actions
