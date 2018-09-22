@@ -443,6 +443,9 @@ Format.prototype.refresh = function()
     else
     {
       label.style.borderLeftWidth = '0px';
+      label.style.marginLeft = '75px';
+      label.style.fontFamily = 'Times New Roman';
+      label.style.fontSize = '20px';
       mxUtils.write(label, 'Act');
       div.appendChild(label);
 
