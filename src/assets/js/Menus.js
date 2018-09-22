@@ -30,7 +30,7 @@ Menus.prototype.defaultFontSize = '12';
 /**
  * Sets the default font size.
  */
-Menus.prototype.defaultMenuItems = ['file', 'edit', 'view', 'arrange', 'extras', 'help'];
+Menus.prototype.defaultMenuItems = ['file', 'edit', 'view'];
 
 /**
  * Adds the label menu items to the given menu and parent.
@@ -459,7 +459,7 @@ Menus.prototype.init = function()
 	})));
 	this.put('file', new Menu(mxUtils.bind(this, function(menu, parent)
 	{
-		this.addMenuItems(menu, ['new', 'open', '-', 'save', 'saveAs', '-', 'import', 'export', '-', 'pageSetup', 'print'], parent);
+		this.addMenuItems(menu, ['new', 'open', '-', 'save', 'saveAs', '-', 'import', 'export'], parent);
 	})));
 	this.put('edit', new Menu(mxUtils.bind(this, function(menu, parent)
 	{
@@ -1085,7 +1085,7 @@ Menus.prototype.createMenubar = function(container)
 	{
 		(mxUtils.bind(this, function(menu)
 		{
-			var elt = menubar.addMenu("a", mxUtils.bind(this, function()
+			var elt = menubar.addMenu(menus[i], mxUtils.bind(this, function()
 			{
 				// Allows extensions of menu.funct
 				menu.funct.apply(this, arguments);
