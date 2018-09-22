@@ -3571,44 +3571,90 @@ ActionFormatPanel.prototype.addWhatssapAct = function(container)
 	container.style.paddingTop = '4px';
 	container.style.paddingBottom = '4px';
 	container.style.whiteSpace = 'normal';
-    //
+
 	var colorPanel = document.createElement('div');
 	colorPanel.style.fontWeight = 'bold';
 
-  var fromHeader = document.createElement('h1');
-  fromHeader.innerText = "From";
-  container.appendChild(fromHeader);
+  this.createHeaderElement(container, 'From');
 
-  var fromInput = document.createElement('input');
-  container.appendChild(fromInput);
+  var inputFromElement = this.createInputElement(container, 'from');
 
-  var targetHeader = document.createElement('h1');
-  targetHeader.innerText = "To";
-  container.appendChild(targetHeader);
+  this.createHeaderElement(container, 'To');
 
-  var targetInput = document.createElement('input');
-  container.appendChild(targetInput);
+  var inputToElement = this.createInputElement(container, 'from');
 
-  var whatssapMessageHeader = document.createElement('h1');
-  whatssapMessageHeader.innerText = 'Message';
-  container.appendChild(whatssapMessageHeader);
+  this.createHeaderElement(container, 'Message');
 
-  var whatssapMessage = document.createElement('TextArea');
-  container.appendChild(whatssapMessage)
+  var inputMessageElement = this.createInputElement(container, 'message');
 
-  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
-  {
-    this.editorUi.actions.get('setAsDefaultStyle').funct();
-  }));
-  //
-  // btn.setAttribute('title', mxResources.get('setAsDefaultStyle') + ' (' + this.editorUi.actions.get('setAsDefaultStyle').shortcut + ')');
-  btn.style.width = '202px';
-  btn.style.marginTop = '20px';
-  container.appendChild(btn);
+  var data = {
+    from: inputFromElement,
+    to: inputToElement,
+    message: inputMessageElement,
+  };
+
+  this.createButtonElement(container, 'Submit', 'whatssap-submit', data);
 
   return container;
 };
 
+ActionFormatPanel.prototype.createHeaderElement = function(container, title){
+  var element = document.createElement('h1');
+
+  element.innerText = title;
+  this.styleHeader(element);
+
+  container.appendChild(element);
+};
+
+ActionFormatPanel.prototype.createInputElement = function(container, id){
+  var element = document.createElement('input');
+
+  element.id = id;
+  this.styleTextArea(element);
+
+  container.appendChild(element)
+
+  return element;
+};
+
+ActionFormatPanel.prototype.createButtonElement = function(container, text, functionName, data){
+  var submitButton = mxUtils.button(text, mxUtils.bind(this, function(evt)
+  {
+    this.editorUi.actions.get(functionName).funct(data);
+  }));
+
+  this.styleSubmitButton(submitButton);
+
+  container.appendChild(submitButton);
+};
+
+ActionFormatPanel.prototype.styleSubmitButton = function (element) {
+  element.style.width = '202px';
+  element.style.marginTop = '20px';
+  element.style.padding = '5px';
+  element.style.border = '2px solid #ccc';
+  element.style.borderRadius = '5px';
+  element.style.fontFamily = 'Times New Roman';
+  element.style.fontWeight = 'bold';
+};
+
+ActionFormatPanel.prototype.styleHeader = function (element) {
+  element.style.color = '#778899';
+  element.style.fontFamily = 'Times New Roman';
+};
+
+ActionFormatPanel.prototype.styleInput = function (element) {
+  element.style.padding = '4px';
+  element.style.boxSizing = 'border-box';
+  element.style.borderRadius = '4px';
+};
+
+ActionFormatPanel.prototype.styleTextArea = function (element) {
+  element.style.padding = '4px';
+  element.style.boxSizing = 'border-box';
+  element.style.borderRadius = '4px';
+};
 
 /**
  * Adds the label menu items to the given menu and parent.
