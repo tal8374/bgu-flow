@@ -304,6 +304,11 @@ Format.prototype.clear = function()
  */
 Format.prototype.refresh = function()
 {
+  var ui = this.editorUi;
+  ui.formatWidth =  240;
+  ui.formatContainer.style.display =  '' ;
+  ui.refresh();
+
 	// Performance tweak: No refresh needed if not visible
 	if (this.container.style.width == '0px')
 	{
@@ -332,8 +337,19 @@ Format.prototype.refresh = function()
 	label.style.width = '100%';
 	this.container.appendChild(div);
 
+  ui.formatWidth =  240;
+  ui.formatContainer.style.display =  '' ;
+  ui.refresh();
+
 	if (graph.isSelectionEmpty())
 	{
+
+    ui.formatWidth =  0;
+    ui.formatContainer.style.display =  'none' ;
+    ui.refresh();
+    // ui.format.refresh();
+    // ui.fireEvent(new mxEventObject('formatWidthChanged'));
+
 		mxUtils.write(label, mxResources.get('diagram'));
 
 		// Adds button to hide the format panel since
