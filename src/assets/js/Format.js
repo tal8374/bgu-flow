@@ -3312,6 +3312,15 @@ ActionFormatPanel.prototype.getAct = function(cellName) {
     'whatssapp' : this.addWhatssapAct(this.createPanel()),
     'reception hours' : this.addReceptionTimeAct(this.createPanel()),
     'forum message' : this.addForumMessageAct(this.createPanel()),
+    'email' : this.addEmailAct(this.createPanel()),
+    'homework checked' : this.addHomeworkCheckedAct(this.createPanel()),
+    'exam checked' : this.addExamheckedAct(this.createPanel()),
+    'file upload' : this.addFileUploadAct(this.createPanel()),
+    'video upload' : this.addVideoUploadAct(this.createPanel()),
+    'task upload' : this.addTaskUploadAct(this.createPanel()),
+    'send weekly tasks' : this.addSendWeeklyTaskAct(this.createPanel()),
+    'course registration' : this.addCourseRegistrationAct(this.createPanel()),
+    'reached date' : this.addReachedDateAct(this.createPanel()),
   };
 
   return options[cellName];
@@ -3581,7 +3590,343 @@ ActionFormatPanel.prototype.addWhatssapAct = function(container)
   return container;
 };
 
+
+/**
+ * Adds the label menu items to the given menu and parent.
+ */
+ActionFormatPanel.prototype.addEmailAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  var fromHeader = document.createElement('h1');
+  fromHeader.innerText = "From";
+  container.appendChild(fromHeader);
+
+  var fromInput = document.createElement('input');
+  container.appendChild(fromInput);
+
+  var targetHeader = document.createElement('h1');
+  targetHeader.innerText = "To";
+  container.appendChild(targetHeader);
+
+  var targetInput = document.createElement('input');
+  container.appendChild(targetInput);
+
+  var whatssapMessageHeader = document.createElement('h1');
+  whatssapMessageHeader.innerText = 'Message';
+  container.appendChild(whatssapMessageHeader);
+
+  var whatssapMessage = document.createElement('TextArea');
+  container.appendChild(whatssapMessage)
+
+  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
+  {
+    this.editorUi.actions.get('setAsDefaultStyle').funct();
+  }));
+  //
+  // btn.setAttribute('title', mxResources.get('setAsDefaultStyle') + ' (' + this.editorUi.actions.get('setAsDefaultStyle').shortcut + ')');
+  btn.style.width = '202px';
+  btn.style.marginTop = '20px';
+  container.appendChild(btn);
+
+  return container;
+};
+
 ActionFormatPanel.prototype.addReceptionTimeAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  var fromHeader = document.createElement('h1');
+  fromHeader.innerText = "Course";
+  container.appendChild(fromHeader);
+
+  var selectElement = document.createElement('select');
+  container.appendChild(selectElement);
+
+  var option = document.createElement("option");
+  option.text = "Kiwi";
+  selectElement.add(option);
+
+  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
+  {
+    this.editorUi.actions.get('setAsDefaultStyle').funct();
+  }));
+
+  btn.style.width = '202px';
+  btn.style.marginTop = '20px';
+  container.appendChild(btn);
+
+  return container;
+};
+
+ActionFormatPanel.prototype.addHomeworkCheckedAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  var fromHeader = document.createElement('h1');
+  fromHeader.innerText = "Course";
+  container.appendChild(fromHeader);
+
+  var selectElement = document.createElement('select');
+  container.appendChild(selectElement);
+
+  var option = document.createElement("option");
+  option.text = "Kiwi";
+  selectElement.add(option);
+
+  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
+  {
+    this.editorUi.actions.get('setAsDefaultStyle').funct();
+  }));
+
+  btn.style.width = '202px';
+  btn.style.marginTop = '20px';
+  container.appendChild(btn);
+
+  return container;
+};
+
+ActionFormatPanel.prototype.addExamheckedAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  var fromHeader = document.createElement('h1');
+  fromHeader.innerText = "Course";
+  container.appendChild(fromHeader);
+
+  var selectElement = document.createElement('select');
+  container.appendChild(selectElement);
+
+  var option = document.createElement("option");
+  option.text = "Kiwi";
+  selectElement.add(option);
+
+  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
+  {
+    this.editorUi.actions.get('setAsDefaultStyle').funct();
+  }));
+
+  btn.style.width = '202px';
+  btn.style.marginTop = '20px';
+  container.appendChild(btn);
+
+  return container;
+};
+
+ActionFormatPanel.prototype.addFileUploadAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  var fromHeader = document.createElement('h1');
+  fromHeader.innerText = "Course";
+  container.appendChild(fromHeader);
+
+  var selectElement = document.createElement('select');
+  container.appendChild(selectElement);
+
+  var option = document.createElement("option");
+  option.text = "Kiwi";
+  selectElement.add(option);
+
+  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
+  {
+    this.editorUi.actions.get('setAsDefaultStyle').funct();
+  }));
+
+  btn.style.width = '202px';
+  btn.style.marginTop = '20px';
+  container.appendChild(btn);
+
+  return container;
+};
+
+ActionFormatPanel.prototype.addVideoUploadAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  var fromHeader = document.createElement('h1');
+  fromHeader.innerText = "Course";
+  container.appendChild(fromHeader);
+
+  var selectElement = document.createElement('select');
+  container.appendChild(selectElement);
+
+  var option = document.createElement("option");
+  option.text = "Kiwi";
+  selectElement.add(option);
+
+  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
+  {
+    this.editorUi.actions.get('setAsDefaultStyle').funct();
+  }));
+
+  btn.style.width = '202px';
+  btn.style.marginTop = '20px';
+  container.appendChild(btn);
+
+  return container;
+};
+
+ActionFormatPanel.prototype.addTaskUploadAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  var fromHeader = document.createElement('h1');
+  fromHeader.innerText = "Course";
+  container.appendChild(fromHeader);
+
+  var selectElement = document.createElement('select');
+  container.appendChild(selectElement);
+
+  var option = document.createElement("option");
+  option.text = "Kiwi";
+  selectElement.add(option);
+
+  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
+  {
+    this.editorUi.actions.get('setAsDefaultStyle').funct();
+  }));
+
+  btn.style.width = '202px';
+  btn.style.marginTop = '20px';
+  container.appendChild(btn);
+
+  return container;
+};
+
+ActionFormatPanel.prototype.addSendWeeklyTaskAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  var fromHeader = document.createElement('h1');
+  fromHeader.innerText = "Course";
+  container.appendChild(fromHeader);
+
+  var selectElement = document.createElement('select');
+  container.appendChild(selectElement);
+
+  var option = document.createElement("option");
+  option.text = "Kiwi";
+  selectElement.add(option);
+
+  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
+  {
+    this.editorUi.actions.get('setAsDefaultStyle').funct();
+  }));
+
+  btn.style.width = '202px';
+  btn.style.marginTop = '20px';
+  container.appendChild(btn);
+
+  return container;
+};
+
+ActionFormatPanel.prototype.addReachedDateAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  var fromHeader = document.createElement('h1');
+  fromHeader.innerText = "Date";
+  container.appendChild(fromHeader);
+
+  var inputElement = document.createElement('input');
+  inputElement.type = "date";
+  container.appendChild(inputElement);
+
+  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
+  {
+    this.editorUi.actions.get('setAsDefaultStyle').funct();
+  }));
+
+  btn.style.width = '202px';
+  btn.style.marginTop = '20px';
+  container.appendChild(btn);
+
+  return container;
+};
+
+ActionFormatPanel.prototype.addCourseRegistrationAct = function(container)
 {
   var ui = this.editorUi;
   var graph = ui.editor.graph;
