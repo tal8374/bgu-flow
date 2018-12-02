@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { PostsService } from '../posts/posts.service';
-import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'mxgraph-gui',  // <mxgraph-gui></mxgraph-gui>
-  styleUrls: [ './mxgraph-gui.component.scss' ],
+  styleUrls: ['./mxgraph-gui.component.scss'],
   templateUrl: './mxgraph-gui.component.html'
 })
-export class MxgraphGuiComponent {
+export class MxgraphGuiComponent implements OnInit {
 
   constructor() {
+  }
+
+  ngOnInit() {
     this.initGraph();
   }
 
@@ -64,7 +65,9 @@ export class MxgraphGuiComponent {
       '        document.body.innerHTML = \'<center style="margin-top:10%;">Error loading resource files. Please check browser console.</center>\';\n' +
       '      });\n' +
       '    })();';
-    document.head.appendChild(script);
+
+    var mxgraphGUIElement = document.getElementById("mxgraph-gui");
+    mxgraphGUIElement.appendChild(script);
   }
 
 }
