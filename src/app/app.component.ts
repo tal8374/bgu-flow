@@ -21,10 +21,9 @@ import { PostsService } from './posts/posts.service';
   template: `
     <header>
       <mat-toolbar color="primary">
-        <a [routerLink]="['/']" class="logotTxt">MEAN</a>
-        <a class="links" [routerLink]="['/posts']">Posts</a>
+        <a [routerLink]="['/']" class="logotTxt"><img class="logo" src="../assets/icon/logo.png"/></a>
+        <!--<a [routerLink]="['/']" class="logotTxt">Moodle-Flow</a>-->
         <a class="links" [routerLink]="['/mxgraph-gui']">Mxgraph-GUI</a>
-        <a class="links" href="/api/graphql">GraphQL browser</a>        
       </mat-toolbar>
     </header>
     <router-outlet></router-outlet>
