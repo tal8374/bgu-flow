@@ -34,6 +34,7 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
+import { MxgraphGuiComponent } from './mxgraph-gui';
 import { ReactComponent } from './react';
 import { ProfileComponent } from './profile';
 //import { angularProfileCard } from '../../components/main-profile/index';
@@ -63,6 +64,7 @@ type StoreType = {
   declarations: [
     AppComponent,
     HomeComponent,
+    MxgraphGuiComponent,
     ReactComponent,
     ProfileComponent,
     NoContentComponent,
