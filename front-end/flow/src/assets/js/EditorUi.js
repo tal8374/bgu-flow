@@ -3214,7 +3214,6 @@ EditorUi.prototype.isCompatibleString = function(data)
 EditorUi.prototype.saveFile = function(forceDialog)
 {
   let nodesPayload = [];
-
   let nodes = this.editor.getGraphNodes();
 
   for(let i = 0; i < nodes.length; i++) {
@@ -3225,29 +3224,13 @@ EditorUi.prototype.saveFile = function(forceDialog)
     console.log(nodePayload)
     nodesPayload.push(nodePayload);
   }
-  // if (!forceDialog && this.editor.filename != null)
-  // {
-  //   this.save(this.editor.getOrCreateFilename());
-  // }
-  // else
-  // {
-  //   var dlg = new FilenameDialog(this, this.editor.getOrCreateFilename(), mxResources.get('save'), mxUtils.bind(this, function(name)
-  //   {
-  //     this.save(name);
-  //   }), null, mxUtils.bind(this, function(name)
-  //   {
-  //     if (name != null && name.length > 0)
-  //     {
-  //       return true;
-  //     }
-  //
-  //     mxUtils.confirm(mxResources.get('invalidName'));
-  //
-  //     return false;
-  //   }));
-  //   this.showDialog(dlg.container, 300, 100, true, true);
-  //   dlg.init();
-  // }
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", 'http://localhost:8000/api/flow', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({
+    nodesPayload: nodesPayload
+  }));
 };
 
 /**
