@@ -5,7 +5,7 @@ function getFlows() {
 }
 
 function createFlow(req) {
-    let flowData = req.body;
+    let flowData = req.body.nodesPayload;
     let flowID = 1;
 
     let payload = {

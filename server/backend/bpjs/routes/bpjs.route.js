@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const bpjsController = require('../controllers/bpjs.controller');
 
-/* GET users listing. */
-router.get('/list', bpjsController.list);
+router
+    .post('/bpevent/:flowid', bpjsController.eventLaunch);
 
 module.exports = router;

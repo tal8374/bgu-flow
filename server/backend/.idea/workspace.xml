@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="869545db-7e34-4361-8c94-71b7cf3adc33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dashboard/controllers/dashboard.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/routes/dashboard.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/services/dashboard.service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bpjs/services/ifttt.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/flow/src/assets/js/Actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/flow/src/assets/js/Actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/flow/src/assets/js/EditorUi.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/flow/src/assets/js/EditorUi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/flow/src/assets/js/Format.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/flow/src/assets/js/Format.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/flow/src/assets/js/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/flow/src/assets/js/Sidebar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bpjs/controllers/bpjs.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/bpjs/controllers/bpjs.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bpjs/routes/bpjs.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/bpjs/routes/bpjs.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flow/services/flow.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/flow/services/flow.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/SaveServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/SaveServlet.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -62,37 +69,37 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="31" />
+          <entry key="js" value="48" />
           <entry key="json" value="5" />
           <entry key="md" value="1" />
-          <entry key="ts" value="1" />
+          <entry key="ts" value="2" />
           <entry key="www" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="5" />
-          <entry key="JavaScript" value="35" />
+          <entry key="JavaScript" value="52" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="TypeScript" value="1" />
+          <entry key="TypeScript" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="275" />
-          <entry key="txt" value="19" />
+          <entry key="js" value="1866" />
+          <entry key="txt" value="205" />
           <entry key="www" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="279" />
-          <entry key="PLAIN_TEXT" value="19" />
+          <entry key="JavaScript" value="1870" />
+          <entry key="PLAIN_TEXT" value="205" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="TypeScriptServerServiceImpl" value="1" />
+          <entry key="TypeScriptServerServiceImpl" value="2" />
         </counts>
       </usages-collector>
     </session>
@@ -100,33 +107,46 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/services/dashboard.service.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/routes/dashboard.route.js">
+        <entry file="file://$PROJECT_DIR$/bpjs/routes/bpjs.route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
+            <state relative-caret-position="85">
+              <caret line="5" column="50" lean-forward="true" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/controllers/dashboard.controller.js">
+        <entry file="file://$PROJECT_DIR$/bpjs/services/bpjs.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="53" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
+            <state>
+              <caret column="31" lean-forward="true" selection-start-column="31" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app.js">
+        <entry file="file://$PROJECT_DIR$/bpjs/controllers/bpjs.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="85">
+              <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flow/controllers/flow.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bpjs/services/ifttt.service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -152,6 +172,12 @@
       <find>indexRouter</find>
       <find>nodemo</find>
       <find>300</find>
+      <find>static</find>
+      <find>cosole</find>
+      <find>8000</find>
+      <find>request.</find>
+      <find>request</find>
+      <find>handleEvent</find>
     </findStrings>
     <dirStrings>
       <dir>D:\School\final-project\bgu-flow\backend\migrations</dir>
@@ -165,16 +191,19 @@
       <list>
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/routes/users.js" />
-        <option value="$PROJECT_DIR$/flow/routes/flow.route.js" />
-        <option value="$PROJECT_DIR$/flow/services/flow.service.js" />
-        <option value="$PROJECT_DIR$/flow/controllers/flow.controller.js" />
         <option value="$PROJECT_DIR$/controllers/classroom.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/bin/www" />
-        <option value="$PROJECT_DIR$/bpjs/controllers/bpjs.controller.js" />
         <option value="$PROJECT_DIR$/dashboard/routes/bpjs.route.js" />
         <option value="$PROJECT_DIR$/dashboard/controllers/dashboard.controller.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/flow/routes/flow.route.js" />
+        <option value="$PROJECT_DIR$/flow/controllers/flow.controller.js" />
+        <option value="$PROJECT_DIR$/bpjs/services/bpjs.service.js" />
+        <option value="$PROJECT_DIR$/flow/services/flow.service.js" />
+        <option value="$PROJECT_DIR$/bpjs/routes/bpjs.route.js" />
+        <option value="$PROJECT_DIR$/bpjs/services/ifttt.service.js" />
+        <option value="$PROJECT_DIR$/bpjs/controllers/bpjs.controller.js" />
       </list>
     </option>
   </component>
@@ -217,35 +246,24 @@
             <path>
               <item name="backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="bpjs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="bpjs" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="flow" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="flow" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="backend" type="b2602c69:ProjectViewProjectNode" />
@@ -260,7 +278,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../front-end/flow" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -313,31 +331,59 @@
       <option name="project" value="LOCAL" />
       <updated>1546241524040</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Adding dashboard module.">
+      <created>1546241664419</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1546241664419</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Javascript Cross Domain problem solved.">
+      <created>1546244624063</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1546244624063</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Creating get http post handler for getting flow data from the flow project.">
+      <created>1546248849002</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1546248849002</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Handling getting from the flow project the flow, and sending BPThread to the bpjs server.">
+      <created>1546252979652</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1546252979652</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6521000" />
+    <option name="totallyTimeSpent" value="21211000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24966975" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966975" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -352,7 +398,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding bpjs module." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding bpjs module." />
+    <MESSAGE value="Adding dashboard module." />
+    <MESSAGE value="Javascript Cross Domain problem solved." />
+    <MESSAGE value="Creating get http post handler for getting flow data from the flow project." />
+    <MESSAGE value="Handling getting from the flow project the flow, and sending BPThread to the bpjs server." />
+    <option name="LAST_COMMIT_MESSAGE" value="Handling getting from the flow project the flow, and sending BPThread to the bpjs server." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -407,13 +457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@types/node/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="1274" column="20" selection-start-line="1274" selection-start-column="20" selection-end-line="1274" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -445,31 +488,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flow/services/flow.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flow/routes/flow.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flow/controllers/flow.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -494,20 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bpjs/routes/bpjs.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="54" lean-forward="true" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bpjs/controllers/bpjs.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="48" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/services/dashboard.service.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -525,10 +533,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/request/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flow/routes/flow.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/node/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flow/services/flow.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="165">
+          <caret line="33" column="18" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bpjs/routes/bpjs.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="50" lean-forward="true" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bpjs/services/bpjs.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="31" lean-forward="true" selection-start-column="31" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bpjs/services/ifttt.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flow/controllers/flow.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bpjs/controllers/bpjs.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
         </state>
       </provider>
     </entry>
