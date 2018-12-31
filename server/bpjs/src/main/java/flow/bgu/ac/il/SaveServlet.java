@@ -21,6 +21,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 /**
  * Servlet implementation class SaveServlet.
  * <p>
@@ -51,7 +55,7 @@ public class SaveServlet extends HttpServlet {
 
         SaveBody saveBody = this.createSaveBody(request);
 
-        BProgramRunner rnr = this.createBProgramRunner(saveBody.flow);
+        BProgramRunner rnr = this.createBProgramRunner(saveBody.flow, saveBody.flowID);
 
         Program program = Program.getInstance();
         program.addUser(saveBody.userEmail);
@@ -69,7 +73,7 @@ public class SaveServlet extends HttpServlet {
         return gson.fromJson(body, SaveBody.class);
     }
 
-    private BProgramRunner createBProgramRunner(String flow) {
+    private BProgramRunner createBProgramRunner(String flow, Integer flowID) {
         BProgram bprog = new StringBProgram(flow);
 
         BProgramRunner rnr = new BProgramRunner(bprog);
@@ -79,13 +83,23 @@ public class SaveServlet extends HttpServlet {
 
             @Override
             public void eventSelected(BProgram bp, BEvent theEvent) {
-                System.out.println(theEvent);
+                sendEvent(theEvent.name);
             }
-
         });
 
         return rnr;
     }
 
+    private void sendEvent(String eventName) {
+        try {
+            String url = "http://localhost:8000/api/bpjs/bpevent/" + eventName;
 
+            HttpClient client = new DefaultHttpClient();
+            HttpPost post = new HttpPost(url);
+
+            client.execute(post);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
