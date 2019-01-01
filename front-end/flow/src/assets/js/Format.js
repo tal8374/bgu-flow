@@ -3331,7 +3331,7 @@ ActionFormatPanel.prototype.getAct = function(cellName) {
     'whatssapp' : this.addWhatssapAct(this.createPanel()),
     'reception hours' : this.addReceptionTimeAct(this.createPanel()),
     'forum message' : this.addForumMessageAct(this.createPanel()),
-    'email' : this.addEmailAct(this.createPanel()),
+    'send_mail' : this.addEmailAct(this.createPanel()),
     'homework checked' : this.addHomeworkCheckedAct(this.createPanel()),
     'exam checked' : this.addExamheckedAct(this.createPanel()),
     'file upload' : this.addFileUploadAct(this.createPanel()),

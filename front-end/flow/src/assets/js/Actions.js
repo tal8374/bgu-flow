@@ -26,8 +26,8 @@ Actions.prototype.init = function()
 
   this.addAction('whatssapSubmit', function(data, node) {
     node.payload = {
-      from: data['from'].value,
       to: data['to'].value,
+      messageTitle: data['from'].value,
       message: data['message'].value
     };
   });

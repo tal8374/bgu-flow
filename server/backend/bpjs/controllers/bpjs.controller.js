@@ -1,20 +1,17 @@
 var iftttService = require('../services/ifttt.service');
 
 function eventLaunch(req, res) {
-    let flowID = req.params.flowid;
+    // TODO: The name of the event, getting the id from the bpjs and then getting the name from the db.
+    let componentID = req.params.componentid;
 
-    flowPayload = {
-        to: 'anatolyi@post.bgu.ac.il',
-        title: 'some title',
-        message: 'some message'
+    let payload = {
+        componentID: componentID,
+        body: req.body
     };
 
-    iftttService.handleEvent({
-        flowID: flowID,
-        flowPayload: flowPayload
-    });
+    iftttService.handleEvent(payload);
 
-    return res.send('respond with ' + flowID);
+    return res.send('respond with ' + componentID);
 }
 
 module.exports = {
