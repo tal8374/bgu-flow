@@ -1,0 +1,53 @@
+#!/bin/sh
+
+# Setup variables
+DESC="BPjs Server service"
+EXEC=/usr/bin/jsvc
+PROJECT_PATH=/opt/bitnami/apps/HACK-BGU18
+#JAVA_HOME=/usr/lib/jvm/java-8-sun
+#CLASS_PATH="/usr/share/java/commons-daemon.jar":"/home/ashok/myjsvcdaemon.jar"
+CLASS_PATH="/usr/share/java/commons-daemon.jar":"$PROJECT_PATH/target/BPWorkBench-0.5-DEV.jar"
+CLASS=flow.bgu.ac.il.BPServer
+PARAMS=8080
+USER=root
+PID=/tmp/bpserver.pid
+LOG_OUT=/tmp/bpserver.out
+LOG_ERR=/tmp/bpserver.err
+
+jsvc_exec()
+{
+   #$EXEC -home "$JAVA_HOME" -cp $CLASS_PATH -user $USER -outfile $LOG_OUT -errfile $LOG_ERR -pidfile $PID $1 $CLASS
+   $EXEC -cp $CLASS_PATH -user $USER -outfile $LOG_OUT -errfile $LOG_ERR -pidfile $PID -cwd $PROJECT_PATH/ $1 $CLASS $PARAMS
+}
+
+case "$1" in
+   start)
+   echo "Starting the $DESC..."         
+      # Start the service
+      jsvc_exec
+   echo "The $DESC has started."
+         ;;
+   stop)
+   echo "Stopping the $DESC..."
+      # Stop the service
+      jsvc_exec "-stop"
+   echo "The $DESC has stopped."
+         ;;
+   restart)
+      if [ -f "$PID" ]; then
+      echo "Restarting the $DESC..."
+         # Stop the service
+         jsvc_exec "-stop"
+
+         # Start the service
+         jsvc_exec
+      else
+         echo "Service not running, will do nothing"
+         exit 1
+      fi
+         ;;
+   *)
+         echo "usage: /etc/init.d/bpserver {start|stop|restart}" >&2
+         exit 3
+         ;;
+esac

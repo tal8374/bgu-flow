@@ -1,0 +1,38 @@
+h1 {
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+  font-size: 53px;
+}
+div {
+  text-align: center;
+  margin: 0px auto;
+    text-align: center;
+  margin: auto;
+}
+body {
+    background-color: #02c39a;
+}
+
+.cell {
+  width:80px;
+  height:80px;
+  border: 5px solid #000000;
+  background: #FFFFFF;
+  font-size: 46pt;
+  font-family: arial;
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
+
+}
+
+table {
+  text-align: center;
+  margin: auto;
+}
+
+
+.cell:hover {
+  background: #C2DBFC;
+  text-align: center;
+}

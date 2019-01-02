@@ -1,0 +1,9 @@
+Problem: problem_ksmavg_mip, solution_status = feasible
+Timing: data_loading_time = 0.15, preprocessing_time = 0.08, solving_time = 3600.27
+Variables: optimal_point = point_problem_ksmavg_mip
+Objective: objective = 3.023553165288E-03 [2.993947562131E-03]
+Constraint: constraint_1 =  1.000000000000E+00 [ 1.332267629550E-15]
+Constraint: constraint_2 =  4.000000000000E+01 [ 0.000000000000E+00]
+Function: ksm_avg(matrix_xyi_norm,vector_yi_norm,vector_qi) =  3.023553165288E-03
+Function: linear(matrix_syi) =  1.000000000000E+00
+Function: cardn(1.E-05,matrix_syi) =  4.000000000000E+01

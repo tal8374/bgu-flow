@@ -1,0 +1,10 @@
+problem_KSMavg_heuristic, minimize
+linearize = 1
+  ksm_avg(matrix_xYi_norm, vector_Yi_norm, vector_qi)
+constraint: = 1
+  linear(matrix_sYi)
+constraint: <= 40, linearize = 1
+  cardn(0.00001, matrix_sYi)
+box: >= 0, <= 1
+Solver: cargrb
+

@@ -1,0 +1,62 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Tic-Tac-Toe</title>
+<link rel="stylesheet" type="text/css" href="tictactoe.css">
+<link href='https://fonts.googleapis.com/css?family=Indie+Flower'
+	rel='stylesheet' type='text/css'>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<h1>Tic Tac Toe</h1>
+	<div>
+		<table>
+			<tr>
+				<td id="cell_0_0" class="cell" onClick="JavaScript: clickCell(0,0);">&nbsp;</td>
+				<td id="cell_0_1" class="cell" onClick="JavaScript: clickCell(0,1);">&nbsp;</td>
+				<td id="cell_0_2" class="cell" onClick="JavaScript: clickCell(0,2);">&nbsp;</td>
+			</tr>
+			<tr>
+				<td id="cell_1_0" class="cell" onClick="JavaScript: clickCell(1,0);">&nbsp;</td>
+				<td id="cell_1_1" class="cell" onClick="JavaScript: clickCell(1,1);">&nbsp;</td>
+				<td id="cell_1_2" class="cell" onClick="JavaScript: clickCell(1,2);">&nbsp;</td>
+			</tr>
+			<tr>
+				<td id="cell_2_0" class="cell" onClick="JavaScript: clickCell(2,0);">&nbsp;</td>
+				<td id="cell_2_1" class="cell" onClick="JavaScript: clickCell(2,1);">&nbsp;</td>
+				<td id="cell_2_2" class="cell" onClick="JavaScript: clickCell(2,2);">&nbsp;</td>
+			</tr>
+		</table>
+	</div>
+	<br />
+	<div>
+		<input type=button onClick="window.location.reload()" value="Reset">
+	</div>
+</body>
+<script>
+	webSocket = new WebSocket("ws://localhost:8090/eventqueue");
+
+	webSocket.onmessage = function(msg) {
+		try {
+			var event = JSON.parse(msg.data);
+			console.log(event);
+
+			if (event.name == "X" || event.name == "O") {
+				$("#cell_" + event.row + "_" + event.col).html(event.name);
+			}
+		} catch (e) {
+			console.log(msg.data);
+		}
+	}
+
+	function clickCell(r, c) {
+		var e = JSON.stringify({
+			name : 'Click',
+			row : r,
+			col : c
+		});
+
+		webSocket.send(e);
+	}
+</script>
+</html>
