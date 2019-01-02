@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="header">
+                        <h4 class="title">Course Team Member for - {{ currentCourse }}</h4>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                        Change course
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li *ngFor="let course of courses" role="presentation">
+                            <a  (click)="changeCourse(course)" role="menuitem" tabindex="-1">{{ course }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Course Team Members</h4>
+            </div>
+            <div class="content">
+                <ul class="list-unstyled team-members">
+                    <li *ngFor="let teamMember of courseTeamMembers">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <div class="avatar">
+                                    <img src="assets/img/faces/face-0.jpg" alt="Circle Image"
+                                         class="img-circle img-no-padding img-responsive">
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                {{ teamMember }}
+                                <br/>
+                                <span class="text-muted"><small>Offline</small></span>
+                            </div>
+
+                            <div class="col-xs-3 text-right">
+                                <button class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

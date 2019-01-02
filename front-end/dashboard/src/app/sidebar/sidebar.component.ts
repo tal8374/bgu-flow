@@ -12,6 +12,7 @@ export interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
     { path: 'user', title: 'User Profile',  icon:'ti-user', class: '' },
     { path: 'login', title: 'Login',  icon:'ti-user', class: '' },
+    { path: 'course', title: 'Course',  icon:'ti-pencil-alt2', class: '' },
     { path: 'dashboard', title: 'Dashboard',  icon: 'ti-panel', class: '' },
     { path: 'table', title: 'Table List',  icon:'ti-view-list-alt', class: '' },
     { path: 'flow', title: 'Flow',  icon:'ti-text', class: '' },

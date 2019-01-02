@@ -2,6 +2,7 @@ import {Routes} from '@angular/router';
 
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {UserComponent} from './user/user.component';
+import {CourseComponent} from './course/course.component';
 import {TableComponent} from './table/table.component';
 import {FlowComponent} from './flow/flow.component';
 import {IconsComponent} from './icons/icons.component';
@@ -22,6 +23,10 @@ export const AppRoutes: Routes = [
     {
         path: 'user',
         component: UserComponent
+    },
+    {
+        path: 'course',
+        component: CourseComponent
     },
     {
         path: 'table',
