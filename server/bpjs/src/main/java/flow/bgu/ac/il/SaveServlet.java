@@ -4,8 +4,8 @@ package flow.bgu.ac.il;
  */
 
 import com.google.gson.Gson;
-import flow.bgu.ac.il.model.program.Program;
 import flow.bgu.ac.il.model.requestBody.SaveBody;
+import flow.bgu.ac.il.model.user.Program;
 import il.ac.bgu.cs.bp.bpjs.execution.BProgramRunner;
 import il.ac.bgu.cs.bp.bpjs.execution.listeners.BProgramRunnerListenerAdapter;
 import il.ac.bgu.cs.bp.bpjs.execution.listeners.PrintBProgramRunnerListener;
@@ -55,6 +55,8 @@ public class SaveServlet extends HttpServlet {
 
         SaveBody saveBody = this.createSaveBody(request);
 
+        System.out.println(saveBody.flow);
+
         BProgramRunner rnr = this.createBProgramRunner(saveBody.flow, saveBody.flowID);
 
         Program program = Program.getInstance();
@@ -91,6 +93,8 @@ public class SaveServlet extends HttpServlet {
     }
 
     private void sendEvent(String eventName) {
+        System.out.println("Sending to the backend event name - " + eventName);
+
         try {
             String url = "http://localhost:8000/api/bpjs/bpevent/" + eventName;
 
