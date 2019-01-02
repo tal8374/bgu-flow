@@ -3,21 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="869545db-7e34-4361-8c94-71b7cf3adc33" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bpjs/controllers/bpjs.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/bpjs/controllers/bpjs.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bpjs/routes/bpjs.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/bpjs/routes/bpjs.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bpjs/services/bpjs.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/bpjs/services/bpjs.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow/services/flow.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/flow/services/flow.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bpjs/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../bpjs/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bpjs/BPWorkBench.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bpjs/config.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bpjs/config.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bpjs/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bpjs/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/BPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/BPServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/SaveServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/SaveServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/model/requestBody/SaveBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/model/requestBody/SaveBody.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/model/user/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/model/user/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/model/user/ProgramUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/model/user/ProgramUsers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/model/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/src/app/user/user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/src/app/user/user.component.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -91,14 +77,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="js" value="2562" />
-          <entry key="txt" value="281" />
+          <entry key="txt" value="301" />
           <entry key="www" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JavaScript" value="2566" />
-          <entry key="PLAIN_TEXT" value="281" />
+          <entry key="PLAIN_TEXT" value="301" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -394,11 +380,18 @@
       <option name="project" value="LOCAL" />
       <updated>1546260848044</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Handling waitfor bp.">
+      <created>1546426352202</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1546426352203</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28041000" />
+    <option name="totallyTimeSpent" value="28544000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -447,7 +440,8 @@
     <MESSAGE value="Creating get http post handler for getting flow data from the flow project." />
     <MESSAGE value="Handling getting from the flow project the flow, and sending BPThread to the bpjs server." />
     <MESSAGE value="Handling recieving from bpjs server event.&#10;Handling send_mail event." />
-    <option name="LAST_COMMIT_MESSAGE" value="Handling recieving from bpjs server event.&#10;Handling send_mail event." />
+    <MESSAGE value="Handling waitfor bp." />
+    <option name="LAST_COMMIT_MESSAGE" value="Handling waitfor bp." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
