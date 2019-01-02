@@ -1,22 +1,25 @@
 const request = require('request');
 
 const createBSyncsHandlers = {
-    'action': createBSyncRequest
+    'action': createBSyncRequest,
+    'listen': createBWaitForRequest
 };
 
 function createBPProgram(payload) {
     let flowID = payload.flowID;
-    let flowContent = createBSyncs(payload.flowData);
+    let flowBodyContent = createBSyncs(payload.flowComponentsData);
 
-    let template = `bp.registerBThread(${flowID}, function () { ${flowContent} });`;
+    let flowProgram = `bp.registerBThread(${flowID}, function () { ${flowBodyContent} });`;
 
-    let tosend = {
+    console.log(flowProgram)
+
+    let flowPayload = {
         "userEmail": "t@gmail.com",
         "flowID": flowID,
-        flow: template
+        flow: flowProgram
     };
 
-    sendBPProgram(tosend);
+    sendBPProgram(flowPayload);
 }
 
 function createBSyncs(payload) {
@@ -30,7 +33,15 @@ function createBSyncs(payload) {
     return BSyncs.join('');
 }
 
+function createBWaitForRequest(payload) {
+    // TODO: get the id of the bp components from the db.
+    let bpID = payload.title;
+
+    return `bp.sync({waitFor: bp.Event('${bpID}')});`;
+}
+
 function createBSyncRequest(payload) {
+    // TODO: get the id of the bp components from the db.
     let bpID = payload.title;
 
     return `bp.sync({request: bp.Event('${bpID}')});`;

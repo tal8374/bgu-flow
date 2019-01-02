@@ -3,6 +3,6 @@ var router = express.Router();
 const bpjsController = require('../controllers/bpjs.controller');
 
 router
-    .post('/bpevent/:componentid', bpjsController.eventLaunch);
+    .post('/bpevent/:componentID', bpjsController.eventLaunch);
 
 module.exports = router;

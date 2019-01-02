@@ -5,11 +5,12 @@ function getFlows() {
 }
 
 function createFlow(req) {
-    let flowData = req.body.nodesPayload;
+    let flowComponentsData = req.body.nodesPayload;
+    // TODO: get flow id after creating instance in the db.
     let flowID = 1;
 
     let payload = {
-        flowData,
+        flowComponentsData,
         flowID
     };
 
