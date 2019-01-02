@@ -8,7 +8,7 @@ import java.util.Map;
 public class User {
 
     public String email;
-    private Map<Integer, BProgramRunner> flows = new HashMap<>();
+    public Map<Integer, BProgramRunner> flows = new HashMap<>();
 
     public User(String email) {
         this.email = email;

@@ -57,7 +57,7 @@ public class SaveServlet extends HttpServlet {
 
 		System.out.println(saveBody.flow);
 
-		BProgramRunner rnr = this.createBProgramRunner(saveBody.flow, saveBody.flowID);
+		BProgramRunner rnr = this.createBProgramRunner(saveBody.flow);
 
 		Program program = Program.getInstance();
 		program.addUser(saveBody.userEmail);
@@ -75,8 +75,9 @@ public class SaveServlet extends HttpServlet {
 		return gson.fromJson(body, SaveBody.class);
 	}
 
-	private BProgramRunner createBProgramRunner(String flow, Integer flowID) {
+	private BProgramRunner createBProgramRunner(String flow) {
 		BProgram bprog = new StringBProgram(flow);
+//		bprog.setWaitForExternalEvents(true);
 
 		BProgramRunner rnr = new BProgramRunner(bprog);
 
