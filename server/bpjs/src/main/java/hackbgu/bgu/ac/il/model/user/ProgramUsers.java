@@ -1,4 +1,4 @@
-package flow.bgu.ac.il.model.user;
+package hackbgu.bgu.ac.il.model.user;
 
 import il.ac.bgu.cs.bp.bpjs.execution.BProgramRunner;
 

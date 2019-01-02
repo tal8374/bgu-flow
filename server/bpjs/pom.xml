@@ -139,7 +139,7 @@
 					<archive>
 						<manifest>
 							<!-- Jar file entry point -->
-							<mainClass>Server.BPServer</mainClass>
+							<mainClass>flow.bgu.ac.il.BPServer</mainClass>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>dependency-jars/</classpathPrefix>
 						</manifest>

@@ -4,8 +4,8 @@ package flow.bgu.ac.il;
  */
 
 import com.google.gson.Gson;
-import flow.bgu.ac.il.model.requestBody.SaveBody;
-import flow.bgu.ac.il.model.user.Program;
+import hackbgu.bgu.ac.il.model.requestBody.SaveBody;
+import hackbgu.bgu.ac.il.model.user.Program;
 import il.ac.bgu.cs.bp.bpjs.execution.BProgramRunner;
 import il.ac.bgu.cs.bp.bpjs.execution.listeners.BProgramRunnerListenerAdapter;
 import il.ac.bgu.cs.bp.bpjs.execution.listeners.PrintBProgramRunnerListener;
@@ -38,72 +38,72 @@ import org.apache.http.impl.client.DefaultHttpClient;
  */
 public class SaveServlet extends HttpServlet {
 
-    {
-        System.out.println("SaveServlet is active");
-    }
+	{
+		System.out.println("SaveServlet is active");
+	}
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = -5308353652899057537L;
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -5308353652899057537L;
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doPost(HttpServletRequest request,
-                          HttpServletResponse response) throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request,
+						  HttpServletResponse response) throws ServletException, IOException {
 
-        SaveBody saveBody = this.createSaveBody(request);
+		SaveBody saveBody = this.createSaveBody(request);
 
-        System.out.println(saveBody.flow);
+		System.out.println(saveBody.flow);
 
-        BProgramRunner rnr = this.createBProgramRunner(saveBody.flow, saveBody.flowID);
+		BProgramRunner rnr = this.createBProgramRunner(saveBody.flow, saveBody.flowID);
 
-        Program program = Program.getInstance();
-        program.addUser(saveBody.userEmail);
-        program.addProgramToUser(saveBody.userEmail, rnr, saveBody.flowID);
-        program.startBPProgramRunner(saveBody.userEmail, saveBody.flowID);
+		Program program = Program.getInstance();
+		program.addUser(saveBody.userEmail);
+		program.addProgramToUser(saveBody.userEmail, rnr, saveBody.flowID);
+		program.startBPProgramRunner(saveBody.userEmail, saveBody.flowID);
 
-        response.setStatus(HttpServletResponse.SC_OK);
-    }
+		response.setStatus(HttpServletResponse.SC_OK);
+	}
 
-    private SaveBody createSaveBody(HttpServletRequest request) throws IOException {
-        String body = IOUtils.toString(request.getReader());
-        body = String.join("", body.split("\n"));
+	private SaveBody createSaveBody(HttpServletRequest request) throws IOException {
+		String body = IOUtils.toString(request.getReader());
+		body = String.join("", body.split("\n"));
 
-        Gson gson = new Gson();
-        return gson.fromJson(body, SaveBody.class);
-    }
+		Gson gson = new Gson();
+		return gson.fromJson(body, SaveBody.class);
+	}
 
-    private BProgramRunner createBProgramRunner(String flow, Integer flowID) {
-        BProgram bprog = new StringBProgram(flow);
+	private BProgramRunner createBProgramRunner(String flow, Integer flowID) {
+		BProgram bprog = new StringBProgram(flow);
 
-        BProgramRunner rnr = new BProgramRunner(bprog);
+		BProgramRunner rnr = new BProgramRunner(bprog);
 
-        rnr.addListener(new PrintBProgramRunnerListener());
-        rnr.addListener(new BProgramRunnerListenerAdapter() {
+		rnr.addListener(new PrintBProgramRunnerListener());
+		rnr.addListener(new BProgramRunnerListenerAdapter() {
 
-            @Override
-            public void eventSelected(BProgram bp, BEvent theEvent) {
-                sendEvent(theEvent.name);
-            }
-        });
+			@Override
+			public void eventSelected(BProgram bp, BEvent theEvent) {
+				sendEvent(theEvent.name);
+			}
+		});
 
-        return rnr;
-    }
+		return rnr;
+	}
 
-    private void sendEvent(String eventName) {
-        System.out.println("Sending to the backend event name - " + eventName);
+	private void sendEvent(String eventName) {
+		System.out.println("Sending to the backend event name - " + eventName);
 
-        try {
-            String url = "http://localhost:8000/api/bpjs/bpevent/" + eventName;
+		try {
+			String url = "http://localhost:8000/api/bpjs/bpevent/" + eventName;
 
-            HttpClient client = new DefaultHttpClient();
-            HttpPost post = new HttpPost(url);
+			HttpClient client = new DefaultHttpClient();
+			HttpPost post = new HttpPost(url);
 
-            client.execute(post);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+			client.execute(post);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

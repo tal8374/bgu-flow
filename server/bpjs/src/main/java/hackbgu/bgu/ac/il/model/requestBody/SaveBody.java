@@ -1,4 +1,4 @@
-package flow.bgu.ac.il.model.requestBody;
+package hackbgu.bgu.ac.il.model.requestBody;
 
 public class SaveBody {
 
