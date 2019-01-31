@@ -2772,12 +2772,12 @@ EditorUi.prototype.isCompatibleString = function (data) {
  * Adds the label menu items to the given menu and parent.
  */
 EditorUi.prototype.saveFile = function (forceDialog) {
-  var code = mxUtils.getPrettyXml(this.editor.getGraphXml());
+  var graph = mxUtils.getPrettyXml(this.editor.getGraphXml());
   var xhr = new XMLHttpRequest();
   xhr.open('POST', "http://localhost:8000/api/flow", true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({
-    code: code
+    graph: graph
   }));
 };
 
