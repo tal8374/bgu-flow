@@ -780,7 +780,7 @@ Sidebar.prototype.insertSearchHint = function (div, searchTerm, count, page, res
 Sidebar.prototype.getActionPalette = function (paleteeName) {
   var actionPalette = {
     'Whatssapp': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843" style="height: 60px;width: 100px" title="Whatssap"></div>'
-      , 'send_whatssapp', null, null, 'send_whatssapp', 'action'),
+      , 'Whatssapp', null, null, 'Whatssapp', 'action'),
     'Email': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://us.123rf.com/450wm/jovanas/jovanas1603/jovanas160300244/53038597-black-email-icon.jpg?ver=6" style="height: 60px;width: 100px" title="Email"></div>'
       , 'send_mail', null, null, 'send_mail', 'action'),
     'Send Weekly Tasks': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://cdn4.iconfinder.com/data/icons/medical-icons-rounded-vector/1250/path_appointment-512.png" style="height: 60px;width: 100px" title="Send Weekly Tasks"></div>'
