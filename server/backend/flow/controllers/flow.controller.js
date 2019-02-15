@@ -1,4 +1,5 @@
 const flowServices = require('../services/flow.service');
+const request = require('request');
 
 function list(req, res) {
     flowServices.getFlows();
@@ -7,7 +8,15 @@ function list(req, res) {
 }
 
 function createFlow(req, res) {
-    flowServices.createFlow(req);
+    request.post(
+        'http://localhost:7000/save',
+        {json: req.body},
+        function (error, response, body) {
+            if (!error && response.statusCode === 200) {
+                console.log(body)
+            }
+        }
+    );
 
     return res.send('flow was created successfully');
 }
