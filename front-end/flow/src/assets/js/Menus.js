@@ -988,7 +988,7 @@ Menus.prototype.createPopupMenu = function(menu, cell, evt)
   }
   else
   {
-    this.addMenuItems(menu, ['delete', '-', 'cut', 'copy', '-', 'duplicate'], null, evt);
+      this.addMenuItems(menu, ['delete'], null, evt);
 
   }
 
@@ -996,7 +996,7 @@ Menus.prototype.createPopupMenu = function(menu, cell, evt)
   {
     if (graph.getSelectionCount() == 1)
     {
-      this.addMenuItems(menu, ['setAsDefaultStyle'], null, evt);
+      this.addMenuItems(menu, [], null, evt);
     }
 
     menu.addSeparator();
@@ -1007,7 +1007,7 @@ Menus.prototype.createPopupMenu = function(menu, cell, evt)
     if (state != null)
     {
       var hasWaypoints = false;
-      this.addMenuItems(menu, ['toFront', 'toBack', '-'], null, evt);
+      this.addMenuItems(menu, [], null, evt);
 
       if (graph.getModel().isEdge(cell) && mxUtils.getValue(state.style, mxConstants.STYLE_EDGE, null) != 'entityRelationEdgeStyle' &&
         mxUtils.getValue(state.style, mxConstants.STYLE_SHAPE, null) != 'arrow')
@@ -1056,7 +1056,7 @@ Menus.prototype.createPopupMenu = function(menu, cell, evt)
       if (graph.getSelectionCount() == 1)
       {
         menu.addSeparator();
-        this.addMenuItems(menu, ['edit', '-', 'editData', 'editLink'], null, evt);
+        this.addMenuItems(menu, [], null, evt);
 
         // Shows edit image action if there is an image in the style
         if (graph.getModel().isVertex(cell) && mxUtils.getValue(state.style, mxConstants.STYLE_IMAGE, null) != null)
