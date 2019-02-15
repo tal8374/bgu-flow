@@ -988,7 +988,7 @@ Menus.prototype.createPopupMenu = function(menu, cell, evt)
   }
   else
   {
-      this.addMenuItems(menu, ['delete'], null, evt);
+    this.addMenuItems(menu, ['delete'], null, evt);
 
   }
 
