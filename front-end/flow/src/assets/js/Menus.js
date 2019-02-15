@@ -984,7 +984,7 @@ Menus.prototype.createPopupMenu = function(menu, cell, evt)
 
   if (graph.isSelectionEmpty())
   {
-    this.addMenuItems(menu, ['undo', 'redo', '-', 'pasteHere'], null, evt);
+    this.addMenuItems(menu, ['undo', 'redo'], null, evt);
   }
   else
   {
@@ -1069,7 +1069,7 @@ Menus.prototype.createPopupMenu = function(menu, cell, evt)
   }
   else
   {
-    this.addMenuItems(menu, ['-', 'selectVertices', 'selectEdges', '-', 'selectAll'], null, evt);
+    this.addMenuItems(menu, [], null, evt);
   }
 };
 
