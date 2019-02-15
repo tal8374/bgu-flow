@@ -1589,48 +1589,48 @@ Graph.prototype.connectVertex = function(source, direction, length, evt, forceCl
   }
 
   // Workaround for relative child cells
-  if (this.model.isVertex(source.parent) && source.geometry.relative)
-  {
-    pt.x += source.parent.geometry.x;
-    pt.y += source.parent.geometry.y;
-  }
+  // if (this.model.isVertex(source.parent) && source.geometry.relative)
+  // {
+  //   pt.x += source.parent.geometry.x;
+  //   pt.y += source.parent.geometry.y;
+  // }
+  //
+  // // Checks actual end point of edge for target cell
+  // var target = (ignoreCellAt || (mxEvent.isControlDown(evt) && !forceClone)) ?
+  //   null : this.getCellAt(dx + pt.x * s, dy + pt.y * s);
+  //
+  // if (this.model.isAncestor(target, source))
+  // {
+  //   target = null;
+  // }
+  //
+  // // Checks if target or ancestor is locked
+  // var temp = target;
+  //
+  // while (temp != null)
+  // {
+  //   if (this.isCellLocked(temp))
+  //   {
+  //     target = null;
+  //     break;
+  //   }
+  //
+  //   temp = this.model.getParent(temp);
+  // }
+  //
+  // // Checks if source and target intersect
+  // if (target != null)
+  // {
+  //   var sourceState = this.view.getState(source);
+  //   var targetState = this.view.getState(target);
+  //
+  //   if (sourceState != null && targetState != null && mxUtils.intersects(sourceState, targetState))
+  //   {
+  //     target = null;
+  //   }
+  // }
 
-  // Checks actual end point of edge for target cell
-  var target = (ignoreCellAt || (mxEvent.isControlDown(evt) && !forceClone)) ?
-    null : this.getCellAt(dx + pt.x * s, dy + pt.y * s);
-
-  if (this.model.isAncestor(target, source))
-  {
-    target = null;
-  }
-
-  // Checks if target or ancestor is locked
-  var temp = target;
-
-  while (temp != null)
-  {
-    if (this.isCellLocked(temp))
-    {
-      target = null;
-      break;
-    }
-
-    temp = this.model.getParent(temp);
-  }
-
-  // Checks if source and target intersect
-  if (target != null)
-  {
-    var sourceState = this.view.getState(source);
-    var targetState = this.view.getState(target);
-
-    if (sourceState != null && targetState != null && mxUtils.intersects(sourceState, targetState))
-    {
-      target = null;
-    }
-  }
-
-  var duplicate = !mxEvent.isShiftDown(evt) || forceClone;
+  var duplicate = false;
 
   if (duplicate)
   {
