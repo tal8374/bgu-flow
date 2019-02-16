@@ -1764,10 +1764,10 @@ Graph.prototype.connectVertex = function(source, direction, length, evt, forceCl
       result.push(realTarget);
     }
 
-    // if (realTarget == null && edge != null)
-    // {
-    //   edge.geometry.setTerminalPoint(pt, false);
-    // }
+    if (realTarget == null && edge != null)
+    {
+      edge.geometry.setTerminalPoint(pt, false);
+    }
 
     console.log(pt)
 
