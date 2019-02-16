@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import hackbgu.bgu.ac.il.model.requestBody.SaveBody;
 import il.ac.bgu.cs.bp.bpjs.execution.listeners.BProgramRunnerListenerAdapter;
 import il.ac.bgu.cs.bp.bpjs.model.BEvent;
+import il.ac.bgu.cs.bp.bpjs.model.ResourceBProgram;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +27,6 @@ import com.mxgraph.util.mxXmlUtils;
 import il.ac.bgu.cs.bp.bpjs.execution.BProgramRunner;
 import il.ac.bgu.cs.bp.bpjs.execution.listeners.PrintBProgramRunnerListener;
 import il.ac.bgu.cs.bp.bpjs.model.BProgram;
-import il.ac.bgu.cs.bp.bpjs.model.SingleResourceBProgram;
 
 public class SaveServlet extends HttpServlet {
 
@@ -84,10 +84,10 @@ public class SaveServlet extends HttpServlet {
 			thread.interrupt();
 
 		// Start a new deployment
-		bprog = new SingleResourceBProgram("rungraph.js");
+		bprog = new ResourceBProgram("rungraph.js");
 		bprog.putInGlobalScope("model", model);
 		bprog.appendSource(functions);
-		bprog.setDaemonMode(true);
+		bprog.setWaitForExternalEvents(true);
 
 		rnr = new BProgramRunner(bprog);
 		rnr.addListener(new PrintBProgramRunnerListener());
