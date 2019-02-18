@@ -66,14 +66,14 @@
  */
 function mxCell(value, geometry, style)
 {
-	this.value = value;
-	this.setGeometry(geometry);
-	this.setStyle(style);
+  this.value = value;
+  this.setGeometry(geometry);
+  this.setStyle(style);
 
-	if (this.onInit != null)
-	{
-		this.onInit();
-	}
+  if (this.onInit != null)
+  {
+    this.onInit();
+  }
 };
 
 /**
@@ -185,7 +185,7 @@ mxCell.prototype.edges = null;
  * the language.
  */
 mxCell.prototype.mxTransient = ['id', 'value', 'parent', 'source',
-                                'target', 'children', 'edges'];
+  'target', 'children', 'edges'];
 
 /**
  * Function: getId
@@ -194,7 +194,7 @@ mxCell.prototype.mxTransient = ['id', 'value', 'parent', 'source',
  */
 mxCell.prototype.getId = function()
 {
-	return this.id;
+  return this.id;
 };
 
 /**
@@ -204,7 +204,7 @@ mxCell.prototype.getId = function()
  */
 mxCell.prototype.setId = function(id)
 {
-	this.id = id;
+  this.id = id;
 };
 
 /**
@@ -215,7 +215,7 @@ mxCell.prototype.setId = function(id)
  */
 mxCell.prototype.getValue = function()
 {
-	return this.value;
+  return this.value;
 };
 
 /**
@@ -226,7 +226,7 @@ mxCell.prototype.getValue = function()
  */
 mxCell.prototype.setValue = function(value)
 {
-	this.value = value;
+  this.value = value;
 };
 
 /**
@@ -239,10 +239,10 @@ mxCell.prototype.setValue = function(value)
  */
 mxCell.prototype.valueChanged = function(newValue)
 {
-	var previous = this.getValue();
-	this.setValue(newValue);
+  var previous = this.getValue();
+  this.setValue(newValue);
 
-	return previous;
+  return previous;
 };
 
 /**
@@ -252,7 +252,7 @@ mxCell.prototype.valueChanged = function(newValue)
  */
 mxCell.prototype.getGeometry = function()
 {
-	return this.geometry;
+  return this.geometry;
 };
 
 /**
@@ -262,7 +262,7 @@ mxCell.prototype.getGeometry = function()
  */
 mxCell.prototype.setGeometry = function(geometry)
 {
-	this.geometry = geometry;
+  this.geometry = geometry;
 };
 
 /**
@@ -272,7 +272,7 @@ mxCell.prototype.setGeometry = function(geometry)
  */
 mxCell.prototype.getStyle = function()
 {
-	return this.style;
+  return this.style;
 };
 
 /**
@@ -282,7 +282,7 @@ mxCell.prototype.getStyle = function()
  */
 mxCell.prototype.setStyle = function(style)
 {
-	this.style = style;
+  this.style = style;
 };
 
 /**
@@ -292,7 +292,7 @@ mxCell.prototype.setStyle = function(style)
  */
 mxCell.prototype.isVertex = function()
 {
-	return this.vertex != 0;
+  return this.vertex != 0;
 };
 
 /**
@@ -307,7 +307,7 @@ mxCell.prototype.isVertex = function()
  */
 mxCell.prototype.setVertex = function(vertex)
 {
-	this.vertex = vertex;
+  this.vertex = vertex;
 };
 
 /**
@@ -317,7 +317,7 @@ mxCell.prototype.setVertex = function(vertex)
  */
 mxCell.prototype.isEdge = function()
 {
-	return this.edge != 0;
+  return this.edge != 0;
 };
 
 /**
@@ -332,7 +332,7 @@ mxCell.prototype.isEdge = function()
  */
 mxCell.prototype.setEdge = function(edge)
 {
-	this.edge = edge;
+  this.edge = edge;
 };
 
 /**
@@ -342,7 +342,7 @@ mxCell.prototype.setEdge = function(edge)
  */
 mxCell.prototype.isConnectable = function()
 {
-	return this.connectable != 0;
+  return this.connectable != 0;
 };
 
 /**
@@ -356,7 +356,7 @@ mxCell.prototype.isConnectable = function()
  */
 mxCell.prototype.setConnectable = function(connectable)
 {
-	this.connectable = connectable;
+  this.connectable = connectable;
 };
 
 /**
@@ -366,7 +366,7 @@ mxCell.prototype.setConnectable = function(connectable)
  */
 mxCell.prototype.isVisible = function()
 {
-	return this.visible != 0;
+  return this.visible != 0;
 };
 
 /**
@@ -380,7 +380,7 @@ mxCell.prototype.isVisible = function()
  */
 mxCell.prototype.setVisible = function(visible)
 {
-	this.visible = visible;
+  this.visible = visible;
 };
 
 /**
@@ -390,7 +390,7 @@ mxCell.prototype.setVisible = function(visible)
  */
 mxCell.prototype.isCollapsed = function()
 {
-	return this.collapsed != 0;
+  return this.collapsed != 0;
 };
 
 /**
@@ -404,7 +404,7 @@ mxCell.prototype.isCollapsed = function()
  */
 mxCell.prototype.setCollapsed = function(collapsed)
 {
-	this.collapsed = collapsed;
+  this.collapsed = collapsed;
 };
 
 /**
@@ -414,7 +414,7 @@ mxCell.prototype.setCollapsed = function(collapsed)
  */
 mxCell.prototype.getParent = function()
 {
-	return this.parent;
+  return this.parent;
 };
 
 /**
@@ -428,7 +428,7 @@ mxCell.prototype.getParent = function()
  */
 mxCell.prototype.setParent = function(parent)
 {
-	this.parent = parent;
+  this.parent = parent;
 };
 
 /**
@@ -443,7 +443,7 @@ mxCell.prototype.setParent = function(parent)
  */
 mxCell.prototype.getTerminal = function(source)
 {
-	return (source) ? this.source : this.target;
+  return (source) ? this.source : this.target;
 };
 
 /**
@@ -459,16 +459,16 @@ mxCell.prototype.getTerminal = function(source)
  */
 mxCell.prototype.setTerminal = function(terminal, isSource)
 {
-	if (isSource)
-	{
-		this.source = terminal;
-	}
-	else
-	{
-		this.target = terminal;
-	}
+  if (isSource)
+  {
+    this.source = terminal;
+  }
+  else
+  {
+    this.target = terminal;
+  }
 
-	return terminal;
+  return terminal;
 };
 
 /**
@@ -478,7 +478,7 @@ mxCell.prototype.setTerminal = function(terminal, isSource)
  */
 mxCell.prototype.getChildCount = function()
 {
-	return (this.children == null) ? 0 : this.children.length;
+  return (this.children == null) ? 0 : this.children.length;
 };
 
 /**
@@ -492,7 +492,7 @@ mxCell.prototype.getChildCount = function()
  */
 mxCell.prototype.getIndex = function(child)
 {
-	return mxUtils.indexOf(this.children, child);
+  return mxUtils.indexOf(this.children, child);
 };
 
 /**
@@ -506,7 +506,7 @@ mxCell.prototype.getIndex = function(child)
  */
 mxCell.prototype.getChildAt = function(index)
 {
-	return (this.children == null) ? null : this.children[index];
+  return (this.children == null) ? null : this.children[index];
 };
 
 /**
@@ -525,33 +525,33 @@ mxCell.prototype.getChildAt = function(index)
  */
 mxCell.prototype.insert = function(child, index)
 {
-	if (child != null)
-	{
-		if (index == null)
-		{
-			index = this.getChildCount();
+  if (child != null)
+  {
+    if (index == null)
+    {
+      index = this.getChildCount();
 
-			if (child.getParent() == this)
-			{
-				index--;
-			}
-		}
+      if (child.getParent() == this)
+      {
+        index--;
+      }
+    }
 
-		child.removeFromParent();
-		child.setParent(this);
+    child.removeFromParent();
+    child.setParent(this);
 
-		if (this.children == null)
-		{
-			this.children = [];
-			this.children.push(child);
-		}
-		else
-		{
-			this.children.splice(index, 0, child);
-		}
-	}
+    if (this.children == null)
+    {
+      this.children = [];
+      this.children.push(child);
+    }
+    else
+    {
+      this.children.splice(index, 0, child);
+    }
+  }
 
-	return child;
+  return child;
 };
 
 /**
@@ -568,20 +568,20 @@ mxCell.prototype.insert = function(child, index)
  */
 mxCell.prototype.remove = function(index)
 {
-	var child = null;
+  var child = null;
 
-	if (this.children != null && index >= 0)
-	{
-		child = this.getChildAt(index);
+  if (this.children != null && index >= 0)
+  {
+    child = this.getChildAt(index);
 
-		if (child != null)
-		{
-			this.children.splice(index, 1);
-			child.setParent(null);
-		}
-	}
+    if (child != null)
+    {
+      this.children.splice(index, 1);
+      child.setParent(null);
+    }
+  }
 
-	return child;
+  return child;
 };
 
 /**
@@ -591,11 +591,11 @@ mxCell.prototype.remove = function(index)
  */
 mxCell.prototype.removeFromParent = function()
 {
-	if (this.parent != null)
-	{
-		var index = this.parent.getIndex(this);
-		this.parent.remove(index);
-	}
+  if (this.parent != null)
+  {
+    var index = this.parent.getIndex(this);
+    this.parent.remove(index);
+  }
 };
 
 /**
@@ -605,7 +605,7 @@ mxCell.prototype.removeFromParent = function()
  */
 mxCell.prototype.getEdgeCount = function()
 {
-	return (this.edges == null) ? 0 : this.edges.length;
+  return (this.edges == null) ? 0 : this.edges.length;
 };
 
 /**
@@ -619,7 +619,7 @@ mxCell.prototype.getEdgeCount = function()
  */
 mxCell.prototype.getEdgeIndex = function(edge)
 {
-	return mxUtils.indexOf(this.edges, edge);
+  return mxUtils.indexOf(this.edges, edge);
 };
 
 /**
@@ -633,7 +633,7 @@ mxCell.prototype.getEdgeIndex = function(edge)
  */
 mxCell.prototype.getEdgeAt = function(index)
 {
-	return (this.edges == null) ? null : this.edges[index];
+  return (this.edges == null) ? null : this.edges[index];
 };
 
 /**
@@ -649,26 +649,30 @@ mxCell.prototype.getEdgeAt = function(index)
  */
 mxCell.prototype.insertEdge = function(edge, isOutgoing)
 {
-	if (edge != null)
-	{
-		edge.removeFromTerminal(isOutgoing);
-		edge.setTerminal(this, isOutgoing);
+  if (edge != null)
+  {
+    edge.removeFromTerminal(isOutgoing);
 
-		if (this.edges == null ||
-			edge.getTerminal(!isOutgoing) != this ||
-			mxUtils.indexOf(this.edges, edge) < 0)
-		{
-			if (this.edges == null)
-			{
-				this.edges = [];
-			}
-      if(edge.target) {
-			  this.edges.push(edge);
+    if(edge.value !== "") {
+      edge.setTerminal(this, isOutgoing);
+    }
+
+    if (this.edges == null ||
+      edge.getTerminal(!isOutgoing) != this ||
+      mxUtils.indexOf(this.edges, edge) < 0)
+    {
+      if (this.edges == null)
+      {
+        this.edges = [];
       }
-		}
-	}
 
-	return edge;
+      if(edge.value !== "") {
+        this.edges.push(edge);
+      }
+    }
+  }
+
+  return edge;
 };
 
 /**
@@ -684,23 +688,23 @@ mxCell.prototype.insertEdge = function(edge, isOutgoing)
  */
 mxCell.prototype.removeEdge = function(edge, isOutgoing)
 {
-	if (edge != null)
-	{
-		if (edge.getTerminal(!isOutgoing) != this &&
-			this.edges != null)
-		{
-			var index = this.getEdgeIndex(edge);
+  if (edge != null)
+  {
+    if (edge.getTerminal(!isOutgoing) != this &&
+      this.edges != null)
+    {
+      var index = this.getEdgeIndex(edge);
 
-			if (index >= 0)
-			{
-				this.edges.splice(index, 1);
-			}
-		}
+      if (index >= 0)
+      {
+        this.edges.splice(index, 1);
+      }
+    }
 
-		edge.setTerminal(null, isOutgoing);
-	}
+    edge.setTerminal(null, isOutgoing);
+  }
 
-	return edge;
+  return edge;
 };
 
 /**
@@ -715,12 +719,12 @@ mxCell.prototype.removeEdge = function(edge, isOutgoing)
  */
 mxCell.prototype.removeFromTerminal = function(isSource)
 {
-	var terminal = this.getTerminal(isSource);
+  var terminal = this.getTerminal(isSource);
 
-	if (terminal != null)
-	{
-		terminal.removeEdge(this, isSource);
-	}
+  if (terminal != null)
+  {
+    terminal.removeEdge(this, isSource);
+  }
 };
 
 /**
@@ -735,11 +739,11 @@ mxCell.prototype.removeFromTerminal = function(isSource)
  */
 mxCell.prototype.hasAttribute = function(name)
 {
-	var userObject = this.getValue();
+  var userObject = this.getValue();
 
-	return (userObject != null &&
-		userObject.nodeType == mxConstants.NODETYPE_ELEMENT && userObject.hasAttribute) ?
-		userObject.hasAttribute(name) : userObject.getAttribute(name) != null;
+  return (userObject != null &&
+    userObject.nodeType == mxConstants.NODETYPE_ELEMENT && userObject.hasAttribute) ?
+    userObject.hasAttribute(name) : userObject.getAttribute(name) != null;
 };
 
 /**
@@ -756,13 +760,13 @@ mxCell.prototype.hasAttribute = function(name)
  */
 mxCell.prototype.getAttribute = function(name, defaultValue)
 {
-	var userObject = this.getValue();
+  var userObject = this.getValue();
 
-	var val = (userObject != null &&
-		userObject.nodeType == mxConstants.NODETYPE_ELEMENT) ?
-		userObject.getAttribute(name) : null;
+  var val = (userObject != null &&
+    userObject.nodeType == mxConstants.NODETYPE_ELEMENT) ?
+    userObject.getAttribute(name) : null;
 
-	return val || defaultValue;
+  return val || defaultValue;
 };
 
 /**
@@ -777,13 +781,13 @@ mxCell.prototype.getAttribute = function(name, defaultValue)
  */
 mxCell.prototype.setAttribute = function(name, value)
 {
-	var userObject = this.getValue();
+  var userObject = this.getValue();
 
-	if (userObject != null &&
-		userObject.nodeType == mxConstants.NODETYPE_ELEMENT)
-	{
-		userObject.setAttribute(name, value);
-	}
+  if (userObject != null &&
+    userObject.nodeType == mxConstants.NODETYPE_ELEMENT)
+  {
+    userObject.setAttribute(name, value);
+  }
 };
 
 /**
@@ -795,10 +799,10 @@ mxCell.prototype.setAttribute = function(name, value)
  */
 mxCell.prototype.clone = function()
 {
-	var clone = mxUtils.clone(this, this.mxTransient);
-	clone.setValue(this.cloneValue());
+  var clone = mxUtils.clone(this, this.mxTransient);
+  clone.setValue(this.cloneValue());
 
-	return clone;
+  return clone;
 };
 
 /**
@@ -808,19 +812,19 @@ mxCell.prototype.clone = function()
  */
 mxCell.prototype.cloneValue = function()
 {
-	var value = this.getValue();
+  var value = this.getValue();
 
-	if (value != null)
-	{
-		if (typeof(value.clone) == 'function')
-		{
-			value = value.clone();
-		}
-		else if (!isNaN(value.nodeType))
-		{
-			value = value.cloneNode(true);
-		}
-	}
+  if (value != null)
+  {
+    if (typeof(value.clone) == 'function')
+    {
+      value = value.clone();
+    }
+    else if (!isNaN(value.nodeType))
+    {
+      value = value.cloneNode(true);
+    }
+  }
 
-	return value;
+  return value;
 };
