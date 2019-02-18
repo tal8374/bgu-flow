@@ -4272,7 +4272,7 @@ if (typeof mxVertexHandler != 'undefined')
      */
     Graph.prototype.dblClick = function(evt, cell)
     {
-      if (this.isEnabled())
+      if (false)
       {
         var pt = mxUtils.convertPoint(this.container, mxEvent.getClientX(evt), mxEvent.getClientY(evt));
 
