@@ -1029,7 +1029,6 @@ var mxEdgeStyle =
 
 			return;
 		}
-
 		// Determine the side(s) of the source and target vertices
 		// that the edge may connect to
 		// portConstraint [source, target]
@@ -1337,6 +1336,30 @@ var mxEdgeStyle =
 		var targetIndex = dir[1] == mxConstants.DIRECTION_MASK_EAST ? 3
 				: dir[1];
 
+    if(source.cell.edges ) {
+      source.cell.edges.forEach(function (edge) {
+        if(edge.source === source.cell && edge.target === target.cell ) {
+          if(targetIndex === 4) {
+            edge.direction = "DOWN";
+          } else if(targetIndex === 1) {
+            edge.direction = "RIGHT";
+
+            const isTargetLeftToSource = target.cell.geometry.x + (target.cell.geometry.width / 2) <
+                                         source.cell.geometry.x + (source.cell.geometry.width / 2);
+
+            if(target && target.cell &&   isTargetLeftToSource) {
+              const tempX = source.cell.geometry.x;
+              const tempY = source.cell.geometry.y;
+              source.cell.geometry.x = target.cell.geometry.x;
+              source.cell.geometry.y = target.cell.geometry.y;
+              target.cell.geometry.x = tempX;
+              target.cell.geometry.y = tempY;
+            }
+          }
+        }
+      });
+    }
+
 		sourceIndex -= quad;
 		targetIndex -= quad;
 
@@ -1534,6 +1557,7 @@ var mxEdgeStyle =
 				result.splice(index, 1);
 			}
 		}
+
 	},
 
 	getRoutePattern: function(dir, quad, dx, dy)
