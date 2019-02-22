@@ -1338,7 +1338,7 @@ var mxEdgeStyle =
 
     if(source.cell.edges ) {
       source.cell.edges.forEach(function (edge) {
-        if(edge.source === source.cell && edge.target === target.cell ) {
+        if(source && target && edge.source === source.cell && edge.target === target.cell ) {
           if(targetIndex === 4) {
             edge.direction = "DOWN";
           } else if(targetIndex === 1) {
@@ -1347,7 +1347,7 @@ var mxEdgeStyle =
             const isTargetLeftToSource = target.cell.geometry.x + (target.cell.geometry.width / 2) <
                                          source.cell.geometry.x + (source.cell.geometry.width / 2);
 
-            if(target && target.cell &&   isTargetLeftToSource) {
+            if(target && target.cell && isTargetLeftToSource) {
               const tempX = source.cell.geometry.x;
               const tempY = source.cell.geometry.y;
               source.cell.geometry.x = target.cell.geometry.x;

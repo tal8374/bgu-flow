@@ -1769,8 +1769,6 @@ Graph.prototype.connectVertex = function(source, direction, length, evt, forceCl
       edge.geometry.setTerminalPoint(pt, false);
     }
 
-    console.log(pt)
-
     if (edge != null)
     {
       this.fireEvent(new mxEventObject('cellsInserted', 'cells', [edge]));
@@ -5442,6 +5440,7 @@ if (typeof mxVertexHandler != 'undefined')
       // selecting parent for selected children in groups before this check can be made.
       this.popupMenuHandler.mouseUp = mxUtils.bind(this, function(sender, me)
       {
+        console.log(3)
         this.popupMenuHandler.popupTrigger = !this.isEditing() && this.isEnabled() &&
           (me.getState() == null || !me.isSource(me.getState().control)) &&
           (this.popupMenuHandler.popupTrigger || (!menuShowing && !mxEvent.isMouseEvent(me.getEvent()) &&
@@ -6043,6 +6042,7 @@ if (typeof mxVertexHandler != 'undefined')
       }
 
       mxGraphHandlerMoveCells.apply(this, arguments);
+
     };
 
     /**

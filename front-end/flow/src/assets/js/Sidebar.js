@@ -2053,6 +2053,7 @@ Sidebar.prototype.createVertexTemplate = function (style, width, height, value, 
   cells[0].vertex = true;
   cells[0].title = title;
   cells[0].type = type;
+  cells[0].sync = {waitFor: [], request: [], block: []};
 
   return this.createVertexTemplateFromCells(cells, width, height, title, showLabel, showTitle, allowCellsInserted);
 };

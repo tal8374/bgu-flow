@@ -653,7 +653,7 @@ mxCell.prototype.insertEdge = function(edge, isOutgoing)
   {
     edge.removeFromTerminal(isOutgoing);
 
-    if(edge.value !== "") {
+    if(edge.value === null) {
       edge.setTerminal(this, isOutgoing);
     }
 
@@ -666,7 +666,7 @@ mxCell.prototype.insertEdge = function(edge, isOutgoing)
         this.edges = [];
       }
 
-      if(edge.value !== "") {
+      if(edge.value === null) {
         this.edges.push(edge);
       }
     }

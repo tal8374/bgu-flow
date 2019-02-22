@@ -25,22 +25,11 @@ Actions.prototype.init = function()
   };
 
   this.addAction('whatssapSubmit', function(data, node) {
-    var cell = graph.getSelectionCell();
-    var value = graph.getModel().getValue(cell);
-
-    // Converts the value to an XML node
-    if (!mxUtils.isNode(value))
-    {
-      var doc = mxUtils.createXmlDocument();
-      var obj = doc.createElement('object');
-      obj.setAttribute('label', value || '');
-      value = obj;
-    }
-    value.setAttribute("code", "bp.sync({request:bp.Event(\"hello\")});");
-    value.setAttribute("type", "context");
-
-
-    graph.getModel().setValue(cell, value);
+    node.payload = {
+      from: data['from'].value,
+      to: data['to'].value,
+      message: data['message'].value
+    };
   });
 
   this.addAction('emailSubmit', function(data, node) {

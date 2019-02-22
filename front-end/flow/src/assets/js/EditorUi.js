@@ -11,6 +11,7 @@ EditorUi = function (editor, container, lightbox) {
   this.editor = editor || new Editor();
   this.container = container || document.body;
   var graph = this.editor.graph;
+  this.graph = graph;
   graph.lightbox = lightbox;
 
   // Pre-fetches submenu image or replaces with embedded image if supported
@@ -2768,17 +2769,301 @@ EditorUi.prototype.isCompatibleString = function (data) {
   return false;
 };
 
-/**
- * Adds the label menu items to the given menu and parent.
- */
-EditorUi.prototype.saveFile = function (forceDialog) {
-  var graph = mxUtils.getPrettyXml(this.editor.getGraphXml());
-  var xhr = new XMLHttpRequest();
+function downEnterEdgeHandler (edge, graph, editorUI) {
+  const source = edge.source;
+  const target = edge.target;
+
+  editorUI.updateCellSync(target);
+
+  const sourceEvent = editorUI.getCellSync(source);
+  editorUI.updateCellSync(target, sourceEvent, source.type);
+}
+
+function rightEnterEdgeHandler(edge, graph, editorUI) {
+  const source = edge.source;
+  const target = edge.target;
+
+  editorUI.updateCellSync(target);
+
+  editorUI.updateCellSync(source);
+}
+
+function setContext(cell, graph, context) {
+  let value = graph.getModel().getValue(cell);
+
+  // Converts the value to an XML node
+  if (!mxUtils.isNode(value))
+  {
+    var doc = mxUtils.createXmlDocument();
+    var obj = doc.createElement('object');
+    obj.setAttribute('label', value || '');
+    value = obj;
+  }
+
+  const cellContext = context ? context : 'context';
+
+  value.setAttribute("type", cellContext);
+
+  graph.getModel().setValue(cell, value);
+}
+
+EditorUi.prototype.actionNames = {
+  'action': 'request',
+  'listen': 'waitFor',
+  'block': 'block'
+};
+
+EditorUi.prototype.edgeHandlers = {
+  "RIGHT": rightEnterEdgeHandler,
+  "DOWN": downEnterEdgeHandler,
+};
+
+EditorUi.prototype.syncTemplate = 'bp.sync({syncdata})';
+EditorUi.prototype.eventTemplate = 'bp.Event("title", payload)';
+EditorUi.prototype.eventSetTemplate = 'bp.EventSet("id", function(evt) {return (evt.name!="title") ? false : payloadQuery })';
+EditorUi.prototype.payloadQueryTemplate = 'evt.data.key=="value"';
+
+
+function getRequestSync(cell, editorUI) {
+  let eventTemplate = editorUI.eventTemplate;
+  let payload = cell.payload ? cell.payload : {};
+  eventTemplate = eventTemplate.replace('title', cell.title);
+  eventTemplate = eventTemplate.replace('payload', JSON.stringify(payload));
+
+  return eventTemplate;
+}
+
+function getWaitForSync(cell, editorUI) {
+  let eventSetTemplate = editorUI.eventSetTemplate;
+  let eventSetData = [];
+
+  eventSetTemplate = eventSetTemplate.replace('title', cell.title);
+  eventSetTemplate = eventSetTemplate.replace('id', cell.getId());
+  for (let key in cell.payload) {
+    if (cell.payload.hasOwnProperty(key)) {
+      let payloadQueryTemplate = editorUI.payloadQueryTemplate;
+
+      payloadQueryTemplate = payloadQueryTemplate.replace('key', key);
+      payloadQueryTemplate = payloadQueryTemplate.replace('key', key);
+      payloadQueryTemplate = payloadQueryTemplate.replace('value', cell.payload[key]);
+      eventSetData.push(payloadQueryTemplate)
+    }
+  }
+
+  if(eventSetData.length > 0) {
+    eventSetTemplate = eventSetTemplate.replace('payloadQuery', eventSetData.join(' && '));
+  } else {
+    eventSetTemplate = eventSetTemplate.replace('payloadQuery', 'true');
+  }
+
+  return eventSetTemplate;
+}
+
+function getBlockSync(cell, editorUI) {
+
+}
+
+EditorUi.prototype.syncHandlers = {
+  "action": getRequestSync,
+  "listen": getWaitForSync,
+  "block": getWaitForSync,
+};
+
+EditorUi.prototype.getCellSync = function(cell) {
+  return this.syncHandlers[cell.type](cell, this);
+};
+
+EditorUi.prototype.updateCellSync = function(cell, event, cellType) {
+  const cellActionName = cellType ? this.actionNames[cellType] : this.actionNames[cell.type];
+  const cellEvent = event ? event : this.getCellSync(cell);
+  cell.sync[cellActionName].push(cellEvent);
+};
+
+EditorUi.prototype.updateCellsSync = function() {
+  const cells = this.graph.getChildVertices(this.graph.getDefaultParent());
+
+  for(let i = 0; i < cells.length;i++) {
+    const cell = cells[i];
+
+    if(!cell.edges){
+      this.updateCellSync(cell);
+    }
+  }
+};
+
+EditorUi.prototype.removeCellsSyncContent = function () {
+  const cells = this.graph.getChildVertices(this.graph.getDefaultParent());
+
+  for(let i = 0; i < cells.length;i++) {
+    const cell = cells[i];
+
+    cell.sync.waitFor = [];
+    cell.sync.block = [];
+    cell.sync.request = [];
+  }
+};
+
+EditorUi.prototype.removeCellsContext = function () {
+  const cells = this.graph.getChildVertices(this.graph.getDefaultParent());
+
+  for(let i = 0; i < cells.length;i++) {
+    const cell = cells[i];
+
+    setContext(cell, this.graph, "nocontext");
+  }
+};
+
+EditorUi.prototype.isStandAlone = function (cell) {
+  return cell.edges === null;
+};
+
+EditorUi.prototype.isStartOfEdge = function (cell) {
+  return cell.edges.length === 1 && cell.getId() === cell.edges[0].source.getId();
+};
+
+EditorUi.prototype.isStartOfGraph = function (cell) {
+  return this.isStartOfEdge(cell) ||  this.isWithoutBackEdges(cell);
+};
+
+EditorUi.prototype.isWithoutBackEdges= function (cell) {
+  return cell.edges.length === 1 &&
+         cell.edges[0].source.getId() === cell.getId();
+};
+
+EditorUi.prototype.setGraphContext = function () {
+  const cells = this.graph.getChildVertices(this.graph.getDefaultParent());
+
+  for(let i = 0; i < cells.length;i++) {
+    const cell = cells[i];
+    console.log(cell);
+
+    if(this.isStandAlone(cell)) {
+      setContext(cell, this.graph);
+    } else if(this.isStartOfGraph(cell)) {
+      setContext(cell, this.graph);
+    }
+  }
+};
+
+EditorUi.prototype.createCellsCode = function () {
+  const cells = this.graph.getChildVertices(this.graph.getDefaultParent());
+
+  for(let i = 0; i < cells.length;i++) {
+    const cell = cells[i];
+
+    let value = this.graph.getModel().getValue(cell);
+
+    if (!mxUtils.isNode(value)) {
+      const doc = mxUtils.createXmlDocument();
+      const obj = doc.createElement('object');
+      obj.setAttribute('label', value || '');
+      value = obj;
+    }
+
+    let code = this.syncTemplate;
+    let syncdata = '';
+
+    if(cell.sync.request.length === 1){
+      syncdata = syncdata !== '' ? syncdata + ', ' : syncdata;
+      syncdata += 'request: ' + cell.sync.request[0];
+    }
+
+    if(cell.sync.waitFor.length === 1){
+      syncdata = syncdata !== '' ? syncdata + ', ' : syncdata;
+      syncdata += 'waitFor: ' + cell.sync.waitFor[0];
+    } else if(cell.sync.waitFor.length > 1){
+      syncdata = syncdata !== '' ? syncdata + ', ' : syncdata;
+      syncdata += 'waitFor: ' + cell.sync.waitFor;
+    }
+
+    if(cell.sync.block.length === 1){
+      syncdata = syncdata !== '' ? syncdata + ', ' : syncdata;
+      syncdata += 'block: ' + cell.sync.block[1];
+    } else if(cell.sync.block.length > 1){
+      syncdata = syncdata !== '' ? syncdata + ', ' : syncdata;
+      syncdata += 'block: ' + cell.sync.block;
+    }
+
+    code = code.replace('syncdata', syncdata);
+
+    value.setAttribute("code", code);
+    this.graph.getModel().setValue(cell, value);
+  }
+};
+
+EditorUi.prototype.sendGraphToBackend = function () {
+  const graph = mxUtils.getPrettyXml(this.editor.getGraphXml());
+  const xhr = new XMLHttpRequest();
   xhr.open('POST', "http://localhost:8000/api/flow", true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({
     graph: graph
   }));
+};
+
+EditorUi.prototype.updateNodeSyncWithEdge = function () {
+  const cells = this.graph.getChildVertices(this.graph.getDefaultParent());
+  let visitedEdges = [];
+
+  for(let i = 0; i < cells.length;i++) {
+    const cell = cells[i];
+
+    if(cell.edges === null){
+      continue;
+    }
+
+    for(let j = 0; j < cell.edges.length; j++) {
+      const edge = cell.edges[j];
+
+      if(!visitedEdges.includes(edge.id)){
+        visitedEdges.push(edge.id);
+
+        if(edge && edge.target && (edge.target.getId() === cell.getId() || edge.direction === 'RIGHT')) {
+          this.edgeHandlers[edge.direction](edge, this.graph, this);
+        }
+      }
+    }
+  }
+};
+
+EditorUi.prototype.isPayloadMissing = function () {
+  const cells = this.graph.getChildVertices(this.graph.getDefaultParent());
+
+  for(let i = 0; i < cells.length;i++) {
+    const cell = cells[i];
+
+    if(!cell.payload) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+/**
+ * Adds the label menu items to the given menu and parent.
+ */
+EditorUi.prototype.saveFile = function (forceDialog) {
+  // todo: add context to cells who don't have any edges
+  // let isPayloadMissing = this.isPayloadMissing();
+  //
+  // if(isPayloadMissing) {
+  //   return;
+  // }
+
+  this.removeCellsSyncContent();
+
+  this.removeCellsContext();
+
+  this.setGraphContext();
+
+  this.updateCellsSync();
+
+  this.updateNodeSyncWithEdge();
+
+  this.createCellsCode();
+
+  this.sendGraphToBackend();
 };
 
 /**
