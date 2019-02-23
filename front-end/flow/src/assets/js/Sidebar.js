@@ -79,8 +79,10 @@ Sidebar.prototype.init = function () {
   var dir = STENCIL_PATH;
 
   // this.addSearchPalette(true);
-  this.addActionPalette(true);
-  this.addListenPalette(true);
+  this.addEventPalette(true, 'action');
+  this.addEventPalette(true, 'listen');
+  this.addEventPalette(true, 'block');
+
 
 };
 
@@ -777,77 +779,29 @@ Sidebar.prototype.insertSearchHint = function (div, searchTerm, count, page, res
   }
 };
 
-Sidebar.prototype.getActionPalette = function (paleteeName) {
-  var actionPalette = {
-    'Whatssapp': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843" style="height: 60px;width: 100px" title="Whatssap"></div>'
-      , 'Whatssapp', null, null, 'Whatssapp', 'action'),
-    'Email': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://us.123rf.com/450wm/jovanas/jovanas1603/jovanas160300244/53038597-black-email-icon.jpg?ver=6" style="height: 60px;width: 100px" title="Email"></div>'
-      , 'send_mail', null, null, 'send_mail', 'action'),
-    'Send Weekly Tasks': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://cdn4.iconfinder.com/data/icons/medical-icons-rounded-vector/1250/path_appointment-512.png" style="height: 60px;width: 100px" title="Send Weekly Tasks"></div>'
-      , 'Send Weekly Tasks', null, null, 'Send Weekly Tasks', 'Send Weekly Tasks'),
-  };
+Sidebar.prototype.getEventPalette = function (paleteeName, type) {
+  var palette = {};
+  var paleteeConfig = myconfig.sidebar[type + 'Palette'];
 
-  return actionPalette[paleteeName];
+  for(let content in paleteeConfig.content) {
+    let contentData = paleteeConfig.content[content];
+    palette[contentData.name] = this.createVertexTemplateEntry(contentData.style, contentData.width,
+      contentData.height, contentData.value, contentData.title, contentData.showLabel,contentData.showTitle,
+      contentData.tags, paleteeConfig.type);
+  }
+
+  return palette[paleteeName];
 };
 
-Sidebar.prototype.getListenPalette = function (paleteeName) {
-  var actionPalette = {
-    'Whatssapp': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843" style="height: 60px;width: 100px" title="Whatssap"></div>'
-      , 'Whatssapp', null, null, 'Whatssapp', 'listen'),
-    'Forum Message': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUs_xD2C26Ygv6bP5wHE58ThS5Tmr_AbUknarN9sOwQUVZIDI_2Q" style="height: 60px;width: 100px" title="Forum Message"></div>'
-      , 'Forum Message', null, null, 'Forum Message', 'listen'),
-    'Reception Hours': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://cdn1.vectorstock.com/i/1000x1000/59/40/customer-service-desk-icon-reception-symbol-vector-21095940.jpg" style="height: 60px;width: 100px" title="Reception Hours"></div>'
-      , 'Reception Hours', null, null, 'Reception Hours', 'listen'),
-    'Email': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://us.123rf.com/450wm/jovanas/jovanas1603/jovanas160300244/53038597-black-email-icon.jpg?ver=6" style="height: 60px;width: 100px" title="Email"></div>'
-      , 'Email', null, null, 'Email', 'listen'),
-    'Homework Checked': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://cdn3.iconfinder.com/data/icons/education/512/Test-512.png" style="height: 60px;width: 100px" title="Homework Checked"></div>'
-      , 'Homework Checked', null, null, 'Homework Checked', 'listen'),
-    'Exam Checked': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://png.icons8.com/metro/1600/exam.png" style="height: 60px;width: 100px" title="Exam Checked"></div>'
-      , 'Exam Checked', null, null, 'Exam Checked', 'listen'),
-    'File Upload': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://cdn3.iconfinder.com/data/icons/web-document-icons/512/Upload_Document-512.png" style="height: 60px;width: 100px" title="File Upload"></div>'
-      , 'File Upload', null, null, 'File Upload', 'listen'),
-    'Video Upload': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://static.thenounproject.com/png/381172-200.png" style="height: 60px;width: 100px" title="Video Upload"></div>'
-      , 'Video Upload', null, null, 'Video Upload', 'listen'),
-    'Task Upload': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://www.freeiconspng.com/uploads/tasks-icon-14.png" style="height: 60px;width: 100px" title="Task Upload"></div>'
-      , 'Task Upload', null, null, 'Task Upload', 'listen'),
-    'Reached Date': this.createVertexTemplateEntry('text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;', 120, 60, '<div><img src="https://png.icons8.com/metro/1600/calendar-7.png" style="height: 60px;width: 100px" title="Reached Date"></div>'
-      , 'Reached Date', null, null, 'Reached Date', 'listen'),
-  };
+Sidebar.prototype.addEventPalette = function (expand, type) {
+  var paleteeConfig = myconfig.sidebar[type + 'Palette'];
+  var fns = [];
 
-  return actionPalette[paleteeName];
-};
+  for(let paletee in paleteeConfig.content) {
+    fns.push(this.getEventPalette(paletee, type))
+  }
 
-/**
- * Adds the action palette to the sidebar.
- */
-Sidebar.prototype.addActionPalette = function (expand) {
-  var fns = [
-    this.getActionPalette('Whatssapp'),
-    this.getActionPalette('Email'),
-    this.getActionPalette('Send Weekly Tasks'),
-  ];
-
-  this.addPaletteFunctions('action', 'Action', (expand != null) ? expand : true, fns);
-};
-
-/**
- * Adds the action palette to the sidebar.
- */
-Sidebar.prototype.addListenPalette = function (expand) {
-  var fns = [
-    this.getListenPalette('Whatssapp'),
-    this.getListenPalette('Forum Message'),
-    this.getListenPalette('Reception Hours'),
-    this.getListenPalette('Email'),
-    this.getListenPalette('Homework Checked'),
-    this.getListenPalette('Exam Checked'),
-    this.getListenPalette('File Upload'),
-    this.getListenPalette('Video Upload'),
-    this.getListenPalette('Task Upload'),
-    this.getListenPalette('Reached Date'),
-  ];
-
-  this.addPaletteFunctions('listen', 'Listen', (expand != null) ? expand : true, fns);
+  this.addPaletteFunctions(paleteeConfig.name, paleteeConfig.title, (expand != null) ? expand : true, fns);
 };
 
 /**
