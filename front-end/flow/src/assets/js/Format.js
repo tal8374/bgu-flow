@@ -462,7 +462,8 @@ Format.prototype.refresh = function()
       label.style.marginLeft = '75px';
       label.style.fontFamily = 'Times New Roman';
       label.style.fontSize = '20px';
-      mxUtils.write(label, 'Act');
+      // add label to the begging of adding payload data.
+      // mxUtils.write(label, 'Act');
       div.appendChild(label);
 
       var actionPanel = div.cloneNode(false);
@@ -3326,6 +3327,8 @@ ActionFormatPanel.prototype.getAct = function(cellName) {
   }
 
   cellName = cellName.toLowerCase();
+
+  console.log(cellName)
 
   var options = {
     'whatssapp' : this.addWhatssapAct(this.createPanel()),
