@@ -50,33 +50,43 @@ Actions.prototype.init = function()
     alert(date);
   });
 
-  this.addAction('homeWorkSubmit', function(data) {
-    var course = data['course'].options[data['course'].options.selectedIndex].value;
+  this.addAction('homeworkCheckedActSubmit', function(data) {
+    let courseSelectElement = data['courseSelectElement'];
+    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
   });
 
-  this.addAction('examCheckedSubmit', function(data) {
-    var course = data['course'].options[data['course'].options.selectedIndex].value;
+  this.addAction('examCheckedActSubmit', function(data) {
+    let courseSelectElement = data['courseSelectElement'];
+    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
   });
 
   this.addAction('fileUploadSubmit', function(data) {
-    var course = data['course'].options[data['course'].options.selectedIndex].value;
+    let courseSelectElement = data['courseSelectElement'];
+    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
   });
 
-  this.addAction('videoUploadSubmit', function(data) {
-    var course = data['course'].options[data['course'].options.selectedIndex].value;
+  this.addAction('videoUploadActSubmit', function(data) {
+    let courseSelectElement = data['courseSelectElement'];
+    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
   });
 
-  this.addAction('taskUploadSubmit', function(data) {
-    var course = data['course'].options[data['course'].options.selectedIndex].value;
+  this.addAction('taskUploadActSubmit', function(data) {
+    console.log(document.getElementById('datecontent').value)
+    // let courseSelectElement = data['courseSelectElement'];
+    // let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
   });
 
-  this.addAction('receptionTime', function(data) {
-    var course = data['course'].options[data['course'].options.selectedIndex].value;
+  this.addAction('receptionTimeActSubmit', function(data) {
+    let courseSelectElement = data['courseSelectElement'];
+    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
   });
 
-  this.addAction('forumMessage', function(data) {
-    var course = data['course'].options[data['course'].options.selectedIndex].value;
-    var forumName = data['forumName'].options[data['forumName'].options.selectedIndex].value;
+  this.addAction('forumMessageSubmit', function(data) {
+    let courseSelectElement = data['courseSelectElement'];
+    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
+
+    let forumSelectElement = data['forumSelectElement'];
+    let selectedForum = forumSelectElement.options[forumSelectElement.selectedIndex].value;
   });
 
   // File actions

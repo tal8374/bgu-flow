@@ -249,7 +249,7 @@ Menus.prototype.init = function()
 
       if (tmp != null)
       {
-        var layout = new mxCompactTreeLayout(graph, true);
+        var layout = new mxCompaactTreeLayout(graph, true);
         layout.edgeRouting = false;
         layout.levelDistance = 30;
 

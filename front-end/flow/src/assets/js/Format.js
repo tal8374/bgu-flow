@@ -3307,9 +3307,9 @@ ActionFormatPanel.prototype.init = function() {
   var ss = this.format.getSelectionState();
 
   var currentCell = graph.getSelectionCell();
-  var cellName = getCellName(currentCell);
+  var cellTitle = getCellTitle(currentCell);
 
-  var act = this.getAct(cellName);
+  var act = this.getAct(cellTitle);
 
   if(!act) {
     return;
@@ -3321,22 +3321,20 @@ ActionFormatPanel.prototype.init = function() {
 
 };
 
-ActionFormatPanel.prototype.getAct = function(cellName) {
-  if(!cellName) {
+ActionFormatPanel.prototype.getAct = function(cellTitle) {
+  if(!cellTitle) {
     return;
   }
 
-  cellName = cellName.toLowerCase();
-
-  console.log(cellName)
+  cellTitle = cellTitle.toLowerCase();
 
   var options = {
-    'whatssapp' : this.addWhatssapAct(this.createPanel()),
+    'whatsapp' : this.addWhatssapAct(this.createPanel()),
     'reception hours' : this.addReceptionTimeAct(this.createPanel()),
     'forum message' : this.addForumMessageAct(this.createPanel()),
-    'send_mail' : this.addEmailAct(this.createPanel()),
+    'email' : this.addEmailAct(this.createPanel()),
     'homework checked' : this.addHomeworkCheckedAct(this.createPanel()),
-    'exam checked' : this.addExamheckedAct(this.createPanel()),
+    'exam checked' : this.addExamCheckedAct(this.createPanel()),
     'file upload' : this.addFileUploadAct(this.createPanel()),
     'video upload' : this.addVideoUploadAct(this.createPanel()),
     'task upload' : this.addTaskUploadAct(this.createPanel()),
@@ -3345,11 +3343,11 @@ ActionFormatPanel.prototype.getAct = function(cellName) {
     'reached date' : this.addReachedDateAct(this.createPanel()),
   };
 
-  return options[cellName];
+  return options[cellTitle];
 
 };
 
-function getCellName(cell) {
+function getCellTitle(cell) {
   if (!cell) {
     return;
   }
@@ -3578,15 +3576,15 @@ ActionFormatPanel.prototype.addWhatssapAct = function(container)
   var colorPanel = document.createElement('div');
   colorPanel.style.fontWeight = 'bold';
 
-  this.createHeaderElement(container, 'From');
+  this.createLabelElement(container, 'From');
 
   var inputFromElement = this.createInputElement(container, 'from');
 
-  this.createHeaderElement(container, 'To');
+  this.createLabelElement(container, 'To');
 
   var inputToElement = this.createInputElement(container, 'from');
 
-  this.createHeaderElement(container, 'Message');
+  this.createLabelElement(container, 'Message');
 
   var inputMessageElement = this.createInputElement(container, 'message');
 
@@ -3601,19 +3599,37 @@ ActionFormatPanel.prototype.addWhatssapAct = function(container)
   return container;
 };
 
-ActionFormatPanel.prototype.createHeaderElement = function(container, title){
-  var element = document.createElement('h1');
+ActionFormatPanel.prototype.createLabelElement = function(container, title, forInput){
+  var element = document.createElement('label');
 
   element.innerText = title;
-  this.styleHeader(element);
+  this.styleLabel(element);
 
   container.appendChild(element);
+};
+
+ActionFormatPanel.prototype.createSelectElement = function(container, id, options){
+  var selectElement = document.createElement('select');
+  selectElement.className += 'form-control';
+  selectElement.style.width = '90%';
+  container.appendChild(selectElement);
+
+  for(let option of options) {
+    var optionElement = document.createElement("option");
+    optionElement.text = option;
+    selectElement.add(optionElement);
+  }
+
+  return selectElement;
 };
 
 ActionFormatPanel.prototype.createInputElement = function(container, id){
   var element = document.createElement('input');
 
   element.id = id;
+  element.type = 'text';
+  element.className += 'form-control';
+
   this.styleTextArea(element);
 
   container.appendChild(element)
@@ -3628,6 +3644,8 @@ ActionFormatPanel.prototype.createButtonElement = function(container, text, func
   {
     this.editorUi.actions.get(functionName).funct(data, node);
   }));
+
+  submitButton.className += "btn btn-light";
 
   this.styleSubmitButton(submitButton);
 
@@ -3644,9 +3662,12 @@ ActionFormatPanel.prototype.styleSubmitButton = function (element) {
   element.style.fontWeight = 'bold';
 };
 
-ActionFormatPanel.prototype.styleHeader = function (element) {
-  element.style.color = '#778899';
+ActionFormatPanel.prototype.styleLabel = function (element) {
+  element.style.color = 'black';
   element.style.fontFamily = 'Times New Roman';
+  element.style.fontSize= '15px';
+  element.style.marginTop = '10px';
+
 };
 
 ActionFormatPanel.prototype.styleInput = function (element) {
@@ -3659,6 +3680,8 @@ ActionFormatPanel.prototype.styleTextArea = function (element) {
   element.style.padding = '4px';
   element.style.boxSizing = 'border-box';
   element.style.borderRadius = '4px';
+  element.style.width = '92%';
+  element.style.height = '92%';
 };
 
 /**
@@ -3677,15 +3700,15 @@ ActionFormatPanel.prototype.addEmailAct = function(container)
   var colorPanel = document.createElement('div');
   colorPanel.style.fontWeight = 'bold';
 
-  this.createHeaderElement(container, 'From');
+  this.createLabelElement(container, 'From');
 
   var inputFromElement = this.createInputElement(container, 'from');
 
-  this.createHeaderElement(container, 'To');
+  this.createLabelElement(container, 'To');
 
   var inputToElement = this.createInputElement(container, 'from');
 
-  this.createHeaderElement(container, 'Message');
+  this.createLabelElement(container, 'Message');
 
   var inputMessageElement = this.createInputElement(container, 'message');
 
@@ -3713,25 +3736,13 @@ ActionFormatPanel.prototype.addReceptionTimeAct = function(container)
   var colorPanel = document.createElement('div');
   colorPanel.style.fontWeight = 'bold';
 
-  var fromHeader = document.createElement('h1');
-  fromHeader.innerText = "Course";
-  container.appendChild(fromHeader);
+  this.createLabelElement(container, 'Course');
 
-  var selectElement = document.createElement('select');
-  container.appendChild(selectElement);
+  let courseSelectElement = this.createSelectElement(container, null, ['course1', 'course2']);
 
-  var option = document.createElement("option");
-  option.text = "Kiwi";
-  selectElement.add(option);
+  var data = {courseSelectElement: courseSelectElement};
 
-  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
-  {
-    this.editorUi.actions.get('setAsDefaultStyle').funct();
-  }));
-
-  btn.style.width = '202px';
-  btn.style.marginTop = '20px';
-  container.appendChild(btn);
+  this.createButtonElement(container, 'Submit', 'receptionTimeActSubmit', data);
 
   return container;
 };
@@ -3749,30 +3760,18 @@ ActionFormatPanel.prototype.addHomeworkCheckedAct = function(container)
   var colorPanel = document.createElement('div');
   colorPanel.style.fontWeight = 'bold';
 
-  var fromHeader = document.createElement('h1');
-  fromHeader.innerText = "Course";
-  container.appendChild(fromHeader);
+  this.createLabelElement(container, 'Course');
 
-  var selectElement = document.createElement('select');
-  container.appendChild(selectElement);
+  let courseSelectElement = this.createSelectElement(container, null, ['course1', 'course2']);
 
-  var option = document.createElement("option");
-  option.text = "Kiwi";
-  selectElement.add(option);
+  var data = {courseSelectElement: courseSelectElement};
 
-  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
-  {
-    this.editorUi.actions.get('setAsDefaultStyle').funct();
-  }));
-
-  btn.style.width = '202px';
-  btn.style.marginTop = '20px';
-  container.appendChild(btn);
+  this.createButtonElement(container, 'Submit', 'homeworkCheckedActSubmit', data);
 
   return container;
 };
 
-ActionFormatPanel.prototype.addExamheckedAct = function(container)
+ActionFormatPanel.prototype.addExamCheckedAct = function(container)
 {
   var ui = this.editorUi;
   var graph = ui.editor.graph;
@@ -3785,25 +3784,13 @@ ActionFormatPanel.prototype.addExamheckedAct = function(container)
   var colorPanel = document.createElement('div');
   colorPanel.style.fontWeight = 'bold';
 
-  var fromHeader = document.createElement('h1');
-  fromHeader.innerText = "Course";
-  container.appendChild(fromHeader);
+  this.createLabelElement(container, 'Course');
 
-  var selectElement = document.createElement('select');
-  container.appendChild(selectElement);
+  let courseSelectElement = this.createSelectElement(container, null, ['course1', 'course2']);
 
-  var option = document.createElement("option");
-  option.text = "Kiwi";
-  selectElement.add(option);
+  var data = {courseSelectElement: courseSelectElement};
 
-  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
-  {
-    this.editorUi.actions.get('setAsDefaultStyle').funct();
-  }));
-
-  btn.style.width = '202px';
-  btn.style.marginTop = '20px';
-  container.appendChild(btn);
+  this.createButtonElement(container, 'Submit', 'examCheckedActSubmit', data);
 
   return container;
 };
@@ -3821,25 +3808,13 @@ ActionFormatPanel.prototype.addFileUploadAct = function(container)
   var colorPanel = document.createElement('div');
   colorPanel.style.fontWeight = 'bold';
 
-  var fromHeader = document.createElement('h1');
-  fromHeader.innerText = "Course";
-  container.appendChild(fromHeader);
+  this.createLabelElement(container, 'Course');
 
-  var selectElement = document.createElement('select');
-  container.appendChild(selectElement);
+  let courseSelectElement = this.createSelectElement(container, null, ['course1', 'course2']);
 
-  var option = document.createElement("option");
-  option.text = "Kiwi";
-  selectElement.add(option);
+  var data = {courseSelectElement: courseSelectElement};
 
-  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
-  {
-    this.editorUi.actions.get('setAsDefaultStyle').funct();
-  }));
-
-  btn.style.width = '202px';
-  btn.style.marginTop = '20px';
-  container.appendChild(btn);
+  this.createButtonElement(container, 'Submit', 'fileUploadActSubmit', data);
 
   return container;
 };
@@ -3857,25 +3832,13 @@ ActionFormatPanel.prototype.addVideoUploadAct = function(container)
   var colorPanel = document.createElement('div');
   colorPanel.style.fontWeight = 'bold';
 
-  var fromHeader = document.createElement('h1');
-  fromHeader.innerText = "Course";
-  container.appendChild(fromHeader);
+  this.createLabelElement(container, 'Course');
 
-  var selectElement = document.createElement('select');
-  container.appendChild(selectElement);
+  let courseSelectElement = this.createSelectElement(container, null, ['course1', 'course2']);
 
-  var option = document.createElement("option");
-  option.text = "Kiwi";
-  selectElement.add(option);
+  var data = {courseSelectElement: courseSelectElement};
 
-  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
-  {
-    this.editorUi.actions.get('setAsDefaultStyle').funct();
-  }));
-
-  btn.style.width = '202px';
-  btn.style.marginTop = '20px';
-  container.appendChild(btn);
+  this.createButtonElement(container, 'Submit', 'videoUploadActSubmit', data);
 
   return container;
 };
@@ -3893,25 +3856,13 @@ ActionFormatPanel.prototype.addTaskUploadAct = function(container)
   var colorPanel = document.createElement('div');
   colorPanel.style.fontWeight = 'bold';
 
-  var fromHeader = document.createElement('h1');
-  fromHeader.innerText = "Course";
-  container.appendChild(fromHeader);
+  this.createLabelElement(container, 'Course');
 
-  var selectElement = document.createElement('select');
-  container.appendChild(selectElement);
+  let courseSelectElement = this.createSelectElement(container, null, ['course1', 'course2']);
 
-  var option = document.createElement("option");
-  option.text = "Kiwi";
-  selectElement.add(option);
+  var data = {courseSelectElement: courseSelectElement};
 
-  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
-  {
-    this.editorUi.actions.get('setAsDefaultStyle').funct();
-  }));
-
-  btn.style.width = '202px';
-  btn.style.marginTop = '20px';
-  container.appendChild(btn);
+  this.createButtonElement(container, 'Submit', 'taskUploadActSubmit', data);
 
   return container;
 };
@@ -3929,25 +3880,13 @@ ActionFormatPanel.prototype.addSendWeeklyTaskAct = function(container)
   var colorPanel = document.createElement('div');
   colorPanel.style.fontWeight = 'bold';
 
-  var fromHeader = document.createElement('h1');
-  fromHeader.innerText = "Course";
-  container.appendChild(fromHeader);
+  this.createLabelElement(container, 'Course');
 
-  var selectElement = document.createElement('select');
-  container.appendChild(selectElement);
+  let courseSelectElement = this.createSelectElement(container, null, ['course1', 'course2']);
 
-  var option = document.createElement("option");
-  option.text = "Kiwi";
-  selectElement.add(option);
+  var data = {courseSelectElement: courseSelectElement};
 
-  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
-  {
-    this.editorUi.actions.get('setAsDefaultStyle').funct();
-  }));
-
-  btn.style.width = '202px';
-  btn.style.marginTop = '20px';
-  container.appendChild(btn);
+  this.createButtonElement(container, 'Submit', 'sendWeeklyTaskActSubmit', data);
 
   return container;
 };
@@ -3962,25 +3901,18 @@ ActionFormatPanel.prototype.addReachedDateAct = function(container)
   container.style.paddingBottom = '4px';
   container.style.whiteSpace = 'normal';
   //
-  var colorPanel = document.createElement('div');
-  colorPanel.style.fontWeight = 'bold';
 
-  var fromHeader = document.createElement('h1');
-  fromHeader.innerText = "Date";
-  container.appendChild(fromHeader);
+  this.createLabelElement(container, 'Date And Time');
 
-  var inputElement = document.createElement('input');
-  inputElement.type = "date";
-  container.appendChild(inputElement);
+  var newChild = '<div  class="input-group date row" id="datetimepicker1" data-target-input="nearest">\n' +
+    '        <input class="col md-10" id="datecontent" type="text" class="form-control datetimepicker-input datetimepicker" data-target="#datetimepicker1" name="departure_date"/>\n' +
+    '        <span style="cursor: pointer"  class="input-group-addon" data-target="#datetimepicker1" data-toggle="datetimepicker">\n' +
+    '              <span class="fa fa-calendar col md-2"></span>';
+  container.insertAdjacentHTML('beforeend', newChild);
 
-  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
-  {
-    this.editorUi.actions.get('setAsDefaultStyle').funct();
-  }));
+  var data = {};
 
-  btn.style.width = '202px';
-  btn.style.marginTop = '20px';
-  container.appendChild(btn);
+  this.createButtonElement(container, 'Submit', 'taskUploadActSubmit', data);
 
   return container;
 };
@@ -4034,36 +3966,20 @@ ActionFormatPanel.prototype.addForumMessageAct = function(container)
   var colorPanel = document.createElement('div');
   colorPanel.style.fontWeight = 'bold';
 
-  var fromHeader = document.createElement('h1');
-  fromHeader.innerText = "Course";
-  container.appendChild(fromHeader);
+  this.createLabelElement(container, 'Course');
 
-  var selectElement = document.createElement('select');
-  container.appendChild(selectElement);
+  let courseSelectElement = this.createSelectElement(container, null, ['course1', 'course2']);
 
-  var option = document.createElement("option");
-  option.text = "Kiwi";
-  selectElement.add(option);
+  this.createLabelElement(container, 'Forum');
 
-  var fromHeader = document.createElement('h1');
-  fromHeader.innerText = "Forum Name";
-  container.appendChild(fromHeader);
+  let forumSelectElement = this.createSelectElement(container, null, ['forum1', 'forum2']);
 
-  var selectElement = document.createElement('select');
-  container.appendChild(selectElement);
+  var data = {
+    courseSelectElement: courseSelectElement,
+    forumSelectElement: forumSelectElement,
+  };
 
-  var option = document.createElement("option");
-  option.text = "Kiwi";
-  selectElement.add(option);
-
-  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
-  {
-    this.editorUi.actions.get('setAsDefaultStyle').funct();
-  }));
-
-  btn.style.width = '202px';
-  btn.style.marginTop = '20px';
-  container.appendChild(btn);
+  this.createButtonElement(container, 'Submit', 'forumMessageSubmit', data);
 
   return container;
 };
