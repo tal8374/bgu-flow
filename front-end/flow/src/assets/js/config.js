@@ -43,7 +43,7 @@ var myconfig = {
     listenPalette: {
       name: 'listen',
       title: 'Listen',
-      type: 'Listen',
+      type: 'listen',
       content: {
         whatsapp: {
           name: 'whatsapp',
@@ -127,7 +127,7 @@ var myconfig = {
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value:  '<div><img src="https://static.thenounproject.com/png/381172-200.png" style="height: 40px;width: 80px" title="Video Upload"></div>',
+          value: '<div><img src="https://static.thenounproject.com/png/381172-200.png" style="height: 40px;width: 80px" title="Video Upload"></div>',
           title: 'Video Upload',
           showLabel: null,
           showTitle: null,
@@ -149,7 +149,7 @@ var myconfig = {
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value:  '<div><img src="https://png.icons8.com/metro/1600/calendar-7.png" style="height: 40px;width: 80px" title="Reached Date"></div>',
+          value: '<div><img src="https://png.icons8.com/metro/1600/calendar-7.png" style="height: 40px;width: 80px" title="Reached Date"></div>',
           title: 'Reached Date',
           showLabel: null,
           showTitle: null,
@@ -195,6 +195,25 @@ var myconfig = {
           showTitle: null,
           tags: 'Send Weekly Tasks'
         }
+      }
+    },
+    generalPalette: {
+      name: 'general',
+      title: 'General',
+      type: 'general',
+      content: {
+        start: {
+          name: 'start',
+          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
+          width: 120,
+          height: 60,
+          value: '<div><img src="https://cdn2.iconfinder.com/data/icons/filled-icons/493/Geotag-512.png" style="height: 40px;width: 80px" title="Start Point"></div>',
+          title: 'Start',
+          showLabel: null,
+          showTitle: null,
+          tags: 'Start'
+        },
+
       }
     }
   }
