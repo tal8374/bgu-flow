@@ -424,10 +424,8 @@ Menus.prototype.init = function()
   })));
   this.put('view', new Menu(mxUtils.bind(this, function(menu, parent)
   {
-    this.addMenuItems(menu, ((this.editorUi.format != null) ? ['formatPanel'] : []).
-    concat(['outline', 'layers', '-', 'pageView', 'pageScale', '-', 'scrollbars', 'tooltips', '-',
-      'grid', 'guides', '-', 'connectionArrows', 'connectionPoints', '-',
-      'resetView', 'zoomIn', 'zoomOut'], parent));
+    this.addMenuItems(menu, ((this.editorUi.format != null) ? [] : []).
+    concat(['zoomIn', 'zoomOut'], parent));
   })));
   // Two special dropdowns that are only used in the toolbar
   this.put('viewPanels', new Menu(mxUtils.bind(this, function(menu, parent)
@@ -463,8 +461,7 @@ Menus.prototype.init = function()
   })));
   this.put('edit', new Menu(mxUtils.bind(this, function(menu, parent)
   {
-    this.addMenuItems(menu, ['undo', 'redo', '-', 'cut', 'copy', 'paste', 'delete', '-', 'duplicate', '-',
-      'editData', 'editTooltip', 'editStyle', '-', 'edit', '-', 'editLink', 'openLink', '-',
+    this.addMenuItems(menu, ['undo', 'redo', 'delete', '-',
       'selectVertices', 'selectEdges', 'selectAll', 'selectNone', '-', 'lockUnlock']);
   })));
   this.put('extras', new Menu(mxUtils.bind(this, function(menu, parent)
