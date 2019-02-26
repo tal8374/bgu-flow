@@ -2773,8 +2773,6 @@ function downEnterEdgeHandler (edge, graph, editorUI) {
   const source = edge.source;
   const target = edge.target;
 
-  editorUI.updateCellSync(target);
-
   const sourceEvent = editorUI.getCellSync(source);
   editorUI.updateCellSync(target, sourceEvent, source.type);
 }
@@ -2870,11 +2868,15 @@ EditorUi.prototype.syncHandlers = {
 };
 
 EditorUi.prototype.getCellSync = function(cell) {
+  if(!this.syncHandlers[cell.type]) return;
+
   return this.syncHandlers[cell.type](cell, this);
 };
 
 EditorUi.prototype.updateCellSync = function(cell, event, cellType) {
+
   const cellActionName = cellType ? this.actionNames[cellType] : this.actionNames[cell.type];
+    if(!cellActionName) return;
   const cellEvent = event ? event : this.getCellSync(cell);
   cell.sync[cellActionName].push(cellEvent);
 };
@@ -2885,9 +2887,7 @@ EditorUi.prototype.updateCellsSync = function() {
   for(let i = 0; i < cells.length;i++) {
     const cell = cells[i];
 
-    if(!cell.edges){
-      this.updateCellSync(cell);
-    }
+    this.updateCellSync(cell);
   }
 };
 
@@ -2935,12 +2935,10 @@ EditorUi.prototype.setGraphContext = function () {
 
   for(let i = 0; i < cells.length;i++) {
     const cell = cells[i];
-    console.log(cell);
 
-    if(this.isStandAlone(cell)) {
-      setContext(cell, this.graph);
-    } else if(this.isStartOfGraph(cell)) {
-      setContext(cell, this.graph);
+    if(cell.title.toLowerCase() === 'start' && cell.edges) {
+      let nextCell = cell.edges[0].target;
+      setContext(nextCell, this.graph);
     }
   }
 };
@@ -2950,6 +2948,8 @@ EditorUi.prototype.createCellsCode = function () {
 
   for(let i = 0; i < cells.length;i++) {
     const cell = cells[i];
+
+    if(cell.type === 'general') continue;
 
     let value = this.graph.getModel().getValue(cell);
 
@@ -2978,7 +2978,7 @@ EditorUi.prototype.createCellsCode = function () {
 
     if(cell.sync.block.length === 1){
       syncdata = syncdata !== '' ? syncdata + ', ' : syncdata;
-      syncdata += 'block: ' + cell.sync.block[1];
+      syncdata += 'block: ' + cell.sync.block[0];
     } else if(cell.sync.block.length > 1){
       syncdata = syncdata !== '' ? syncdata + ', ' : syncdata;
       syncdata += 'block: ' + cell.sync.block;
@@ -3001,9 +3001,8 @@ EditorUi.prototype.sendGraphToBackend = function () {
   }));
 };
 
-EditorUi.prototype.updateNodeSyncWithEdge = function () {
+EditorUi.prototype.updateNodeSyncWithDownEdge = function () {
   const cells = this.graph.getChildVertices(this.graph.getDefaultParent());
-  let visitedEdges = [];
 
   for(let i = 0; i < cells.length;i++) {
     const cell = cells[i];
@@ -3015,12 +3014,8 @@ EditorUi.prototype.updateNodeSyncWithEdge = function () {
     for(let j = 0; j < cell.edges.length; j++) {
       const edge = cell.edges[j];
 
-      if(!visitedEdges.includes(edge.id)){
-        visitedEdges.push(edge.id);
-
-        if(edge && edge.target && (edge.target.getId() === cell.getId() || edge.direction === 'RIGHT')) {
-          this.edgeHandlers[edge.direction](edge, this.graph, this);
-        }
+      if(edge && edge.target && (edge.target.getId() === cell.getId() && edge.direction === 'DOWN')) {
+        this.edgeHandlers[edge.direction](edge, this.graph, this);
       }
     }
   }
@@ -3059,7 +3054,7 @@ EditorUi.prototype.saveFile = function (forceDialog) {
 
   this.updateCellsSync();
 
-  this.updateNodeSyncWithEdge();
+  this.updateNodeSyncWithDownEdge();
 
   this.createCellsCode();
 

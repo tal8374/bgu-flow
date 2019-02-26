@@ -71,9 +71,8 @@ Actions.prototype.init = function()
   });
 
   this.addAction('taskUploadActSubmit', function(data) {
-    console.log(document.getElementById('datecontent').value)
-    // let courseSelectElement = data['courseSelectElement'];
-    // let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
+    let courseSelectElement = data['courseSelectElement'];
+    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
   });
 
   this.addAction('receptionTimeActSubmit', function(data) {
