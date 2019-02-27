@@ -3338,7 +3338,7 @@ ActionFormatPanel.prototype.getAct = function(cellTitle) {
     'file upload' : this.addFileUploadAct(this.createPanel()),
     'video upload' : this.addVideoUploadAct(this.createPanel()),
     'task upload' : this.addTaskUploadAct(this.createPanel()),
-    'send weekly tasks' : this.addSendWeeklyTaskAct(this.createPanel()),
+    'add schedule' : this.addScheduleAct(this.createPanel()),
     'course registration' : this.addCourseRegistrationAct(this.createPanel()),
     'reached date' : this.addReachedDateAct(this.createPanel()),
   };
@@ -3867,7 +3867,7 @@ ActionFormatPanel.prototype.addTaskUploadAct = function(container)
   return container;
 };
 
-ActionFormatPanel.prototype.addSendWeeklyTaskAct = function(container)
+ActionFormatPanel.prototype.addScheduleAct = function(container)
 {
   var ui = this.editorUi;
   var graph = ui.editor.graph;
