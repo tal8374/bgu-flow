@@ -3558,12 +3558,12 @@ EditorUi.prototype.createKeyHandler = function (editor) {
     keyHandler.bindAction(65, true, 'selectNone', true); // Ctrl+A
     keyHandler.bindAction(73, true, 'selectVertices', true); // Ctrl+Shift+I
     keyHandler.bindAction(69, true, 'selectEdges', true); // Ctrl+Shift+E
-    keyHandler.bindAction(69, true, 'editStyle'); // Ctrl+E
+    keyHandler.bindAction(69, false, 'editStyle'); // Ctrl+E
     keyHandler.bindAction(66, true, 'bold'); // Ctrl+B
     keyHandler.bindAction(66, true, 'toBack', true); // Ctrl+Shift+B
     keyHandler.bindAction(70, true, 'toFront', true); // Ctrl+Shift+F
-    keyHandler.bindAction(68, true, 'duplicate'); // Ctrl+D
-    keyHandler.bindAction(68, true, 'setAsDefaultStyle', true); // Ctrl+Shift+D
+    keyHandler.bindAction(68, false, 'duplicate'); // Ctrl+D
+    keyHandler.bindAction(68, false, 'setAsDefaultStyle', true); // Ctrl+Shift+D
     keyHandler.bindAction(90, true, 'undo'); // Ctrl+Z
     keyHandler.bindAction(89, true, 'autosize', true); // Ctrl+Shift+Y
     keyHandler.bindAction(88, false, 'cut'); // Ctrl+X
@@ -3572,16 +3572,16 @@ EditorUi.prototype.createKeyHandler = function (editor) {
     keyHandler.bindAction(81, true, 'connectionPoints', true); // Ctrl+Shift+Q
     keyHandler.bindAction(86, false, 'paste'); // Ctrl+V
     keyHandler.bindAction(71, true, 'group'); // Ctrl+G
-    keyHandler.bindAction(77, true, 'editData'); // Ctrl+M
+    keyHandler.bindAction(77, false, 'editData'); // Ctrl+M
     keyHandler.bindAction(71, true, 'grid', true); // Ctrl+Shift+G
     keyHandler.bindAction(73, true, 'italic'); // Ctrl+I
     keyHandler.bindAction(76, true, 'lockUnlock'); // Ctrl+L
     keyHandler.bindAction(76, true, 'layers', true); // Ctrl+Shift+L
-    keyHandler.bindAction(80, true, 'formatPanel', true); // Ctrl+Shift+P
-    keyHandler.bindAction(85, true, 'underline'); // Ctrl+U
+    keyHandler.bindAction(80, false, 'formatPanel', true); // Ctrl+Shift+P
+    keyHandler.bindAction(85, false, 'underline'); // Ctrl+U
     keyHandler.bindAction(85, true, 'ungroup', true); // Ctrl+Shift+U
-    keyHandler.bindAction(190, true, 'superscript'); // Ctrl+.
-    keyHandler.bindAction(188, true, 'subscript'); // Ctrl+,
+    keyHandler.bindAction(190, false, 'superscript'); // Ctrl+.
+    keyHandler.bindAction(188, false, 'subscript'); // Ctrl+,
     keyHandler.bindKey(13, function () {
       if (graph.isEnabled()) {
         graph.startEditingAtCell();
