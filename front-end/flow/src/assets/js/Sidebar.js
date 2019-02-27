@@ -76,8 +76,6 @@ function Sidebar(editorUi, container) {
  * Adds all palettes to the sidebar.
  */
 Sidebar.prototype.init = function () {
-  var dir = STENCIL_PATH;
-
   // this.addSearchPalette(true);
   this.addEventPalette(true, 'general');
   this.addEventPalette(true, 'action');
@@ -786,7 +784,7 @@ Sidebar.prototype.getEventPalette = function (paleteeName, type) {
     let contentData = paleteeConfig.content[content];
 
     let value = '';
-    value += this.createImageElement(contentData.image).outerHTML;
+    value += this.createImageElement(contentData).outerHTML;
     value += this.createInfoHeader(paleteeConfig).outerHTML;
 
     palette[contentData.name] = this.createVertexTemplateEntry(contentData.style, contentData.width,
@@ -799,9 +797,10 @@ Sidebar.prototype.getEventPalette = function (paleteeName, type) {
 
 Sidebar.prototype.createImageElement = function (payload) {
   let imageElement = document.createElement('img');
-  imageElement.src = payload.src;
-  imageElement.style.width = payload.style.width;
-  imageElement.style.height = payload.style.height;
+  imageElement.src = payload.image.src;
+  imageElement.style.width = payload.image.style.width;
+  imageElement.style.height = payload.image.style.height;
+  imageElement.title = payload.title;
 
   return imageElement;
 };
