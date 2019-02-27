@@ -63,6 +63,7 @@ var myconfig = {
       name: 'listen',
       title: 'Listen',
       type: 'listen',
+      header: 'Listen Event',
       content: {
         whatsapp: {
           name: 'whatsapp',
