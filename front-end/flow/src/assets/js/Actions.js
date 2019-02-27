@@ -232,7 +232,7 @@ Actions.prototype.init = function()
   }, null, null, 'Ctrl+Delete');
   this.addAction('duplicate', function()
   {
-    graph.setSelectionCells(graph.duplicateCells());
+    // graph.setSelectionCells(graph.duplicateCells());
   }, null, null, 'Ctrl+D');
   this.put('turn', new Action(mxResources.get('turn') + ' / ' + mxResources.get('reverse'), function()
   {
