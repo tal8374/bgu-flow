@@ -457,7 +457,7 @@ Menus.prototype.init = function()
   })));
   this.put('file', new Menu(mxUtils.bind(this, function(menu, parent)
   {
-    this.addMenuItems(menu, ['new', 'open', '-', 'save', 'saveAs', '-', 'import', 'export'], parent);
+    this.addMenuItems(menu, ['new', 'save'], parent);
   })));
   this.put('edit', new Menu(mxUtils.bind(this, function(menu, parent)
   {
