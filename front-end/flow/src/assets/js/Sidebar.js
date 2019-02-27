@@ -83,9 +83,6 @@ Sidebar.prototype.init = function () {
   this.addEventPalette(true, 'action');
   this.addEventPalette(true, 'listen');
   this.addEventPalette(true, 'block');
-  this.addUmlPalette(true);
-
-
 };
 
 /**
