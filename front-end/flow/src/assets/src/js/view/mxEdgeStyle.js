@@ -1336,7 +1336,7 @@ var mxEdgeStyle =
 		var targetIndex = dir[1] == mxConstants.DIRECTION_MASK_EAST ? 3
 				: dir[1];
 
-    if(source.cell.edges ) {
+    if(source && source.cell && source.cell.edges ) {
       source.cell.edges.forEach(function (edge) {
         if(source && target && edge.source === source.cell && edge.target === target.cell ) {
           if(targetIndex === 4) {
