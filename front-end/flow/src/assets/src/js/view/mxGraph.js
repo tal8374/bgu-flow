@@ -1132,7 +1132,7 @@ mxGraph.prototype.foldingEnabled = true;
  *
  * Specifies the return value for <isCellEditable>. Default is true.
  */
-mxGraph.prototype.cellsEditable = true;
+mxGraph.prototype.cellsEditable = false;
 
 /**
  * Variable: cellsDeletable
