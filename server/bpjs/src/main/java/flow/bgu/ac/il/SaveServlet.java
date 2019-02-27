@@ -8,12 +8,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.gson.Gson;
 import hackbgu.bgu.ac.il.model.requestBody.SaveBody;
 import il.ac.bgu.cs.bp.bpjs.execution.listeners.BProgramRunnerListenerAdapter;
 import il.ac.bgu.cs.bp.bpjs.model.BEvent;
 import il.ac.bgu.cs.bp.bpjs.model.ResourceBProgram;
 import org.apache.commons.io.IOUtils;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -94,7 +100,14 @@ public class SaveServlet extends HttpServlet {
 
         rnr.addListener(new BProgramRunnerListenerAdapter() {
             public void eventSelected(BProgram bp, BEvent event) {
-                System.out.println(event.name);
+                System.out.println("event name :" + event.name);
+
+                System.out.println(event.maybeData.getClass().getSimpleName());
+                System.out.println(event.maybeData.toString());
+
+//                Whatsapp whatsapp = (Whatsapp) event;
+
+                sendEvent(event);
             }
 
         });
@@ -103,7 +116,7 @@ public class SaveServlet extends HttpServlet {
 			public void run() {
 				// go!
 				try {
-					rnr.run();
+    					rnr.run();
 					throw new InterruptedException();
 				} catch (InterruptedException e) {
 					LOG.info("BProgram runner interrupted");
@@ -135,6 +148,28 @@ public class SaveServlet extends HttpServlet {
 
         Gson gson = new Gson();
         return gson.fromJson(body, SaveBody.class);
+    }
+
+    private void sendEvent(BEvent event) {
+        String eventName = event.name;
+
+        System.out.println("Sending to the backend event name - " + eventName);
+        try {
+            String url = "http://localhost:8000/api/bpjs/bpevent/" + eventName;
+            HttpClient client = new DefaultHttpClient();
+            HttpPost post = new HttpPost(url);
+
+            ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+            String json = ow.writeValueAsString(event.maybeData);
+            StringEntity postingString = new StringEntity(json);
+
+            post.setEntity(postingString);
+            post.setHeader("Content-type", "application/x-www-form-urlencoded");
+
+            client.execute(post);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
