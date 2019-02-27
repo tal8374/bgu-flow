@@ -4,13 +4,20 @@ var myconfig = {
       name: 'action',
       title: 'Action',
       type: 'action',
+      header: 'Action Event',
       content: {
         whatsapp: {
           name: 'whatsapp',
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843" style="height: 60px;width: 100px" title="Whatssap"></div>',
+          image: {
+            src: 'https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
           title: 'Whatsapp',
           showLabel: null,
           showTitle: null,
@@ -21,22 +28,34 @@ var myconfig = {
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://us.123rf.com/450wm/jovanas/jovanas1603/jovanas160300244/53038597-black-email-icon.jpg?ver=6" style="height: 40px;width: 80px" title="Email"></div>',
+          image: {
+            src: 'https://us.123rf.com/450wm/jovanas/jovanas1603/jovanas160300244/53038597-black-email-icon.jpg?ver=6',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
           title: 'Email',
           showLabel: null,
           showTitle: null,
           tags: 'Email'
         },
-        sendWeeklyTasks: {
-          name: 'sendWeeklyTasks',
+        addSchedule: {
+          name: 'addSchedule',
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://cdn4.iconfinder.com/data/icons/medical-icons-rounded-vector/1250/path_appointment-512.png" style="height: 35px;width: 70px" title="Send Weekly Tasks"></div>',
-          title: 'Send Weekly Tasks',
+          image: {
+            src: 'https://cdn4.iconfinder.com/data/icons/medical-icons-rounded-vector/1250/path_appointment-512.png',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
+          title: 'Add schedule',
           showLabel: null,
           showTitle: null,
-          tags: 'Send Weekly Tasks'
+          tags: 'Add schedule'
         }
       }
     },
@@ -50,7 +69,13 @@ var myconfig = {
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843" style="height: 60px;width: 100px" title="Whatssap"></div>',
+          image: {
+            src: 'https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
           title: 'Whatsapp',
           showLabel: null,
           showTitle: null,
@@ -61,7 +86,13 @@ var myconfig = {
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUs_xD2C26Ygv6bP5wHE58ThS5Tmr_AbUknarN9sOwQUVZIDI_2Q" style="height: 40px;width: 80px" title="Forum Message"></div>',
+          image: {
+            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUs_xD2C26Ygv6bP5wHE58ThS5Tmr_AbUknarN9sOwQUVZIDI_2Q',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
           title: 'Forum Message',
           showLabel: null,
           showTitle: null,
@@ -72,7 +103,13 @@ var myconfig = {
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://cdn1.vectorstock.com/i/1000x1000/59/40/customer-service-desk-icon-reception-symbol-vector-21095940.jpg" style="height: 40px;width: 80px" title="Reception Hours"></div>',
+          image: {
+            src: 'https://cdn1.vectorstock.com/i/1000x1000/59/40/customer-service-desk-icon-reception-symbol-vector-21095940.jpg',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
           title: 'Reception Hours',
           showLabel: null,
           showTitle: null,
@@ -83,7 +120,13 @@ var myconfig = {
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://us.123rf.com/450wm/jovanas/jovanas1603/jovanas160300244/53038597-black-email-icon.jpg?ver=6" style="height: 40px;width: 80px" title="Email"></div>',
+          image: {
+            src: 'https://us.123rf.com/450wm/jovanas/jovanas1603/jovanas160300244/53038597-black-email-icon.jpg?ver=6',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
           title: 'Email',
           showLabel: null,
           showTitle: null,
@@ -94,7 +137,13 @@ var myconfig = {
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://cdn3.iconfinder.com/data/icons/education/512/Test-512.png" style="height: 40px;width: 80px" title="Homework Checked"></div',
+          image: {
+            src: 'https://cdn3.iconfinder.com/data/icons/education/512/Test-512.png',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
           title: 'Homework Checked',
           showLabel: null,
           showTitle: null,
@@ -105,7 +154,13 @@ var myconfig = {
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://png.icons8.com/metro/1600/exam.png" style="height: 40px;width: 80px" title="Exam Checked"></div>',
+          image: {
+            src: 'https://png.icons8.com/metro/1600/exam.png',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
           title: 'Exam Checked',
           showLabel: null,
           showTitle: null,
@@ -116,7 +171,13 @@ var myconfig = {
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://cdn3.iconfinder.com/data/icons/web-document-icons/512/Upload_Document-512.png" style="height: 40px;width: 80px" title="File Upload"></div>',
+          image: {
+            src: 'https://cdn3.iconfinder.com/data/icons/web-document-icons/512/Upload_Document-512.png',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
           title: 'File Upload',
           showLabel: null,
           showTitle: null,
@@ -127,7 +188,13 @@ var myconfig = {
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://static.thenounproject.com/png/381172-200.png" style="height: 40px;width: 80px" title="Video Upload"></div>',
+          image: {
+            src: 'https://static.thenounproject.com/png/381172-200.png',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
           title: 'Video Upload',
           showLabel: null,
           showTitle: null,
@@ -138,7 +205,13 @@ var myconfig = {
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://www.freeiconspng.com/uploads/tasks-icon-14.png" style="height: 40px;width: 80px" title="Task Upload"></div>',
+          image: {
+            src: 'https://www.freeiconspng.com/uploads/tasks-icon-14.png',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
           title: 'Task Upload',
           showLabel: null,
           showTitle: null,
@@ -149,7 +222,13 @@ var myconfig = {
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://png.icons8.com/metro/1600/calendar-7.png" style="height: 40px;width: 80px" title="Reached Date"></div>',
+          image: {
+            src: 'https://png.icons8.com/metro/1600/calendar-7.png',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
           title: 'Reached Date',
           showLabel: null,
           showTitle: null,
@@ -161,13 +240,20 @@ var myconfig = {
       name: 'block',
       title: 'Block',
       type: 'block',
+      header: 'Block Event',
       content: {
         whatsapp: {
           name: 'whatsapp',
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843style=" style="height: 60px;width: 100px" title="Whatssap"></div>',
+          image: {
+            src: 'https://vignette.wikia.nocookie.net/logopedia/images/c/ce/WhatsApp_Icon.png/revision/latest?cb=20150305081843',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
           title: 'Whatsapp',
           showLabel: null,
           showTitle: null,
@@ -178,22 +264,34 @@ var myconfig = {
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://us.123rf.com/450wm/jovanas/jovanas1603/jovanas160300244/53038597-black-email-icon.jpg?ver=6" style="height: 40px;width: 80px" title="Email"></div>',
+          image: {
+            src: 'https://us.123rf.com/450wm/jovanas/jovanas1603/jovanas160300244/53038597-black-email-icon.jpg?ver=6',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
           title: 'Email',
           showLabel: null,
           showTitle: null,
           tags: 'Email'
         },
-        sendWeeklyTasks: {
-          name: 'sendWeeklyTasks',
+        addSchedule: {
+          name: 'addSchedule',
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://cdn4.iconfinder.com/data/icons/medical-icons-rounded-vector/1250/path_appointment-512.png" style="height: 35px;width: 70px" title="Send Weekly Tasks"></div>',
-          title: 'Send Weekly Tasks',
+          image: {
+            src: 'https://cdn4.iconfinder.com/data/icons/medical-icons-rounded-vector/1250/path_appointment-512.png',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
+          title: 'Add schedule',
           showLabel: null,
           showTitle: null,
-          tags: 'Send Weekly Tasks'
+          tags: 'Add schedule'
         }
       }
     },
@@ -201,13 +299,20 @@ var myconfig = {
       name: 'general',
       title: 'General',
       type: 'general',
+      header: 'Start Event',
       content: {
         start: {
           name: 'start',
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
-          value: '<div><img src="https://cdn2.iconfinder.com/data/icons/filled-icons/493/Geotag-512.png" style="height: 40px;width: 80px" title="Start Point"></div>',
+          image: {
+            src: 'https://cdn2.iconfinder.com/data/icons/filled-icons/493/Geotag-512.png',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
           title: 'Start',
           showLabel: null,
           showTitle: null,

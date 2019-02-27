@@ -7,21 +7,21 @@ var mxEvent =
 
 	/**
 	 * Class: mxEvent
-	 * 
+	 *
 	 * Cross-browser DOM event support. For internal event handling,
 	 * <mxEventSource> and the graph event dispatch loop in <mxGraph> are used.
-	 * 
+	 *
 	 * Memory Leaks:
-	 * 
+	 *
 	 * Use this class for adding and removing listeners to/from DOM nodes. The
 	 * <removeAllListeners> function is provided to remove all listeners that
 	 * have been added using <addListener>. The function should be invoked when
 	 * the last reference is removed in the JavaScript code, typically when the
 	 * referenced DOM node is removed from the DOM, and helps to reduce memory
 	 * leaks in IE6.
-	 * 
+	 *
 	 * Variable: objects
-	 * 
+	 *
 	 * Contains all objects where any listener was added using <addListener>.
 	 * This is used to reduce memory leaks in IE, see <mxClient.dispose>.
 	 */
@@ -29,7 +29,7 @@ var mxEvent =
 
 	 /**
 	  * Function: addListener
-	  * 
+	  *
 	  * Binds the function to the specified event on the given element. Use
 	  * <mxUtils.bind> in order to bind the "this" keyword inside the function
 	  * to a given execution scope.
@@ -43,11 +43,11 @@ var mxEvent =
 				element.mxListenerList = [];
 				mxEvent.objects.push(element);
 			}
-			
+
 			var entry = {name: eventName, f: funct};
 			element.mxListenerList.push(entry);
 		};
-		
+
 		if (window.addEventListener)
 		{
 			return function(element, eventName, funct)
@@ -61,7 +61,7 @@ var mxEvent =
 			return function(element, eventName, funct)
 			{
 				element.attachEvent('on' + eventName, funct);
-				updateListenerList(element, eventName, funct);				
+				updateListenerList(element, eventName, funct);
 			};
 		}
 	}(),
@@ -78,24 +78,24 @@ var mxEvent =
 			if (element.mxListenerList != null)
 			{
 				var listenerCount = element.mxListenerList.length;
-				
+
 				for (var i = 0; i < listenerCount; i++)
 				{
 					var entry = element.mxListenerList[i];
-					
+
 					if (entry.f == funct)
 					{
 						element.mxListenerList.splice(i, 1);
 						break;
 					}
 				}
-				
+
 				if (element.mxListenerList.length == 0)
 				{
 					element.mxListenerList = null;
-					
+
 					var idx = mxUtils.indexOf(mxEvent.objects, element);
-					
+
 					if (idx >= 0)
 					{
 						mxEvent.objects.splice(idx, 1);
@@ -103,7 +103,7 @@ var mxEvent =
 				}
 			}
 		};
-		
+
 		if (window.removeEventListener)
 		{
 			return function(element, eventName, funct)
@@ -124,7 +124,7 @@ var mxEvent =
 
 	/**
 	 * Function: removeAllListeners
-	 * 
+	 *
 	 * Removes all listeners from the given element.
 	 */
 	removeAllListeners: function(element)
@@ -140,10 +140,10 @@ var mxEvent =
 			}
 		}
 	},
-	
+
 	/**
 	 * Function: addGestureListeners
-	 * 
+	 *
 	 * Adds the given listeners for touch, mouse and/or pointer events. If
 	 * <mxClient.IS_POINTER> is true then pointer events will be registered,
 	 * else the respective mouse events will be registered. If <mxClient.IS_POINTER>
@@ -156,39 +156,39 @@ var mxEvent =
 		{
 			mxEvent.addListener(node, (mxClient.IS_POINTER) ? 'pointerdown' : 'mousedown', startListener);
 		}
-		
+
 		if (moveListener != null)
 		{
 			mxEvent.addListener(node, (mxClient.IS_POINTER) ? 'pointermove' : 'mousemove', moveListener);
 		}
-		
+
 		if (endListener != null)
 		{
 			mxEvent.addListener(node, (mxClient.IS_POINTER) ? 'pointerup' : 'mouseup', endListener);
 		}
-		
+
 		if (!mxClient.IS_POINTER && mxClient.IS_TOUCH)
 		{
 			if (startListener != null)
 			{
 				mxEvent.addListener(node, 'touchstart', startListener);
 			}
-			
+
 			if (moveListener != null)
 			{
 				mxEvent.addListener(node, 'touchmove', moveListener);
 			}
-			
+
 			if (endListener != null)
 			{
 				mxEvent.addListener(node, 'touchend', endListener);
 			}
 		}
 	},
-	
+
 	/**
 	 * Function: removeGestureListeners
-	 * 
+	 *
 	 * Removes the given listeners from mousedown, mousemove, mouseup and the
 	 * respective touch events if <mxClient.IS_TOUCH> is true.
 	 */
@@ -198,36 +198,36 @@ var mxEvent =
 		{
 			mxEvent.removeListener(node, (mxClient.IS_POINTER) ? 'pointerdown' : 'mousedown', startListener);
 		}
-		
+
 		if (moveListener != null)
 		{
 			mxEvent.removeListener(node, (mxClient.IS_POINTER) ? 'pointermove' : 'mousemove', moveListener);
 		}
-		
+
 		if (endListener != null)
 		{
 			mxEvent.removeListener(node, (mxClient.IS_POINTER) ? 'pointerup' : 'mouseup', endListener);
 		}
-		
+
 		if (!mxClient.IS_POINTER && mxClient.IS_TOUCH)
 		{
 			if (startListener != null)
 			{
 				mxEvent.removeListener(node, 'touchstart', startListener);
 			}
-			
+
 			if (moveListener != null)
 			{
 				mxEvent.removeListener(node, 'touchmove', moveListener);
 			}
-			
+
 			if (endListener != null)
 			{
 				mxEvent.removeListener(node, 'touchend', endListener);
 			}
 		}
 	},
-	
+
 	/**
 	 * Function: redirectMouseEvents
 	 *
@@ -244,7 +244,7 @@ var mxEvent =
 		{
 			return (typeof(state) == 'function') ? state(evt) : state;
 		};
-		
+
 		mxEvent.addGestureListeners(node, function (evt)
 		{
 			if (down != null)
@@ -295,11 +295,11 @@ var mxEvent =
 
 	/**
 	 * Function: release
-	 * 
+	 *
 	 * Removes the known listeners from the given DOM node and its descendants.
-	 * 
+	 *
 	 * Parameters:
-	 * 
+	 *
 	 * element - DOM node to remove the listeners from.
 	 */
 	release: function(element)
@@ -307,13 +307,13 @@ var mxEvent =
 		if (element != null)
 		{
 			mxEvent.removeAllListeners(element);
-			
+
 			var children = element.childNodes;
-			
+
 			if (children != null)
 			{
 		        var childCount = children.length;
-		        
+
 		        for (var i = 0; i < childCount; i += 1)
 		        {
 		        	mxEvent.release(children[i]);
@@ -324,16 +324,16 @@ var mxEvent =
 
 	/**
 	 * Function: addMouseWheelListener
-	 * 
+	 *
 	 * Installs the given function as a handler for mouse wheel events. The
 	 * function has two arguments: the mouse event and a boolean that specifies
 	 * if the wheel was moved up or down.
-	 * 
+	 *
 	 * This has been tested with IE 6 and 7, Firefox (all versions), Opera and
 	 * Safari. It does currently not work on Safari for Mac.
-	 * 
+	 *
 	 * Example:
-	 * 
+	 *
 	 * (code)
 	 * mxEvent.addMouseWheelListener(function (evt, up)
 	 * {
@@ -341,9 +341,9 @@ var mxEvent =
 	 *   mxLog.debug('mouseWheel: up='+up);
 	 * });
 	 *(end)
-	 * 
+	 *
 	 * Parameters:
-	 * 
+	 *
 	 * funct - Handler function that takes the event argument and a boolean up
 	 * argument for the mousewheel direction.
 	 */
@@ -360,9 +360,9 @@ var mxEvent =
 				{
 					evt = window.event;
 				}
-			
+
 				var delta = 0;
-				
+
 				if (mxClient.IS_FF)
 				{
 					delta = -evt.detail / 2;
@@ -371,15 +371,15 @@ var mxEvent =
 				{
 					delta = evt.wheelDelta / 120;
 				}
-				
+
 				// Handles the event using the given function
 				if (delta != 0)
 				{
 					funct(evt, delta > 0);
 				}
 			};
-	
-			// Webkit has NS event API, but IE event name and details 
+
+			// Webkit has NS event API, but IE event name and details
 			if (mxClient.IS_NS && document.documentMode == null)
 			{
 				var eventName = (mxClient.IS_SF || 	mxClient.IS_GC) ? 'mousewheel' : 'DOMMouseScroll';
@@ -391,7 +391,7 @@ var mxEvent =
 			}
 		}
 	},
-	
+
 	/**
 	 * Function: disableContextMenu
 	 *
@@ -414,13 +414,13 @@ var mxEvent =
 			return function(element)
 			{
 				element.setAttribute('oncontextmenu', 'return false;');
-			};		
+			};
 		}
 	}(),
-	
+
 	/**
 	 * Function: getSource
-	 * 
+	 *
 	 * Returns the event's target or srcElement depending on the browser.
 	 */
 	getSource: function(evt)
@@ -430,7 +430,7 @@ var mxEvent =
 
 	/**
 	 * Function: isConsumed
-	 * 
+	 *
 	 * Returns true if the event has been consumed using <consume>.
 	 */
 	isConsumed: function(evt)
@@ -440,7 +440,7 @@ var mxEvent =
 
 	/**
 	 * Function: isTouchEvent
-	 * 
+	 *
 	 * Returns true if the event was generated using a touch device (not a pen or mouse).
 	 */
 	isTouchEvent: function(evt)
@@ -452,7 +452,7 @@ var mxEvent =
 
 	/**
 	 * Function: isMultiTouchEvent
-	 * 
+	 *
 	 * Returns true if the event was generated using a touch device (not a pen or mouse).
 	 */
 	isMultiTouchEvent: function(evt)
@@ -462,7 +462,7 @@ var mxEvent =
 
 	/**
 	 * Function: isMouseEvent
-	 * 
+	 *
 	 * Returns true if the event was generated using a mouse (not a pen or touch device).
 	 */
 	isMouseEvent: function(evt)
@@ -471,10 +471,10 @@ var mxEvent =
 			evt.MSPOINTER_TYPE_MOUSE) : ((evt.mozInputSource != null) ?
 				evt.mozInputSource == 1 : evt.type.indexOf('mouse') == 0);
 	},
-	
+
 	/**
 	 * Function: isLeftMouseButton
-	 * 
+	 *
 	 * Returns true if the left mouse button is pressed for the given event.
 	 * To check if a button is pressed during a mouseMove you should use the
 	 * <mxGraph.isMouseDown> property. Note that this returns true in Firefox
@@ -497,10 +497,10 @@ var mxEvent =
 	        return evt.button === 1;
 	    }
 	},
-	
+
 	/**
 	 * Function: isMiddleMouseButton
-	 * 
+	 *
 	 * Returns true if the middle mouse button is pressed for the given event.
 	 * To check if a button is pressed during a mouseMove you should use the
 	 * <mxGraph.isMouseDown> property.
@@ -516,10 +516,10 @@ var mxEvent =
 	        return evt.button === 4;
 	    }
 	},
-	
+
 	/**
 	 * Function: isRightMouseButton
-	 * 
+	 *
 	 * Returns true if the right mouse button was pressed. Note that this
 	 * button might not be available on some systems. For handling a popup
 	 * trigger <isPopupTrigger> should be used.
@@ -538,7 +538,7 @@ var mxEvent =
 
 	/**
 	 * Function: isPopupTrigger
-	 * 
+	 *
 	 * Returns true if the event is a popup trigger. This implementation
 	 * returns true if the right button or the left button and control was
 	 * pressed on a Mac.
@@ -551,7 +551,7 @@ var mxEvent =
 
 	/**
 	 * Function: isShiftDown
-	 * 
+	 *
 	 * Returns true if the shift key is pressed for the given event.
 	 */
 	isShiftDown: function(evt)
@@ -561,7 +561,7 @@ var mxEvent =
 
 	/**
 	 * Function: isAltDown
-	 * 
+	 *
 	 * Returns true if the alt key is pressed for the given event.
 	 */
 	isAltDown: function(evt)
@@ -571,7 +571,7 @@ var mxEvent =
 
 	/**
 	 * Function: isControlDown
-	 * 
+	 *
 	 * Returns true if the control key is pressed for the given event.
 	 */
 	isControlDown: function(evt)
@@ -581,7 +581,7 @@ var mxEvent =
 
 	/**
 	 * Function: isMetaDown
-	 * 
+	 *
 	 * Returns true if the meta key is pressed for the given event.
 	 */
 	isMetaDown: function(evt)
@@ -591,7 +591,7 @@ var mxEvent =
 
 	/**
 	 * Function: getMainEvent
-	 * 
+	 *
 	 * Returns the touch or mouse event that contains the mouse coordinates.
 	 */
 	getMainEvent: function(e)
@@ -604,13 +604,13 @@ var mxEvent =
 		{
 			e = e.changedTouches[0];
 		}
-		
+
 		return e;
 	},
-	
+
 	/**
 	 * Function: getClientX
-	 * 
+	 *
 	 * Returns true if the meta key is pressed for the given event.
 	 */
 	getClientX: function(e)
@@ -620,7 +620,7 @@ var mxEvent =
 
 	/**
 	 * Function: getClientY
-	 * 
+	 *
 	 * Returns true if the meta key is pressed for the given event.
 	 */
 	getClientY: function(e)
@@ -630,11 +630,11 @@ var mxEvent =
 
 	/**
 	 * Function: consume
-	 * 
+	 *
 	 * Consumes the given event.
-	 * 
+	 *
 	 * Parameters:
-	 * 
+	 *
 	 * evt - Native event to be consumed.
 	 * preventDefault - Optional boolean to prevent the default for the event.
 	 * Default is true.
@@ -645,7 +645,7 @@ var mxEvent =
 	{
 		preventDefault = (preventDefault != null) ? preventDefault : true;
 		stopPropagation = (stopPropagation != null) ? stopPropagation : true;
-		
+
 		if (preventDefault)
 		{
 			if (evt.preventDefault)
@@ -654,7 +654,7 @@ var mxEvent =
 				{
 					evt.stopPropagation();
 				}
-				
+
 				evt.preventDefault();
 			}
 			else if (stopPropagation)
@@ -672,71 +672,71 @@ var mxEvent =
 			evt.returnValue = false;
 		}
 	},
-	
+
 	//
 	// Special handles in mouse events
 	//
-	
+
 	/**
 	 * Variable: LABEL_HANDLE
-	 * 
+	 *
 	 * Index for the label handle in an mxMouseEvent. This should be a negative
 	 * value that does not interfere with any possible handle indices. Default
 	 * is -1.
 	 */
 	LABEL_HANDLE: -1,
-	
+
 	/**
 	 * Variable: ROTATION_HANDLE
-	 * 
+	 *
 	 * Index for the rotation handle in an mxMouseEvent. This should be a
 	 * negative value that does not interfere with any possible handle indices.
 	 * Default is -2.
 	 */
 	ROTATION_HANDLE: -2,
-	
+
 	/**
 	 * Variable: CUSTOM_HANDLE
-	 * 
+	 *
 	 * Start index for the custom handles in an mxMouseEvent. This should be a
 	 * negative value and is the start index which is decremented for each
 	 * custom handle. Default is -100.
 	 */
 	CUSTOM_HANDLE: -100,
-	
+
 	/**
 	 * Variable: VIRTUAL_HANDLE
-	 * 
+	 *
 	 * Start index for the virtual handles in an mxMouseEvent. This should be a
 	 * negative value and is the start index which is decremented for each
 	 * virtual handle. Default is -100000. This assumes that there are no more
 	 * than VIRTUAL_HANDLE - CUSTOM_HANDLE custom handles.
-	 * 
+	 *
 	 */
 	VIRTUAL_HANDLE: -100000,
-	
+
 	//
 	// Event names
 	//
-	
+
 	/**
 	 * Variable: MOUSE_DOWN
 	 *
 	 * Specifies the event name for mouseDown.
 	 */
 	MOUSE_DOWN: 'mouseDown',
-	
+
 	/**
 	 * Variable: MOUSE_MOVE
 	 *
-	 * Specifies the event name for mouseMove. 
+	 * Specifies the event name for mouseMove.
 	 */
 	MOUSE_MOVE: 'mouseMove',
-	
+
 	/**
 	 * Variable: MOUSE_UP
 	 *
-	 * Specifies the event name for mouseUp. 
+	 * Specifies the event name for mouseUp.
 	 */
 	MOUSE_UP: 'mouseUp',
 
@@ -872,7 +872,7 @@ var mxEvent =
 	 * Specifies the event name for size.
 	 */
 	SIZE: 'size',
-	
+
 	/**
 	 * Variable: SELECT
 	 *
@@ -1152,7 +1152,7 @@ var mxEvent =
 	 * Specifies the event name for remove.
 	 */
 	REMOVE: 'remove',
-	
+
 	/**
 	 * Variable: CLEAR
 	 *

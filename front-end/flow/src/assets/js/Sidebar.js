@@ -83,6 +83,7 @@ Sidebar.prototype.init = function () {
   this.addEventPalette(true, 'action');
   this.addEventPalette(true, 'listen');
   this.addEventPalette(true, 'block');
+  this.addUmlPalette(true);
 
 
 };
@@ -786,12 +787,34 @@ Sidebar.prototype.getEventPalette = function (paleteeName, type) {
 
   for(let content in paleteeConfig.content) {
     let contentData = paleteeConfig.content[content];
+
+    let value = '';
+    value += this.createImageElement(contentData.image).outerHTML;
+    value += this.createInfoHeader(paleteeConfig).outerHTML;
+
     palette[contentData.name] = this.createVertexTemplateEntry(contentData.style, contentData.width,
-      contentData.height, contentData.value, contentData.title, contentData.showLabel,contentData.showTitle,
+      contentData.height, value, contentData.title, contentData.showLabel,contentData.showTitle,
       contentData.tags, paleteeConfig.type);
   }
 
   return palette[paleteeName];
+};
+
+Sidebar.prototype.createImageElement = function (payload) {
+  let imageElement = document.createElement('img');
+  imageElement.src = payload.src;
+  imageElement.style.width = payload.style.width;
+  imageElement.style.height = payload.style.height;
+
+  return imageElement;
+};
+
+
+Sidebar.prototype.createInfoHeader = function (payload) {
+  let headerElement = document.createElement('h5');
+  headerElement.innerText = payload.header;
+
+  return headerElement;
 };
 
 Sidebar.prototype.addEventPalette = function (expand, type) {
