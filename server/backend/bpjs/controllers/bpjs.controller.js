@@ -4,11 +4,11 @@ function eventLaunch(req, res) {
     // TODO: The name of the event, getting the id from the bpjs and then getting the name from the db.
     let componentID = req.params.componentID;
 
-    console.log("Received from the bpjs server event id " + componentID);
+    console.log("Received from the bpjs server event id " + componentID + ' and payload ');
 
     let payload = {
         componentID: componentID,
-        body: req.body
+        data: JSON.parse(Object.keys(req.body)[0])
     };
 
     iftttService.handleEvent(payload);

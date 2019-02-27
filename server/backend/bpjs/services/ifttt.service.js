@@ -18,19 +18,13 @@ function waitMail(payload) {
 
 function sendMail(payload) {
     //  TODO: should  get from the db by searching the node id
-    nodePayload = {
-        to: 'anatolyi@post.bgu.ac.il',
-        title: 'some title',
-        message: 'some message'
-    };
-
     request.post(
         'https://maker.ifttt.com/trigger/send_mail/with/key/S6k39eaZWwg-3oEbJ2_-H',
         {
             json: {
-                "value1": nodePayload.to,
-                "value2": nodePayload.title,
-                "value3": nodePayload.message,
+                "value1": payload.data.to,
+                "value2": payload.data.title,
+                "value3": payload.data.message,
             }
         },
         function (error, response, body) {
