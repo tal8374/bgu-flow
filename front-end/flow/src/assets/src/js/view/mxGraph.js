@@ -1117,7 +1117,7 @@ mxGraph.prototype.cellsLocked = false;
  *
  * Specifies the return value for <isCellCloneable>. Default is true.
  */
-mxGraph.prototype.cellsCloneable = true;
+mxGraph.prototype.cellsCloneable = false;
 
 /**
  * Variable: foldingEnabled
