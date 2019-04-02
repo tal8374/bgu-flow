@@ -110,13 +110,9 @@ public class SaveServlet extends HttpServlet {
 
         rnr.addListener(new BProgramRunnerListenerAdapter() {
             public void eventSelected(BProgram bp, BEvent event) {
-                System.out.println();
-//                System.out.println("event name :" + event.name);
-//
-//                System.out.println(event.maybeData.getClass().getSimpleName());
-//                System.out.println(event.maybeData.toString());
-//
-//                sendEvent(event);
+                System.out.println("event name :" + event.name);
+
+                sendEvent(event);
             }
 
         });
