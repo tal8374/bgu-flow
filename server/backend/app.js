@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var flowRouter = require('./flow/routes/flow.route');
 var bpjsRouter = require('./bpjs/routes/bpjs.route');
-var dashboardRouter = require('./dashboard/routes/dashboard.route');
+var dashboardRouter = require('./dashboard/routes/user.route');
 
 var app = express();
 
