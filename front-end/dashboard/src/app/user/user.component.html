@@ -17,13 +17,14 @@
                         <div class="form-group">
                             <label>Username</label>
                             <input type="text" class="form-control border-input" placeholder="Username"
-                                   value="michael23">
+                                   [(ngModel)]="profile.userName" name="userName">
                         </div>
                     </div>
                     <div class="col-md-6    ">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control border-input" placeholder="Email">
+                            <input [(ngModel)]="profile.email" type="email" class="form-control border-input"
+                                   name="email" placeholder="Email">
                         </div>
                     </div>
                 </div>
@@ -33,19 +34,19 @@
                         <div class="form-group">
                             <label>First Name</label>
                             <input type="text" class="form-control border-input" placeholder="Company"
-                                   value="Chet">
+                                   [(ngModel)]="profile.firstName" name="firstName">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Last Name</label>
                             <input type="text" class="form-control border-input" placeholder="Last Name"
-                                   value="Faker">
+                                   [(ngModel)]="profile.lastName" name="lastName">
                         </div>
                     </div>
                 </div>
                 <div class="text-center">
-                    <button style="margin-bottom: 15px;" type="submit" class="btn btn-wd">Update
+                    <button (click)="updateProfile()" style="margin-bottom: 15px;" type="submit" class="btn btn-wd">Update
                         Profile
                     </button>
                 </div>

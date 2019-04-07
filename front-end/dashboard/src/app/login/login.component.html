@@ -11,7 +11,7 @@
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="text" class="form-control border-input" placeholder="Email"
-                                           value="email">
+                                           [(ngModel)]="loginData.email" name="email">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -24,14 +24,14 @@
                                 <div class="form-group">
                                     <label>Password</label>
                                     <input type="text" class="form-control border-input" placeholder="Password"
-                                           value="password">
+                                           [(ngModel)]="loginData.password" name="password">
                                 </div>
                             </div>
                             <div class="col-md-4">
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-wd">Login</button>
+                            <button (click)="login()" type="submit" class="btn btn-wd">Login</button>
                         </div>
                     </form>
                 </div>
