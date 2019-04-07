@@ -3,10 +3,10 @@ var router = express.Router();
 const userController = require('../controllers/user.controller');
 
 router
-    .get('/user/', userController.list);
+    .get('/', userController.list);
 
 router
-    .get('/user/:userEmail', userController.get)
-    .put('/user/:userEmail', userController.update);
+    .get('/:userEmail', userController.get)
+    .put('/:userEmail', userController.update);
 
 module.exports = router;

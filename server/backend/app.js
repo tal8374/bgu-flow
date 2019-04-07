@@ -8,7 +8,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var flowRouter = require('./flow/routes/flow.route');
 var bpjsRouter = require('./bpjs/routes/bpjs.route');
-var dashboardRouter = require('./dashboard/routes/user.route');
+var dashboardUserRouter = require('./dashboard/routes/user.route');
+var dashboardLoginRouter = require('./dashboard/routes/login.route');
 
 var app = express();
 
@@ -32,7 +33,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/flow', flowRouter);
 app.use('/api/bpjs', bpjsRouter);
-app.use('/api/dashboard', dashboardRouter);
+app.use('/api/dashboard/user', dashboardUserRouter);
+app.use('/api/dashboard/login', dashboardLoginRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

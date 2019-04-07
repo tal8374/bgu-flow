@@ -2,15 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="869545db-7e34-4361-8c94-71b7cf3adc33" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dashboard/controllers/login.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/routes/login.route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/services/login.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/src/app/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/src/app/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/src/app/user/user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/src/app/user/user.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/src/app/user/user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/src/app/user/user.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/controllers/dashboard.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/controllers/user.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/routes/dashboard.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/routes/user.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/services/dashboard.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/services/user.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/routes/user.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/routes/user.route.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,28 +27,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/routes/user.route.js">
+        <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/controllers/user.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+            <state relative-caret-position="122">
+              <caret line="36" column="42" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dashboard/services/user.service.js">
+        <entry file="file://$PROJECT_DIR$/dashboard/routes/login.route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="17">
+              <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -80,6 +74,8 @@
       <find>flowID</find>
       <find>createBSyncsHandlers</find>
       <find>console.log</find>
+      <find>800</find>
+      <find>dashboardRouter</find>
     </findStrings>
     <dirStrings>
       <dir>D:\School\final-project\bgu-flow\backend\migrations</dir>
@@ -98,7 +94,6 @@
         <option value="$PROJECT_DIR$/bin/www" />
         <option value="$PROJECT_DIR$/dashboard/routes/bpjs.route.js" />
         <option value="$PROJECT_DIR$/dashboard/controllers/dashboard.controller.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/flow/routes/flow.route.js" />
         <option value="$PROJECT_DIR$/bpjs/routes/bpjs.route.js" />
         <option value="$PROJECT_DIR$/flow/controllers/flow.controller.js" />
@@ -106,9 +101,13 @@
         <option value="$PROJECT_DIR$/bpjs/services/bpjs.service.js" />
         <option value="$PROJECT_DIR$/bpjs/controllers/bpjs.controller.js" />
         <option value="$PROJECT_DIR$/bpjs/services/ifttt.service.js" />
-        <option value="$PROJECT_DIR$/dashboard/routes/user.route.js" />
         <option value="$PROJECT_DIR$/dashboard/controllers/user.controller.js" />
         <option value="$PROJECT_DIR$/dashboard/services/user.service.js" />
+        <option value="$PROJECT_DIR$/dashboard/services/login.service.js" />
+        <option value="$PROJECT_DIR$/dashboard/controllers/login.controller.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/dashboard/routes/user.route.js" />
+        <option value="$PROJECT_DIR$/dashboard/routes/login.route.js" />
       </list>
     </option>
   </component>
@@ -158,6 +157,11 @@
             <path>
               <item name="backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -177,6 +181,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\final-project\code\bgu-flow\server\backend\dashboard\services" />
+      <recent name="D:\final-project\code\bgu-flow\server\backend\dashboard\controllers" />
+      <recent name="D:\final-project\code\bgu-flow\server\backend\dashboard\routes" />
       <recent name="D:\School\final-project\project\bgu-flow\server\backend" />
     </key>
   </component>
@@ -216,7 +223,7 @@
       <workItem from="1546237403543" duration="3227000" />
       <workItem from="1550581165571" duration="1352000" />
       <workItem from="1551075699233" duration="4616000" />
-      <workItem from="1554635306352" duration="2726000" />
+      <workItem from="1554635306352" duration="4556000" />
     </task>
     <task id="LOCAL-00001" summary="Adding bpjs module.">
       <created>1546241524040</created>
@@ -267,11 +274,18 @@
       <option name="project" value="LOCAL" />
       <updated>1546426352203</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Creating user module">
+      <created>1554642125161</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1554642125161</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37238000" />
+    <option name="totallyTimeSpent" value="39068000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -318,7 +332,8 @@
     <MESSAGE value="Handling getting from the flow project the flow, and sending BPThread to the bpjs server." />
     <MESSAGE value="Handling recieving from bpjs server event.&#10;Handling send_mail event." />
     <MESSAGE value="Handling waitfor bp." />
-    <option name="LAST_COMMIT_MESSAGE" value="Handling waitfor bp." />
+    <MESSAGE value="Creating user module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating user module" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -376,13 +391,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/course.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -428,13 +436,6 @@
     <entry file="file://$PROJECT_DIR$/node_modules/request/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2311" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
@@ -500,24 +501,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/routes/user.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/controllers/user.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        <state relative-caret-position="208">
+          <caret line="15" column="20" lean-forward="true" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/services/user.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="153">
+          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/services/login.service.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/controllers/login.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/routes/user.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="36" column="42" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/routes/login.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
         </state>
       </provider>
     </entry>
