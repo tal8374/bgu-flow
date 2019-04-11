@@ -131,20 +131,20 @@ public class SaveServlet extends HttpServlet {
 
         thread.start();
 
-        threadTime = new Thread() {
-            public void run() {
-                while (!stop) {
-                    try {
-                        thread.sleep(1000);
-                        bprog.enqueueExternalEvent(new CurrentTime());
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        };
-
-        threadTime.start();
+//        threadTime = new Thread() {
+//            public void run() {
+//                while (!stop) {
+//                    try {
+//                        thread.sleep(1000);
+//                        bprog.enqueueExternalEvent(new CurrentTime());
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        };
+//
+//        threadTime.start();
 
         response.getOutputStream().println("Succesfully deployed:");
         response.getOutputStream().println(functions);

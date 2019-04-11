@@ -17,6 +17,7 @@ public class BPServer {
         server.setHandler(context);
 
         context.addServlet(new ServletHolder(new SaveServlet()), "/save");
+        context.addServlet(new ServletHolder(new InsertEventServlet()), "/insert-event");
     }
 
     public void start() throws Exception {

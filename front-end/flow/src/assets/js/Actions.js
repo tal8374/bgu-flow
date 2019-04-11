@@ -24,7 +24,7 @@ Actions.prototype.init = function()
     return Action.prototype.isEnabled.apply(this, arguments) && graph.isEnabled();
   };
 
-  this.addAction('whatssapSubmit', function(data, node) {
+  this.addAction('smsSubmit', function(data, node) {
     node.payload = {
       from: data['from'].value,
       to: data['to'].value,
@@ -40,52 +40,80 @@ Actions.prototype.init = function()
     };
   });
 
-  this.addAction('sendWeeklyTask', function(data) {
+  this.addAction('sendWeeklyTask', function(data, node) {
     var course = data['course'].options[data['course'].options.selectedIndex].value;
   });
 
-  this.addAction('reachedDateSubmit', function(data) {
-    var date = data['date'].value;
-
-    alert(date);
+  this.addAction('reachedDateSubmit', function(data, node) {
+    node.payload = {
+      date: data['date'].value,
+    };
   });
 
-  this.addAction('homeworkCheckedActSubmit', function(data) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-  });
-
-  this.addAction('examCheckedActSubmit', function(data) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-  });
-
-  this.addAction('fileUploadSubmit', function(data) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-  });
-
-  this.addAction('videoUploadActSubmit', function(data) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-  });
-
-  this.addAction('taskUploadActSubmit', function(data) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-  });
-
-  this.addAction('receptionTimeActSubmit', function(data) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-  });
-
-  this.addAction('forumMessageSubmit', function(data) {
+  this.addAction('homeworkCheckedActSubmit', function(data, node) {
     let courseSelectElement = data['courseSelectElement'];
     let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
 
-    let forumSelectElement = data['forumSelectElement'];
-    let selectedForum = forumSelectElement.options[forumSelectElement.selectedIndex].value;
+    node.payload = {
+      selectedCourse: selectedCourse,
+    };
+  });
+
+  this.addAction('examCheckedActSubmit', function(data, node) {
+    let courseSelectElement = data['courseSelectElement'];
+    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
+
+    node.payload = {
+      selectedCourse: selectedCourse,
+    };
+  });
+
+  this.addAction('fileUploadSubmit', function(data, node) {
+    let courseSelectElement = data['courseSelectElement'];
+    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
+
+    node.payload = {
+      selectedCourse: selectedCourse,
+    };
+  });
+
+  this.addAction('videoUploadActSubmit', function(data, node) {
+    let courseSelectElement = data['courseSelectElement'];
+    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
+
+    node.payload = {
+      selectedCourse: selectedCourse,
+    };
+  });
+
+  this.addAction('taskUploadActSubmit', function(data, node) {
+    let courseSelectElement = data['courseSelectElement'];
+    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
+
+    node.payload = {
+      selectedCourse: selectedCourse,
+    };
+  });
+
+  this.addAction('receptionTimeActSubmit', function(data, node) {
+    let courseSelectElement = data['courseSelectElement'];
+    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
+
+    node.payload = {
+      selectedCourse: selectedCourse,
+    };
+  });
+
+  this.addAction('forumMessageSubmit', function(data, node) {
+    let courseSelectElement = data['courseSelectElement'];
+    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
+
+    node.payload = {
+      selectedCourse: selectedCourse,
+    };
+
+    // let forumSelectElement = data['forumSelectElement'];
+    // let selectedForum = forumSelectElement.options[forumSelectElement.selectedIndex].value;
   });
 
   // File actions
