@@ -30,7 +30,8 @@ public class InsertEventServlet extends HttpServlet {
 
         InsertEventBody insertEventBody = createInsertBody(request);
 
-        SaveServlet.bprog.enqueueExternalEvent(new BEvent(insertEventBody.eventName, insertEventBody.data));
+        SaveServlet.bprog.enqueueExternalEvent(new BEvent(insertEventBody.eventName,
+                "{\"selectedCourse\": \"Course2\"}"));
 
         System.out.println();
     }
