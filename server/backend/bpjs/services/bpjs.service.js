@@ -11,7 +11,7 @@ function createBPProgram(payload) {
 
     let flowProgram = `bp.registerBThread(${flowID}, function () { ${flowBodyContent} });`;
 
-    console.log(flowProgram)
+    console.log("in creat BPprogram", flowProgram);
 
     let flowPayload = {
         "userEmail": "t@gmail.com",
