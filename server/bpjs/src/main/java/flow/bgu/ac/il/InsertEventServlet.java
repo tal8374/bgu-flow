@@ -33,9 +33,29 @@ public class InsertEventServlet extends HttpServlet {
 
         Map<String, String> eventData = insertEventBody.data;
 
-        SaveServlet.bprog.enqueueExternalEvent(new BEvent(insertEventBody.eventName,
-                "{\"" + eventData.keySet().iterator().next() + "\": \""
-                        + eventData.values().iterator().next() + "\"}" ));
+        String eventDataStr = "{\"change\"}";
+        boolean isFirst = true;
+        String change = "";
+
+        for (Map.Entry<String, String> entry : eventData.entrySet()) {
+
+            if (!isFirst) {
+                change += ",";
+            }
+
+            System.out.println(entry.getKey() + "/" + entry.getValue());
+            change += entry.getKey() + "\": \"" + entry.getValue();
+
+            isFirst = false;
+        }
+
+        eventDataStr = eventDataStr.replace("change", change);
+
+        System.out.println(eventDataStr);
+
+        SaveServlet.bprog.enqueueExternalEvent(new BEvent(insertEventBody.eventName, eventDataStr));
+//                "{\"" + eventData.keySet().iterator().next() + "\": \""
+//                        + eventData.values().iterator().next() + "\"}"));
 //                "{\"selectedCourse\": \"Course2\"}"));
 
         System.out.println();
