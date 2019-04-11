@@ -20,9 +20,9 @@ app.set('view engine', 'handlebars');
 app.get('/', (req, res)=> res.send('INDEX'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/users', require('./routes/users'));
-app.use('/api/flow', require('./flow/routes'));
-app.use('/api/bpjs', require('./bpjs/routes'));
-app.use('/api/dashboard/user', require('./dashboard/routes'));
+app.use('/api/flow', require('./flow/routes/flow.route'));
+app.use('/api/bpjs', require('./bpjs/routes/bpjs.route'));
+app.use('/api/dashboard/user', require('./dashboard/routes/user.route'));
 
 // parse application/json
 app.use(bodyParser.json());
