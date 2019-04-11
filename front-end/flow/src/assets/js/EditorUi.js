@@ -1,3 +1,7 @@
+function replaceAll(word, search, replacement) {
+  return word.replace(new RegExp(search, 'g'), replacement);
+};
+
 /**
  * Copyright (c) 2006-2012, JGraph Ltd
  */
@@ -2818,8 +2822,19 @@ EditorUi.prototype.edgeHandlers = {
 
 EditorUi.prototype.syncTemplate = 'bp.sync({syncdata})';
 EditorUi.prototype.eventTemplate = 'bp.Event("title", payload)';
-EditorUi.prototype.eventSetTemplate = 'bp.EventSet("id", function(evt) {return (evt.name!="title") ? false : payloadQuery })';
-EditorUi.prototype.payloadQueryTemplate = 'evt.data.key=="value"';
+EditorUi.prototype.eventSetTemplate = 'bp.EventSet("id", function(evt) {' +
+  'var e = bp.Event(evt.name, JSON.parse(evt.data));' +
+  'var t = "title";' +
+  'bp.log.info("logging t: " +t);' +
+  'bp.log.info("logging evt: " +evt);' +
+  'bp.log.info("logging e: "+e);' +
+  'bp.log.info("logging "+e.data.selectedCourse);' +
+  'bp.log.info("logging equals title "+e.name.equals(t));' +
+  'bp.log.info("logging equals data "+e.data.selectedCourse.equals("Course2"));' +
+  'var r = (!e.name.equals(t)) ? false : payloadQuery;'+
+  'bp.log.info("logging r "+r);' +
+  'return r; })';
+EditorUi.prototype.payloadQueryTemplate = 'e.data.key.equals("value")';
 
 
 function getRequestSync(cell, editorUI) {
@@ -2834,6 +2849,9 @@ function getRequestSync(cell, editorUI) {
 function getWaitForSync(cell, editorUI) {
   let eventSetTemplate = editorUI.eventSetTemplate;
   let eventSetData = [];
+
+  cell.title = replaceAll(cell.title, ' ', '_');
+  console.log(cell.title)
 
   eventSetTemplate = eventSetTemplate.replace('title', cell.title);
   eventSetTemplate = eventSetTemplate.replace('id', cell.getId());

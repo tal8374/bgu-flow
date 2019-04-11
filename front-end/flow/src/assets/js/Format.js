@@ -3615,7 +3615,7 @@ ActionFormatPanel.prototype.addSMSAct = function(container)
     message: inputMessageElement,
   };
 
-  this.createButtonElement(container, 'Submit', 'whatssapSubmit', data);
+  this.createButtonElement(container, 'Submit', 'smsSubmit', data);
 
   return container;
 };
