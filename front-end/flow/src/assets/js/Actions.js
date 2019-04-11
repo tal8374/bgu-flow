@@ -24,7 +24,7 @@ Actions.prototype.init = function()
     return Action.prototype.isEnabled.apply(this, arguments) && graph.isEnabled();
   };
 
-  this.addAction('whatssapSubmit', function(data, node) {
+  this.addAction('smsSubmit', function(data, node) {
     node.payload = {
       from: data['from'].value,
       to: data['to'].value,
