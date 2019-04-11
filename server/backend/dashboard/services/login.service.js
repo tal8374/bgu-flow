@@ -1,5 +1,5 @@
 function login(payload){
-    console.log(payload.req.body)
+    // console.log(payload.req.body)
 }
 
 module.exports = {

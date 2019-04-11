@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db= require('../config/database');
 const User=require('../models/Users');
-const Course=require('../models/Courses');
+const Course=require('./Courses');
 
 
 

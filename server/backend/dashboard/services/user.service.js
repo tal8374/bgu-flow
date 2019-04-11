@@ -7,7 +7,7 @@ function get(payload){
 }
 
 function update(payload){
-    console.log(payload.req.body)
+    // console.log(payload.req.body)
 }
 
 module.exports = {

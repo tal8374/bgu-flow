@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="869545db-7e34-4361-8c94-71b7cf3adc33" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/config/database.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/models/Assignments.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/models/Courses" afterDir="false" />
@@ -33,6 +34,20 @@
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bpjs/BPWorkBench.iml" beforeDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/dashboard/controllers/course.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/services/course.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/src/app/course/course.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/src/app/course/course.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/src/app/course/course.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/src/app/course/course.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/routes/login.route.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/routes/user.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/routes/user.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/services/login.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/services/login.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/services/user.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/InsertEventServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bpjs/src/main/java/flow/bgu/ac/il/InsertEventServlet.java" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,13 +63,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="322">
               <caret line="33" selection-start-line="33" selection-end-line="33" />
+=======
+            <state relative-caret-position="578">
+              <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashboard/routes/user.route.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="24" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+<<<<<<< Updated upstream
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -73,6 +103,39 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
+=======
+        <entry file="file://$PROJECT_DIR$/bpjs/services/ifttt.service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bpjs/services/bpjs.service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="51" column="9" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashboard/controllers/course.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashboard/services/course.service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -100,7 +163,6 @@
       <find>300</find>
       <find>static</find>
       <find>cosole</find>
-      <find>8000</find>
       <find>request.</find>
       <find>request</find>
       <find>handleEvent</find>
@@ -108,12 +170,20 @@
       <find>createBSyncsHandlers</find>
       <find>800</find>
       <find>dashboardRouter</find>
+<<<<<<< Updated upstream
+=======
+      <find>8000</find>
+>>>>>>> Stashed changes
       <find>console.log</find>
     </findStrings>
     <dirStrings>
       <dir>D:\School\final-project\bgu-flow\backend\migrations</dir>
+<<<<<<< Updated upstream
       <dir>C:\shachar\university\forth year\project\bgu-flow\server\backend\bpjs</dir>
       <dir>C:\shachar\university\forth year\project\bgu-flow\server\backend</dir>
+=======
+      <dir>D:\final-project\code\bgu-flow\server\backend\dashboard</dir>
+>>>>>>> Stashed changes
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -131,9 +201,17 @@
         <option value="$PROJECT_DIR$/bpjs/routes/bpjs.route.js" />
         <option value="$PROJECT_DIR$/flow/controllers/flow.controller.js" />
         <option value="$PROJECT_DIR$/flow/services/flow.service.js" />
+<<<<<<< Updated upstream
+=======
+        <option value="$PROJECT_DIR$/bpjs/controllers/bpjs.controller.js" />
+        <option value="$PROJECT_DIR$/bpjs/services/ifttt.service.js" />
+>>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/dashboard/controllers/user.controller.js" />
+        <option value="$PROJECT_DIR$/dashboard/controllers/login.controller.js" />
+        <option value="$PROJECT_DIR$/dashboard/routes/login.route.js" />
         <option value="$PROJECT_DIR$/dashboard/services/user.service.js" />
         <option value="$PROJECT_DIR$/dashboard/services/login.service.js" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/dashboard/controllers/login.controller.js" />
         <option value="$PROJECT_DIR$/dashboard/routes/user.route.js" />
         <option value="$PROJECT_DIR$/dashboard/routes/login.route.js" />
@@ -143,6 +221,14 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/users.js" />
         <option value="$PROJECT_DIR$/package.json" />
+=======
+        <option value="$PROJECT_DIR$/dashboard/routes/course.route.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/dashboard/routes/user.route.js" />
+        <option value="$PROJECT_DIR$/dashboard/controllers/course.controller.js" />
+        <option value="$PROJECT_DIR$/dashboard/services/course.service.js" />
+        <option value="$PROJECT_DIR$/bpjs/services/bpjs.service.js" />
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -167,7 +253,45 @@
             <path>
               <item name="backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
+<<<<<<< Updated upstream
               <item name="bin" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="bpjs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="bpjs" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+>>>>>>> Stashed changes
             </path>
           </expand>
           <select />
@@ -231,8 +355,16 @@
       <workItem from="1546237403543" duration="3227000" />
       <workItem from="1550581165571" duration="1352000" />
       <workItem from="1551075699233" duration="4616000" />
+<<<<<<< Updated upstream
       <workItem from="1554635306352" duration="4556000" />
       <workItem from="1554744435022" duration="8919000" />
+=======
+      <workItem from="1554635306352" duration="7382000" />
+      <workItem from="1554646990711" duration="5371000" />
+      <workItem from="1554701629586" duration="78000" />
+      <workItem from="1554896288716" duration="1893000" />
+      <workItem from="1554962399528" duration="4780000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="Adding bpjs module.">
       <created>1546241524040</created>
@@ -290,11 +422,22 @@
       <option name="project" value="LOCAL" />
       <updated>1554642125161</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Creating login routing">
+      <created>1554644106329</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1554644106329</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="47987000" />
+=======
+    <option name="totallyTimeSpent" value="54016000" />
+>>>>>>> Stashed changes
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -306,10 +449,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< Updated upstream
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24520819" />
+=======
+    <frame x="56" y="-6" width="1487" height="877" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19559228" />
+>>>>>>> Stashed changes
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -323,7 +472,11 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+<<<<<<< Updated upstream
       <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.42776203" />
+=======
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32258064" />
+>>>>>>> Stashed changes
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -332,6 +485,12 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="D:/lessons/lesson2/node_modules/karma/config.tpl.js" />
+        <option value="D:/lessons/lesson3/angular-material-autocomplete/node_modules/karma/config.tpl.js" />
+      </list>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding bpjs module." />
@@ -342,7 +501,8 @@
     <MESSAGE value="Handling recieving from bpjs server event.&#10;Handling send_mail event." />
     <MESSAGE value="Handling waitfor bp." />
     <MESSAGE value="Creating user module" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating user module" />
+    <MESSAGE value="Creating login routing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating login routing" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -475,6 +635,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/dashboard/controllers/user.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -483,6 +644,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/services/user.service.js">
+=======
+    <entry file="file://$PROJECT_DIR$/bpjs/routes/bpjs.route.js">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="33" />
@@ -499,6 +663,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/dashboard/routes/user.route.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -507,6 +672,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bpjs/routes/bpjs.route.js">
+=======
+    <entry file="file://$PROJECT_DIR$/dashboard/controllers/user.controller.js">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
@@ -520,6 +688,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/bpjs/services/bpjs.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -528,6 +697,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bpjs/services/ifttt.service.js">
+=======
+    <entry file="file://$PROJECT_DIR$/dashboard/controllers/login.controller.js">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
@@ -541,6 +713,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -562,6 +735,56 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+=======
+    <entry file="file://$PROJECT_DIR$/dashboard/services/login.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/routes/course.route.js" />
+    <entry file="file://$PROJECT_DIR$/dashboard/routes/login.route.js" />
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/controllers/course.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/services/course.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/routes/user.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bpjs/services/bpjs.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="51" column="9" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bpjs/services/ifttt.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>

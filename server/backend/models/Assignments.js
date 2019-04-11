@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db= require('../config/database');
-const Course=require('../models/Courses');
+const Course=require('./Courses');
 
 const Assignment= db.define('Assignments', {
     assignment_id: {type: Sequelize.STRING,  primaryKey: true},
