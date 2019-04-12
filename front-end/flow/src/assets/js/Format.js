@@ -4051,15 +4051,18 @@ ActionFormatPanel.prototype.addReachedDateAct = function(container)
 
   this.createLabelElement(container, 'Date And Time');
 
+  let id = guidGenerator();
+
   var newChild = '<div  class="input-group date row" id="datetimepicker1" data-target-input="nearest">\n' +
-    '        <input class="col md-10" id="datecontent" type="text" class="form-control datetimepicker-input datetimepicker" data-target="#datetimepicker1" name="departure_date"/>\n' +
+    '        <input class="col md-10" id="' + id +
+    '" type="text" class="form-control datetimepicker-input datetimepicker" data-target="#datetimepicker1" name="departure_date"/>\n' +
     '        <span style="cursor: pointer"  class="input-group-addon" data-target="#datetimepicker1" data-toggle="datetimepicker">\n' +
     '              <span class="fa fa-calendar col md-2"></span>';
   container.insertAdjacentHTML('beforeend', newChild);
 
-  var data = {};
+  var data = {id: id};
 
-  this.createButtonElement(container, 'Submit', 'taskUploadActSubmit', data);
+  this.createButtonElement(container, 'Submit', 'reachedDateSubmit', data);
 
   return container;
 };
@@ -4133,7 +4136,7 @@ ActionFormatPanel.prototype.addForumMessageAct = function(container)
     }
   });
 
-  let courseSelectElement = this.createSelectElement(container, id, []);
+  let courseSelectElement = this.createSelectElement(container, id, ['Database', 'Programming']);
   courseSelectElement.id = id;
 
 

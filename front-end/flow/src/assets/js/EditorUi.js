@@ -2820,17 +2820,18 @@ EditorUi.prototype.edgeHandlers = {
   "DOWN": downEnterEdgeHandler,
 };
 
+// 'bp.log.info("logging t: " +t);' +
+// 'bp.log.info("logging evt: " +evt);' +
+// 'bp.log.info("logging e: "+e);' +
+// 'bp.log.info("logging "+e.data.selectedCourse);' +
+// 'bp.log.info("logging equals title "+e.name.equals(t));' +
+// 'bp.log.info("logging equals data "+e.data.selectedCourse.equals("Course2"));' +
+
 EditorUi.prototype.syncTemplate = 'bp.sync({syncdata})';
 EditorUi.prototype.eventTemplate = 'bp.Event("title", payload)';
 EditorUi.prototype.eventSetTemplate = 'bp.EventSet("id", function(evt) {' +
   'var e = bp.Event(evt.name, JSON.parse(evt.data));' +
   'var t = "title";' +
-  'bp.log.info("logging t: " +t);' +
-  'bp.log.info("logging evt: " +evt);' +
-  'bp.log.info("logging e: "+e);' +
-  'bp.log.info("logging "+e.data.selectedCourse);' +
-  'bp.log.info("logging equals title "+e.name.equals(t));' +
-  'bp.log.info("logging equals data "+e.data.selectedCourse.equals("Course2"));' +
   'var r = (!e.name.equals(t)) ? false : payloadQuery;'+
   'bp.log.info("logging r "+r);' +
   'return r; })';

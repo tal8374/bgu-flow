@@ -45,8 +45,12 @@ Actions.prototype.init = function()
   });
 
   this.addAction('reachedDateSubmit', function(data, node) {
+    console.log(data.id)
+    console.log(data)
+    let date = document.getElementById(data['id']).value;
+
     node.payload = {
-      date: data['date'].value,
+      date: date,
     };
   });
 
