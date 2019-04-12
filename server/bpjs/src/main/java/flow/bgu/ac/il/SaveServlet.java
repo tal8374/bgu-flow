@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.gson.Gson;
 import events.CurrentTime;
-import events.CurrentTimeData;
 import hackbgu.bgu.ac.il.model.requestBody.SaveBody;
 import il.ac.bgu.cs.bp.bpjs.execution.listeners.BProgramRunnerListenerAdapter;
 import il.ac.bgu.cs.bp.bpjs.model.BEvent;
@@ -131,20 +130,20 @@ public class SaveServlet extends HttpServlet {
 
         thread.start();
 
-//        threadTime = new Thread() {
-//            public void run() {
-//                while (!stop) {
-//                    try {
-//                        thread.sleep(1000);
-//                        bprog.enqueueExternalEvent(new CurrentTime());
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }
-//        };
-//
-//        threadTime.start();
+        threadTime = new Thread() {
+            public void run() {
+                while (!stop) {
+                    try {
+                        thread.sleep(1000 * 60);
+                        bprog.enqueueExternalEvent(new CurrentTime());
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+
+        threadTime.start();
 
         response.getOutputStream().println("Succesfully deployed:");
         response.getOutputStream().println(functions);

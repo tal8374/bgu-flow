@@ -10,7 +10,7 @@ public class CurrentTime extends BEvent {
     public String currentTime;
 
     public CurrentTime() {
-        super("Reached Date", new CurrentTimeData());
-        this.currentTime = new SimpleDateFormat("MM/dd/YYY hh:mm aa").format(new Date()).toString();
+        super("Reached_Date", "{\"date\": \"" +
+                new SimpleDateFormat("MM/dd/YYY h:m aa").format(new Date()).toString() + "\"}");
     }
 }
