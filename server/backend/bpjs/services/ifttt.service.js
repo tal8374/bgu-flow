@@ -2,21 +2,14 @@ const request = require('request');
 
 const eventHandlers = {
     'send_mail': sendMail,
-    'wait_mail': waitMail,
     'Whatsapp':sendSms,
     'Add schedule': sechedule,
 };
 
 function handleEvent(payload) {
-    console.log("in handleEvent",payload.componentID);
     if (!eventHandlers[payload.componentID]) return;
 
     eventHandlers[payload.componentID](payload)
-}
-
-function waitMail(payload) {
-    console.log('email was recieved');
-    console.log(payload.body);
 }
 
 function sendMail(payload) {
@@ -57,9 +50,9 @@ function sendSms(payload){
 
     );
 }
- function sechedule(payload){
+function sechedule(payload){
     console.log("in the function");
- }
+}
 module.exports = {
     handleEvent
 };

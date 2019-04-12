@@ -1,7 +1,15 @@
-const express= require('express');
-const exphbs = require('express-handlebars');
-const bodyParser = require('body-parser');
-const path= require('path');
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+
+var flowRouter = require('./flow/routes/flow.route');
+var bpjsRouter = require('./bpjs/routes/bpjs.route');
+var dashboardUserRouter = require('./dashboard/routes/user.route');
+var dashboardLoginRouter = require('./dashboard/routes/login.route');
+
+var app = express();
 
 // Database
 const db= require('./config/database');
@@ -11,27 +19,38 @@ db.authenticate()
     .then(()=> console.log( 'DATAbase connected...'))
     .catch(err=> console.log('Error:'+err))
 
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-const app=express();
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}) );
-app.set('view engine', 'handlebars');
+app.use('/api/flow', flowRouter);
+app.use('/api/bpjs', bpjsRouter);
+app.use('/api/dashboard/user', dashboardUserRouter);
+app.use('/api/dashboard/login', dashboardLoginRouter);
 
-app.get('/', (req, res)=> res.send('INDEX'));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/users', require('./routes/users'));
-app.use('/api/flow', require('./flow/routes/flow.route'));
-app.use('/api/bpjs', require('./bpjs/routes/bpjs.route'));
-app.use('/api/dashboard/user', require('./dashboard/routes/user.route'));
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+    res.status(404).send({error: 'Not found'})
+});
 
-// parse application/json
-app.use(bodyParser.json());
+// error handler
+app.use(function (err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+    res.status(err.status || 500).send({error: err})
+});
 
-//Users routes
-app.use('/users', require('./routes/users'));
-app.use('/courses', require('./routes/courses'));
-app.use('/userCourses',require('./routes/userCourses'));
-
-const PORT= process.env.PORT || 5000;
-
-app.listen(PORT, console.log('server started on port', PORT));
+module.exports = app;
