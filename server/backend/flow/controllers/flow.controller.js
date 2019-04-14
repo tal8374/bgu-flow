@@ -8,6 +8,8 @@ function list(req, res) {
 }
 
 function createFlow(req, res) {
+    console.log(req.body)
+
     request.post(
         'http://localhost:7000/save',
         {json: req.body},

@@ -2,7 +2,8 @@ const request = require('request');
 
 const eventHandlers = {
     'send_mail': sendMail,
-    'wait_mail': waitMail
+    'Whatsapp':sendSms,
+    'Add schedule': sechedule,
 };
 
 function handleEvent(payload) {
@@ -11,13 +12,9 @@ function handleEvent(payload) {
     eventHandlers[payload.componentID](payload)
 }
 
-function waitMail(payload) {
-    console.log('email was recieved');
-    console.log(payload.body);
-}
-
 function sendMail(payload) {
     //  TODO: should  get from the db by searching the node id
+    console.log(payload);
     request.post(
         'https://maker.ifttt.com/trigger/send_mail/with/key/S6k39eaZWwg-3oEbJ2_-H',
         {
@@ -35,7 +32,27 @@ function sendMail(payload) {
         }
     );
 }
+function sendSms(payload){
+    request.post(
+        'https://maker.ifttt.com/trigger/phoneMessege/with/key/dxV-wuKUxcP9AWCS5J10PW',
+        {
+            json: {
+                "value1": payload.data.to,
+                "value2": payload.data.message,
+            }
+        },
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(body)
+                console.log('Sms was sent')
+            }
+        }
 
+    );
+}
+function sechedule(payload){
+    console.log("in the function");
+}
 module.exports = {
     handleEvent
 };

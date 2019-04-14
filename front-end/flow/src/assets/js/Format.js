@@ -3615,7 +3615,7 @@ ActionFormatPanel.prototype.addSMSAct = function(container)
     message: inputMessageElement,
   };
 
-  this.createButtonElement(container, 'Submit', 'whatssapSubmit', data);
+  this.createButtonElement(container, 'Submit', 'smsSubmit', data);
 
   return container;
 };
@@ -4051,15 +4051,18 @@ ActionFormatPanel.prototype.addReachedDateAct = function(container)
 
   this.createLabelElement(container, 'Date And Time');
 
+  let id = guidGenerator();
+
   var newChild = '<div  class="input-group date row" id="datetimepicker1" data-target-input="nearest">\n' +
-    '        <input class="col md-10" id="datecontent" type="text" class="form-control datetimepicker-input datetimepicker" data-target="#datetimepicker1" name="departure_date"/>\n' +
+    '        <input class="col md-10" id="' + id +
+    '" type="text" class="form-control datetimepicker-input datetimepicker" data-target="#datetimepicker1" name="departure_date"/>\n' +
     '        <span style="cursor: pointer"  class="input-group-addon" data-target="#datetimepicker1" data-toggle="datetimepicker">\n' +
     '              <span class="fa fa-calendar col md-2"></span>';
   container.insertAdjacentHTML('beforeend', newChild);
 
-  var data = {};
+  var data = {id: id};
 
-  this.createButtonElement(container, 'Submit', 'taskUploadActSubmit', data);
+  this.createButtonElement(container, 'Submit', 'reachedDateSubmit', data);
 
   return container;
 };
@@ -4118,22 +4121,22 @@ ActionFormatPanel.prototype.addForumMessageAct = function(container)
   var id = guidGenerator();
 
   var client = new HttpClient();
-  // client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
-  //   response = JSON.parse(response)
-  //   var select = document.getElementById(id);
-  //
-  //   if(!select) return;
-  //
-  //   for(let i = 0; i < response.courses.length; i++) {
-  //
-  //     var opt = document.createElement('option');
-  //     opt.value = response.courses[i];
-  //     opt.innerHTML = response.courses[i];
-  //     select.appendChild(opt);
-  //   }
-  // });
+  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
+    response = JSON.parse(response)
+    var select = document.getElementById(id);
 
-  let courseSelectElement = this.createSelectElement(container, id, ['Databases']);
+    if(!select) return;
+
+    for(let i = 0; i < response.courses.length; i++) {
+
+      var opt = document.createElement('option');
+      opt.value = response.courses[i];
+      opt.innerHTML = response.courses[i];
+      select.appendChild(opt);
+    }
+  });
+
+  let courseSelectElement = this.createSelectElement(container, id, ['Database', 'Programming']);
   courseSelectElement.id = id;
 
 

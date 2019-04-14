@@ -1,8 +1,10 @@
 package hackbgu.bgu.ac.il.model.requestBody;
 
+import java.util.Map;
+
 public class InsertEventBody {
 
     public String eventName;
-    public Object data;
+    public Map<String, String> data;
 
 }

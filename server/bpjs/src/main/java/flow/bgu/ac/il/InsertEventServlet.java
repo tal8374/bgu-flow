@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Map;
 
 public class InsertEventServlet extends HttpServlet {
 
@@ -30,7 +31,32 @@ public class InsertEventServlet extends HttpServlet {
 
         InsertEventBody insertEventBody = createInsertBody(request);
 
-        SaveServlet.bprog.enqueueExternalEvent(new BEvent(insertEventBody.eventName, insertEventBody.data));
+        Map<String, String> eventData = insertEventBody.data;
+
+        String eventDataStr = "{\"change\"}";
+        boolean isFirst = true;
+        String change = "";
+
+        for (Map.Entry<String, String> entry : eventData.entrySet()) {
+
+            if (!isFirst) {
+                change += ",";
+            }
+
+            System.out.println(entry.getKey() + "/" + entry.getValue());
+            change += entry.getKey() + "\": \"" + entry.getValue();
+
+            isFirst = false;
+        }
+
+        eventDataStr = eventDataStr.replace("change", change);
+
+        System.out.println(eventDataStr);
+
+        SaveServlet.bprog.enqueueExternalEvent(new BEvent(insertEventBody.eventName, eventDataStr));
+//                "{\"" + eventData.keySet().iterator().next() + "\": \""
+//                        + eventData.values().iterator().next() + "\"}"));
+//                "{\"selectedCourse\": \"Course2\"}"));
 
         System.out.println();
     }
