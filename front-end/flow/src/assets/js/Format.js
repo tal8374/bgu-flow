@@ -4118,22 +4118,22 @@ ActionFormatPanel.prototype.addForumMessageAct = function(container)
   var id = guidGenerator();
 
   var client = new HttpClient();
-  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
-    response = JSON.parse(response)
-    var select = document.getElementById(id);
+  // client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
+  //   response = JSON.parse(response)
+  //   var select = document.getElementById(id);
+  //
+  //   if(!select) return;
+  //
+  //   for(let i = 0; i < response.courses.length; i++) {
+  //
+  //     var opt = document.createElement('option');
+  //     opt.value = response.courses[i];
+  //     opt.innerHTML = response.courses[i];
+  //     select.appendChild(opt);
+  //   }
+  // });
 
-    if(!select) return;
-
-    for(let i = 0; i < response.courses.length; i++) {
-
-      var opt = document.createElement('option');
-      opt.value = response.courses[i];
-      opt.innerHTML = response.courses[i];
-      select.appendChild(opt);
-    }
-  });
-
-  let courseSelectElement = this.createSelectElement(container, id, []);
+  let courseSelectElement = this.createSelectElement(container, id, ['Databases']);
   courseSelectElement.id = id;
 
 
