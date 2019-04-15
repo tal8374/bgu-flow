@@ -4,20 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 var flowRouter = require('./flow/routes/flow.route');
 var bpjsRouter = require('./bpjs/routes/bpjs.route');
-var dashboardUserRouter = require('./dashboard/routes/user.route');
-var dashboardLoginRouter = require('./dashboard/routes/login.route');
+var moodleRouter = require('./moodle/routes/moodle.route');
+var dashboardRouter = require('./dashboard/routes/dashboard.route');
 
 var app = express();
-
-// Database
-const db= require('./config/database');
-
-//Test DB connection
-db.authenticate()
-    .then(()=> console.log( 'DATAbase connected...'))
-    .catch(err=> console.log('Error:'+err))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,10 +29,12 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 app.use('/api/flow', flowRouter);
 app.use('/api/bpjs', bpjsRouter);
-app.use('/api/dashboard/user', dashboardUserRouter);
-app.use('/api/dashboard/login', dashboardLoginRouter);
+app.use('/api/dashboard', dashboardRouter);
+app.use('/api/moodle', moodleRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,65 +1,63 @@
 const request = require('request');
 
-const eventHandlers = {
-    'send_mail': sendMail,
-    'wait_mail': waitMail,
-    'Whatsapp':sendSms,
-    'Add schedule': sechedule,
+const createBSyncsHandlers = {
+    'action': createBSyncRequest,
+    'listen': createBWaitForRequest
 };
 
-function handleEvent(payload) {
-    console.log("in handleEvent",payload.componentID);
-    if (!eventHandlers[payload.componentID]) return;
+function createBPProgram(payload) {
+    let flowID = payload.flowID;
+    let flowBodyContent = createBSyncs(payload.flowComponentsData);
 
-    eventHandlers[payload.componentID](payload)
+    let flowProgram = `bp.registerBThread(${flowID}, function () { ${flowBodyContent} });`;
+
+    console.log(flowProgram)
+
+    let flowPayload = {
+        "userEmail": "t@gmail.com",
+        "flowID": flowID,
+        flow: flowProgram
+    };
+
+    sendBPProgram(flowPayload);
 }
 
-function waitMail(payload) {
-    console.log('email was recieved');
-    console.log(payload.body);
+function createBSyncs(payload) {
+    let BSyncs = [];
+
+    for (let i = 0; i < payload.length; i++) {
+        let BSync = createBSyncsHandlers[payload[i].type](payload[i]);
+        BSyncs.push(BSync);
+    }
+
+    return BSyncs.join('');
 }
 
-function sendMail(payload) {
-    //  TODO: should  get from the db by searching the node id
-    console.log(payload);
+function createBWaitForRequest(payload) {
+    // TODO: get the id of the bp components from the db.
+    let bpID = payload.title;
+
+    return `bp.sync({waitFor: bp.Event('${bpID}')});`;
+}
+
+function createBSyncRequest(payload) {
+    // TODO: get the id of the bp components from the db.
+    let bpID = payload.title;
+
+    return `bp.sync({request: bp.Event('${bpID}')});`;
+}
+
+function sendBPProgram(payload) {
     request.post(
-        'https://maker.ifttt.com/trigger/send_mail/with/key/S6k39eaZWwg-3oEbJ2_-H',
-        {
-            json: {
-                "value1": payload.data.to,
-                "value2": payload.data.title,
-                "value3": payload.data.message,
-            }
-        },
+        'http://localhost:7000/save',
+        {json: payload},
         function (error, response, body) {
             if (!error && response.statusCode == 200) {
-                console.log(body)
-                console.log('mail was sent')
             }
         }
     );
 }
-function sendSms(payload){
-    request.post(
-        'https://maker.ifttt.com/trigger/phoneMessege/with/key/dxV-wuKUxcP9AWCS5J10PW',
-        {
-            json: {
-                "value1": payload.data.to,
-                "value2": payload.data.message,
-            }
-        },
-        function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                console.log(body)
-                console.log('Sms was sent')
-            }
-        }
 
-    );
-}
-function sechedule(payload){
-    console.log("in the function");
-}
 module.exports = {
-    handleEvent
+    createBPProgram
 };
