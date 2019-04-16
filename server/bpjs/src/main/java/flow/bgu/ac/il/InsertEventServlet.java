@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class InsertEventServlet extends HttpServlet {
@@ -29,31 +31,20 @@ public class InsertEventServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        System.out.println("insert event");
+
         InsertEventBody insertEventBody = createInsertBody(request);
 
         Map<String, String> eventData = insertEventBody.data;
 
-        String eventDataStr = "{\"change\"}";
-        boolean isFirst = true;
-        String change = "";
+        Gson gson = new Gson();
+        String json = gson.toJson(eventData);
+        System.out.println(json);
 
-        for (Map.Entry<String, String> entry : eventData.entrySet()) {
 
-            if (!isFirst) {
-                change += ",";
-            }
-
-            System.out.println(entry.getKey() + "/" + entry.getValue());
-            change += entry.getKey() + "\": \"" + entry.getValue();
-
-            isFirst = false;
-        }
-
-        eventDataStr = eventDataStr.replace("change", change);
-
-        System.out.println(eventDataStr);
-
-        SaveServlet.bprog.enqueueExternalEvent(new BEvent(insertEventBody.eventName, eventDataStr));
+        SaveServlet.bprog.enqueueExternalEvent(new BEvent(insertEventBody.eventName,
+                json));
+//        SaveServlet.bprog.enqueueExternalEvent(new BEvent(insertEventBody.eventName, eventDataStr));
 //                "{\"" + eventData.keySet().iterator().next() + "\": \""
 //                        + eventData.values().iterator().next() + "\"}"));
 //                "{\"selectedCourse\": \"Course2\"}"));
