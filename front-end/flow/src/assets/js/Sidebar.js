@@ -81,6 +81,9 @@ Sidebar.prototype.init = function () {
   this.addEventPalette(true, 'action');
   this.addEventPalette(true, 'listen');
   this.addEventPalette(true, 'block');
+  //this.addEventPalette(true, 'execute');
+  //this.createButtonElement( 'Submit');
+ //this.addEventPalette(true, 'submit');
 };
 
 /**
@@ -498,6 +501,8 @@ Sidebar.prototype.cloneCell = function (cell, value) {
 
   return clone;
 };
+
+
 
 /**
  * Adds shape search UI.

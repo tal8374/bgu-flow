@@ -3358,10 +3358,15 @@ ActionFormatPanel.prototype.getAct = function(cellTitle) {
     'exam checked' : this.addExamCheckedAct(this.createPanel()),
     'file upload' : this.addFileUploadAct(this.createPanel()),
     'video upload' : this.addVideoUploadAct(this.createPanel()),
-    'task upload' : this.addTaskUploadAct(this.createPanel()),
-    'add schedule' : this.addScheduleAct(this.createPanel()),
+    'message in facebook' : this.addFacebookAct(this.createPanel()),
+    'new assignmnet' : this.addNewAssignmentAct(this.createPanel()),
     'course registration' : this.addCourseRegistrationAct(this.createPanel()),
     'reached date' : this.addReachedDateAct(this.createPanel()),
+    'new lecture':this.addNewLecturedAct(this.createPanel()),
+    'new practice':this.addNewPracticedAct(this.createPanel()),
+    'assignmnet submitted':this.addAssignmnetSubmiteddAct(this.createPanel()),
+    'block sms':this.addBlockSMSAct(this.createPanel()),
+    'block email':this.addBlockEmailAct(this.createPanel()),
   };
 
   return options[cellTitle];
@@ -3372,8 +3377,9 @@ function getCellTitle(cell) {
   if (!cell) {
     return;
   }
-
+  console.log(cell.title);
   return cell.title;
+
 }
 
 
@@ -3587,9 +3593,6 @@ StyleFormatPanel.prototype.addFill = function(container)
 ActionFormatPanel.prototype.addSMSAct = function(container)
 {
   var ui = this.editorUi;
-  var graph = ui.editor.graph;
-  var ss = this.format.getSelectionState();
-
   container.style.paddingTop = '4px';
   container.style.paddingBottom = '4px';
   container.style.whiteSpace = 'normal';
@@ -3603,7 +3606,7 @@ ActionFormatPanel.prototype.addSMSAct = function(container)
 
   this.createLabelElement(container, 'To');
 
-  var inputToElement = this.createInputElement(container, 'from');
+  var inputToElement = this.createInputElement(container, 'to');
 
   this.createLabelElement(container, 'Message');
 
@@ -3616,6 +3619,35 @@ ActionFormatPanel.prototype.addSMSAct = function(container)
   };
 
   this.createButtonElement(container, 'Submit', 'smsSubmit', data);
+
+  return container;
+};
+
+ActionFormatPanel.prototype.addBlockSMSAct = function(container)
+{
+  var ui = this.editorUi;
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  this.createLabelElement(container, 'From');
+
+  var inputFromElement = this.createInputElement(container, 'from');
+
+  this.createLabelElement(container, 'To');
+
+  var inputToElement = this.createInputElement(container, 'to');
+
+
+  var data = {
+    from: inputFromElement,
+    to: inputToElement,
+  };
+
+  this.createButtonElement(container, 'Submit');
 
   return container;
 };
@@ -3737,6 +3769,36 @@ ActionFormatPanel.prototype.addEmailAct = function(container)
     from: inputFromElement,
     to: inputToElement,
     message: inputMessageElement,
+  };
+
+  this.createButtonElement(container, 'Submit', 'emailSubmit', data);
+
+  return container;
+};
+ActionFormatPanel.prototype.addBlockEmailAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  this.createLabelElement(container, 'From');
+
+  var inputFromElement = this.createInputElement(container, 'from');
+
+  this.createLabelElement(container, 'To');
+
+  var inputToElement = this.createInputElement(container, 'from');
+
+  var data = {
+    from: inputFromElement,
+    to: inputToElement,
   };
 
   this.createButtonElement(container, 'Submit', 'emailSubmit', data);
@@ -3954,12 +4016,8 @@ ActionFormatPanel.prototype.addVideoUploadAct = function(container)
   return container;
 };
 
-ActionFormatPanel.prototype.addTaskUploadAct = function(container)
+ActionFormatPanel.prototype.addFacebookAct = function(container)
 {
-  var ui = this.editorUi;
-  var graph = ui.editor.graph;
-  var ss = this.format.getSelectionState();
-
   container.style.paddingTop = '4px';
   container.style.paddingBottom = '4px';
   container.style.whiteSpace = 'normal';
@@ -3967,36 +4025,20 @@ ActionFormatPanel.prototype.addTaskUploadAct = function(container)
   var colorPanel = document.createElement('div');
   colorPanel.style.fontWeight = 'bold';
 
-  this.createLabelElement(container, 'Course');
+  this.createLabelElement(container, 'URL');
 
-  var id = guidGenerator();
+  var inputURLElement = this.createInputElement(container, 'url')
 
-  var client = new HttpClient();
-  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
-    response = JSON.parse(response)
-    var select = document.getElementById(id);
-    if(!select) return;
+  var data = {
+    url: inputURLElement,
+  };
 
-    for(let i = 0; i < response.courses.length; i++) {
-
-      var opt = document.createElement('option');
-      opt.value = response.courses[i];
-      opt.innerHTML = response.courses[i];
-      select.appendChild(opt);
-    }
-  });
-
-  let courseSelectElement = this.createSelectElement(container, id, []);
-  courseSelectElement.id = id;
-
-  var data = {courseSelectElement: courseSelectElement};
-
-  this.createButtonElement(container, 'Submit', 'taskUploadActSubmit', data);
+  this.createButtonElement(container, 'Submit');
 
   return container;
 };
 
-ActionFormatPanel.prototype.addScheduleAct = function(container)
+ActionFormatPanel.prototype.addNewAssignmentAct = function(container)
 {
   var ui = this.editorUi;
   var graph = ui.editor.graph;
@@ -4066,7 +4108,130 @@ ActionFormatPanel.prototype.addReachedDateAct = function(container)
 
   return container;
 };
+ActionFormatPanel.prototype.addNewLecturedAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
 
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  this.createLabelElement(container, 'Course');
+
+  var id = guidGenerator();
+
+  var client = new HttpClient();
+  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
+    response = JSON.parse(response)
+    var select = document.getElementById(id);
+    if(!select) return;
+
+    for(let i = 0; i < response.courses.length; i++) {
+
+      var opt = document.createElement('option');
+      opt.value = response.courses[i];
+      opt.innerHTML = response.courses[i];
+      select.appendChild(opt);
+    }
+  });
+  let courseSelectElement = this.createSelectElement(container, id, []);
+  courseSelectElement.id = id;
+
+  var data = {courseSelectElement: courseSelectElement};
+
+  this.createButtonElement(container, 'Submit');
+  return container;
+};
+ActionFormatPanel.prototype.addNewPracticedAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  this.createLabelElement(container, 'Course');
+
+  var id = guidGenerator();
+
+  var client = new HttpClient();
+  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
+    response = JSON.parse(response)
+    var select = document.getElementById(id);
+    if(!select) return;
+
+    for(let i = 0; i < response.courses.length; i++) {
+
+      var opt = document.createElement('option');
+      opt.value = response.courses[i];
+      opt.innerHTML = response.courses[i];
+      select.appendChild(opt);
+    }
+  });
+  let courseSelectElement = this.createSelectElement(container, id, []);
+  courseSelectElement.id = id;
+
+  var data = {courseSelectElement: courseSelectElement};
+
+  this.createButtonElement(container, 'Submit');
+  return container;
+};
+ActionFormatPanel.prototype.addAssignmnetSubmiteddAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  this.createLabelElement(container, 'Course');
+
+  var id = guidGenerator();
+
+  var client = new HttpClient();
+  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
+    response = JSON.parse(response)
+    var select = document.getElementById(id);
+    if(!select) return;
+
+    for(let i = 0; i < response.courses.length; i++) {
+
+      var opt = document.createElement('option');
+      opt.value = response.courses[i];
+      opt.innerHTML = response.courses[i];
+      select.appendChild(opt);
+    }
+  });
+  let courseSelectElement = this.createSelectElement(container, id, []);
+  courseSelectElement.id = id;
+
+  //witch assignment
+
+  this.createLabelElement(container, 'assignment');
+
+  var id = guidGenerator();
+  let assignmentSelectElement = this.createSelectElement(container, id, []);
+
+  var data = {courseSelectElement: courseSelectElement};
+
+  this.createButtonElement(container, 'Submit');
+  return container;
+};
 ActionFormatPanel.prototype.addCourseRegistrationAct = function(container)
 {
   var ui = this.editorUi;
@@ -4091,7 +4256,7 @@ ActionFormatPanel.prototype.addCourseRegistrationAct = function(container)
   option.text = "Kiwi";
   selectElement.add(option);
 
-  var btn = mxUtils.button('Save', mxUtils.bind(this, function(evt)
+  var btn = mxUtils.button('Execute', mxUtils.bind(this, function(evt)
   {
     this.editorUi.actions.get('setAsDefaultStyle').funct();
   }));
@@ -4118,6 +4283,7 @@ ActionFormatPanel.prototype.addForumMessageAct = function(container)
 
   this.createLabelElement(container, 'Course');
 
+
   var id = guidGenerator();
 
   var client = new HttpClient();
@@ -4137,7 +4303,11 @@ ActionFormatPanel.prototype.addForumMessageAct = function(container)
   });
 
   let courseSelectElement = this.createSelectElement(container, id, ['Database', 'Programming']);
+  this.createLabelElement(container, 'Forum');
+  let forumSelectElement = this.createSelectElement(container, id, ['exam', 'general']);
   courseSelectElement.id = id;
+
+  //..
 
 
   var data = {

@@ -1,23 +1,29 @@
 {
   "development": {
-    "username": "djamware",
-    "password": "dj@mw@r3",
-    "database": "node_sequelize",
+    "username": "postgres",
+    "password": "1234",
+    "database": "BguFlowDB",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "port":"5433",
+    "operatorsAliases": "false"
   },
   "test": {
-    "username": "root",
-    "password": "dj@mw@r3",
-    "database": "node_sequelize",
+    "username": "postgres",
+    "password": "1234",
+    "database": "BguFlowDB",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "port":"5433",
+    "operatorsAliases": "false"
   },
   "production": {
-    "username": "root",
-    "password": "dj@mw@r3",
-    "database": "node_sequelize",
+    "username": "postgres",
+    "password": "1234",
+    "database": "BguFlowDB",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "port":"5433",
+    "operatorsAliases": "false"
   }
 }

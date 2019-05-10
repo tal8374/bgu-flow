@@ -1,19 +1,20 @@
-/*
 const express= require('express');
 const router= express.Router();
-const db= require('../config/database');
-const usersController=require('../controllers/users_controller');
-const user= require('../models/Users');
+//const db= require('../config/database');
+const model=require('../models');
 
 // get all the users
-router.get('/', (req,res)=>
-    user.findAll()
-        .then(users=>res.send(users))
-        //res.sendStatus(200);})
-        .catch(err=>console.log(err)));
+//router.get('/', (req,res)=>
+function allUsers(req,res) {
+        model.Users.findAll()
+            .then(users => res.send(users))
+            //res.sendStatus(200);})
+            .catch(err => console.log(err));
+}
 
 //add new record to users table
-router.post('/add', (req,res)=> {
+//router.post('/add', (req,res)=> {
+function addNewUser (req, res){
         console.log(req.body);
         //console.log(req);
         const data=req.body;
@@ -21,7 +22,7 @@ router.post('/add', (req,res)=> {
         if (data!=null){
         let { email,first_name,last_name,phone_number}=data;
         // insert into table
-        user.create({
+        model.Users.create({
                 email,
                 first_name,
                 last_name,
@@ -32,21 +33,24 @@ router.post('/add', (req,res)=> {
         else{
                 console.log(data);
                 res.sendStatus(200);}
-});
+}
 
 // select users by his email
-router.get('/findUser/:email',(req,res)=>{
+//router.get('/findUser/:email',(req,res)=>{
+function userDetails (req,res)
+{
         const data=req.params.email;
         if(data!=null) {
-                user.findByPrimary(data)
+                model.Users.findByPrimary(data)
                     .then(specificUser => res.send(specificUser))
                     .catch(err => console.log(err));
         }
-});
+}
 
-router.get('/:email/course',(req,res)=>{
 
-});
+module.exports={
+        allUsers,
+        addNewUser,
+        userDetails,
 
-module.exports= router;
-*/
+};
