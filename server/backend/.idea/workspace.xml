@@ -1,62 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="869545db-7e34-4361-8c94-71b7cf3adc33" name="Default Changelist" comment="test moodle backend">
-      <change afterPath="$PROJECT_DIR$/config/database.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/controllers/assignments.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/controllers/coursePartners.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/controllers/courses.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/controllers/flows.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/controllers/userCourses.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/controllers/userFlow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/controllers/users.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrations/creat-Assignments.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrations/creat-Course_Partners.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrations/creat-Courses.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrations/creat-Forums_Messages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrations/creat-User_Course.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrations/create-Flows.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrations/create-User_Flows.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrations/create-users.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/models/Assignments.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/models/Course_Partners.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/models/Courses.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/models/Flows.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/models/Messages_Forum.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/models/User_Course.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/models/User_Flows.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/models/Users.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/models/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Assignments.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Courses" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Flows.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/User Course.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/User Flow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Users.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/assignments.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/courses.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/userCourses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/src/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/src/tsconfig.app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front-end/flow/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/flow/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front-end/flow/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/flow/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front-end/flow/src/assets/js/Format.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/flow/src/assets/js/Format.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front-end/flow/src/assets/js/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/flow/src/assets/js/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front-end/flow/src/assets/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/flow/src/assets/js/config.js" afterDir="false" />
+    <list default="true" id="869545db-7e34-4361-8c94-71b7cf3adc33" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bpjs/services/ifttt.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/bpjs/services/ifttt.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/classroom.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/course.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/lecturer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/student.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/studentcourse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -72,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/routes/routes.db.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="43" column="60" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
+            <state relative-caret-position="421">
+              <caret line="43" selection-start-line="43" selection-end-line="44" />
             </state>
           </provider>
         </entry>
@@ -92,6 +38,24 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="8" column="18" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/models/Messages_Forum.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -203,9 +167,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1928" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -347,7 +312,7 @@
       <workItem from="1555398181245" duration="6737000" />
       <workItem from="1556567091707" duration="4103000" />
       <workItem from="1557012688969" duration="27000" />
-      <workItem from="1557419619446" duration="14445000" />
+      <workItem from="1557419619446" duration="15243000" />
     </task>
     <task id="LOCAL-00001" summary="Adding bpjs module.">
       <created>1546241524040</created>
@@ -405,11 +370,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555359754757</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="test moodle backend">
+      <created>1557509939857</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1557509939858</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67044000" />
+    <option name="totallyTimeSpent" value="67842000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -421,13 +393,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1926" y="0" width="781" height="830" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23521505" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14398943" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.3286119" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32977462" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32827735" />
@@ -436,15 +408,38 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32858837" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3281471" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.41690543" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.41218132" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Mongo Explorer" order="3" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14398943" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.3286119" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32977462" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.32827735" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.39943343" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32858837" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.3281471" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.41218132" />
+      <window_info anchor="bottom" id="TypeScript" order="12" weight="0.3286119" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Mongo Explorer" order="3" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -651,13 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/models/Messages_Forum.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="46" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/models/User_Course.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -689,13 +677,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="66" column="2" selection-start-line="66" selection-start-column="2" selection-end-line="66" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -741,17 +722,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/models/User_Flows.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/controllers/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="31" column="36" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/models/Messages_Forum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/models/User_Flows.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -764,8 +759,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/routes/routes.db.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="43" column="60" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
+        <state relative-caret-position="421">
+          <caret line="43" selection-start-line="43" selection-end-line="44" />
         </state>
       </provider>
     </entry>
