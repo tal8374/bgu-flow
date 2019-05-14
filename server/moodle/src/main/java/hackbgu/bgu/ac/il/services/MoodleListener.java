@@ -2,9 +2,8 @@ package hackbgu.bgu.ac.il.services;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -115,6 +114,30 @@ public class MoodleListener implements Runnable{
 
 //					continue;
 				}
+				Date date = new Date();
+				Date timemodified = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US).parse(assignment.timemodified);
+				Date duedate = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy",  Locale.US).parse(assignment.duedate);
+//				System.out.println(date);
+//				System.out.println(timemodified);
+//				System.out.println(duedate);
+				long diffDuedate = TimeUnit.MINUTES.convert(duedate.getTime() - date.getTime(), TimeUnit.MILLISECONDS);
+				long diffPublish = TimeUnit.MINUTES.convert(date.getTime() - timemodified.getTime(), TimeUnit.MILLISECONDS);
+
+//				System.out.println(diffDuedate);
+//					if ( diffDuedate == 3600) {
+						event = createAssignmentAlert24HoursEvent(course, assignment);
+						sendEvent(new BEvent("Assignment24HoursAlert"), event);
+//					} else if (diffDuedate == 60) {
+						event = createAssignmentAlert60MinEvent(course, assignment);
+						sendEvent(new BEvent("Assignment60MinutesAlert"), event);
+//					} else if (diffDuedate == 10) {
+						event = createAssignmentAlert10MinEvent(course, assignment);
+						sendEvent(new BEvent("Assignment10MinutesAlert"), event);
+//					}
+//					if (diffPublish == diffDuedate) {
+						event = createAssignmentAlertHalfTimeEvent(course, assignment);
+						sendEvent(new BEvent("AssignmentHalfTimeAlert"), event);
+//					}
 
 //				sendEvent(new BEvent("AssignmentAdded", event));
 //				List<String> userEvents = new ArrayList<>();
@@ -284,6 +307,50 @@ public class MoodleListener implements Runnable{
 				"\"selectedCourse\": \"" + course.fullname + "\"," +
 				"\"FileName\": \"" + resource.name + "\"," +
 				"\"publishedDate\": \"" + resource.timemodified + "\"" +
+				"}" +
+				"}";
+	}
+
+	private String createAssignmentAlert24HoursEvent(Course course, Assignment assignment) {
+		return "{\"eventName\": \"Assignment_24_Hours_Alert\"," +
+				"\"data\": {" +
+				"\"selectedCourse\": \"" + course.fullname + "\"," +
+				"\"AssignmentName\": \"" + assignment.name + "\"," +
+				"\"SubmissionStatus\": \"" + assignment.submission + "\"," +
+				"\"deadline\": \"24 hours\"" +
+				"}" +
+				"}";
+	}
+
+	private String createAssignmentAlert60MinEvent(Course course, Assignment assignment) {
+		return "{\"eventName\": \"Assignment_60_Minutes_Alert\"," +
+				"\"data\": {" +
+				"\"selectedCourse\": \"" + course.fullname + "\"," +
+				"\"AssignmentName\": \"" + assignment.name + "\"," +
+				"\"SubmissionStatus\": \"" + assignment.submission + "\"," +
+				"\"deadline\": \"60 minutes\"" +
+				"}" +
+				"}";
+	}
+
+	private String createAssignmentAlert10MinEvent(Course course, Assignment assignment) {
+		return "{\"eventName\": \"Assignment_10_Minutes_Alert\"," +
+				"\"data\": {" +
+				"\"selectedCourse\": \"" + course.fullname + "\"," +
+				"\"AssignmentName\": \"" + assignment.name + "\"," +
+				"\"SubmissionStatus\": \"" + assignment.submission + "\"," +
+				"\"deadline\": \"10 minutes\"" +
+				"}" +
+				"}";
+	}
+
+	private String createAssignmentAlertHalfTimeEvent(Course course, Assignment assignment) {
+		return "{\"eventName\": \"Assignment_Half_Time_Alert\"," +
+				"\"data\": {" +
+				"\"selectedCourse\": \"" + course.fullname + "\"," +
+				"\"AssignmentName\": \"" + assignment.name + "\"," +
+				"\"SubmissionStatus\": \"" + assignment.submission + "\"," +
+				"\"deadline\": \"half of time\"" +
 				"}" +
 				"}";
 	}

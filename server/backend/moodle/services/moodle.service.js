@@ -5,7 +5,11 @@ const handlers = {
     'AnnouncementAdded': announcement,
     'ForumMessageAdded': forumMessage,
     'CourseAdded': course,
-    'UnitAdded': unit
+    'UnitAdded': unit,
+    'Assignment24HoursAlert': assignmentAlert,
+    'Assignment60MinutesAlert': assignmentAlert,
+    'Assignment10MinutesAlert': assignmentAlert,
+    'AssignmentHalfTimeAlert': assignmentAlert
 };
 
 function eventLaunch(req) {
@@ -66,6 +70,19 @@ function forumMessage(body){
 }
 
 function unit(body){
+    console.log(JSON.parse(Object.keys(body)[0]));
+
+    request.post(
+        'http://localhost:7000/insert-event',
+        {json: JSON.parse(Object.keys(body)[0])},
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+            }
+        }
+    );
+}
+
+function assignmentAlert(body){
     console.log(JSON.parse(Object.keys(body)[0]));
 
     request.post(

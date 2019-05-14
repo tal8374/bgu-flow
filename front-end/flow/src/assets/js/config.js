@@ -23,6 +23,74 @@ var myconfig = {
           showTitle: null,
           tags: 'SMS'
         },
+        Assignment24HoursAlert: {
+          name: 'Assignment24HoursAlert',
+          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
+          width: 120,
+          height: 60,
+          image: {
+            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKtISa8UpN-rcGoNDG4kN5C55ILrekLA4BVGJHC2NvzurF7aZaHA',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
+          title: 'Assignment 24 Hours Alert',
+          showLabel: null,
+          showTitle: null,
+          tags: 'Assignment 24 Hours Alert'
+        },
+        Assignment60MinutesAlert: {
+          name: 'Assignment60MinutesAlert',
+          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
+          width: 120,
+          height: 60,
+          image: {
+            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKtISa8UpN-rcGoNDG4kN5C55ILrekLA4BVGJHC2NvzurF7aZaHA',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
+          title: 'Assignment 60 Minutes Alert',
+          showLabel: null,
+          showTitle: null,
+          tags: 'Assignment 60 Minutes Alert'
+        },
+        Assignment10MinutesAlert: {
+          name: 'Assignment10MinutesAlert',
+          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
+          width: 120,
+          height: 60,
+          image: {
+            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKtISa8UpN-rcGoNDG4kN5C55ILrekLA4BVGJHC2NvzurF7aZaHA',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
+          title: 'Assignment 10 Minutes Alert',
+          showLabel: null,
+          showTitle: null,
+          tags: 'Assignment 10 Minutes Alert'
+        },
+        AssignmentHalfTimeAlert: {
+          name: 'AssignmentHalfTimeAlert',
+          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
+          width: 120,
+          height: 60,
+          image: {
+            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKtISa8UpN-rcGoNDG4kN5C55ILrekLA4BVGJHC2NvzurF7aZaHA',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
+          title: 'Assignment Half Time Alert',
+          showLabel: null,
+          showTitle: null,
+          tags: 'Assignment Half Time Alert'
+        },
         email: {
           name: 'email',
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',

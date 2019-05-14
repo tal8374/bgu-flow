@@ -32,6 +32,38 @@ Actions.prototype.init = function()
     };
   });
 
+  this.addAction('assignment24HoursAlertSubmit', function(data, node) {
+    node.payload = {
+      from: data['from'].value,
+      to: data['to'].value,
+      message: data['message'].value
+    };
+  });
+
+  this.addAction('assignment60MinutesAlertSubmit', function(data, node) {
+    node.payload = {
+      from: data['from'].value,
+      to: data['to'].value,
+      message: data['message'].value
+    };
+  });
+
+  this.addAction('assignment10MinutesAlertSubmit', function(data, node) {
+    node.payload = {
+      from: data['from'].value,
+      to: data['to'].value,
+      message: data['message'].value
+    };
+  });
+
+  this.addAction('assignmentHalfTimeAlertSubmit', function(data, node) {
+    node.payload = {
+      from: data['from'].value,
+      to: data['to'].value,
+      message: data['message'].value
+    };
+  });
+
   this.addAction('emailSubmit', function(data, node) {
     node.payload = {
       from: data['from'].value,

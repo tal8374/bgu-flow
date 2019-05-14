@@ -42,4 +42,10 @@ public class TypeReferenceSerializationHelper {
             //Empty
         };
     }
+
+    private static TypeReference<List<Submission>> com_fasterxml_jackson_core_type_TypeReference_java_util_List_hackbgu_bgu_ac_il_model_Submission(){
+        return new TypeReference<List<Submission>>() {
+            //Empty
+        };
+    }
 }

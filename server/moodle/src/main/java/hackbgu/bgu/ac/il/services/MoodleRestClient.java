@@ -15,7 +15,7 @@ public class MoodleRestClient {
      * @param args the command line arguments
      */
 	
-	private final String Token = "85d366ce76a656ff0fc85492a0afb421";
+	private final String Token = "b7796b8555b09533ffefc98294e6bdb0";
     private final String DomainName = "http://localhost";
 
 	public MoodleRestClient(){

@@ -39,11 +39,18 @@ public class InsertEventServlet extends HttpServlet {
 
         Gson gson = new Gson();
         String json = gson.toJson(eventData);
+
+//        System.out.println("-----------");
         System.out.println(json);
+//        System.out.println(insertEventBody);
+//        System.out.println(insertEventBody.eventName);
+
+        if(SaveServlet.bprog != null) {
+            SaveServlet.bprog.enqueueExternalEvent(new BEvent(insertEventBody.eventName,
+                    json));
+        }
 
 
-        SaveServlet.bprog.enqueueExternalEvent(new BEvent(insertEventBody.eventName,
-                json));
 //        SaveServlet.bprog.enqueueExternalEvent(new BEvent(insertEventBody.eventName, eventDataStr));
 //                "{\"" + eventData.keySet().iterator().next() + "\": \""
 //                        + eventData.values().iterator().next() + "\"}"));

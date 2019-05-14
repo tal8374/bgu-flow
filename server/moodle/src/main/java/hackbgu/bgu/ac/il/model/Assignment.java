@@ -8,6 +8,7 @@ public class Assignment {
 	public String duedate;
 	public String timemodified;
 	public String course;
+	public String submission;
 //	public String courseShortName;
 //	public List<Submission> submissions;
 }

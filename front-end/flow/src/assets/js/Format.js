@@ -3351,6 +3351,11 @@ ActionFormatPanel.prototype.getAct = function(cellTitle) {
 
   var options = {
     'sms' : this.addSMSAct(this.createPanel()),
+    'send assignment 24 hours alert' : this.addAssignment24HoursAlertAct(this.createPanel()),
+    'send assignment 60 minutes alert' : this.addAssignment60MinutesAlertAct(this.createPanel()),
+    'send assignment 10 minutes alert' : this.addAssignment10MinutesAlertAct(this.createPanel()),
+    'send assignment half time alert' : this.addAssignmentHalfTimeAlertAct(this.createPanel()),
+
     'reception hours' : this.addReceptionTimeAct(this.createPanel()),
     'forum message' : this.addForumMessageAct(this.createPanel()),
     'email' : this.addEmailAct(this.createPanel()),
@@ -3577,6 +3582,75 @@ StyleFormatPanel.prototype.addFill = function(container)
   {
     container.appendChild(this.createCellColorOption(mxResources.get('laneColor'), 'swimlaneFillColor', '#ffffff'));
   }
+
+  return container;
+};
+
+
+/**
+ * Adds the label menu items to the given menu and parent.
+ */
+ActionFormatPanel.prototype.addAssignment24HoursAlertAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+
+
+  return container;
+};
+
+/**
+ * Adds the label menu items to the given menu and parent.
+ */
+ActionFormatPanel.prototype.addAssignment60MinutesAlertAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+
+
+  return container;
+};
+
+/**
+ * Adds the label menu items to the given menu and parent.
+ */
+ActionFormatPanel.prototype.addAssignment10MinutesAlertAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+
+
+  return container;
+};
+
+/**
+ * Adds the label menu items to the given menu and parent.
+ */
+ActionFormatPanel.prototype.addAssignmentHalfTimeAlertAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+
 
   return container;
 };
