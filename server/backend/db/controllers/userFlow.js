@@ -29,11 +29,18 @@ function addUserFlow (req, res){
          flow_id: flow_id,
          user_email: email
      };
-
+    console.log(flow);
+    console.log(userFlow);
      if(req.body!=null){
-         model.User_Flows.create(userFlow)
-             .then(model.Flows.create(flow))
+         model.Flows.create(flow)
+             .then ( function(){
+                 model.User_Flows.create(userFlow)
+                     .then (res.send(true))
+                     .catch(err=>console.log);
+
+             })
              .catch(err=>console.log);
+
      }
 }
 

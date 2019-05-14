@@ -8,12 +8,14 @@ module.exports= (db, DataTypes)=> {
         data: Sequelize.DataTypes.STRING,
         creation_date: Sequelize.DataTypes.DATE,
         last_modified: Sequelize.DataTypes.DATE
-    });
+    },{timestamps: false , omitNull:true});
+
+
     Flow.associate= function(models) {
         Flow.hasMany(models.User_Flows, {
             foreignKey: 'flow_id',
             targetKey: 'flow_id'
-        },{timestamps: false});
+        });
     };
     Flow.sync();
     return Flow;
