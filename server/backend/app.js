@@ -3,13 +3,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const bodyParser = require('body-parser');
+global.appRoot = path.resolve(__dirname);
 
-var indexRouter = require('./routes/index');
+
+//var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var flowRouter = require('./flow/routes/flow.route');
 var bpjsRouter = require('./bpjs/routes/bpjs.route');
 var moodleRouter = require('./moodle/routes/moodle.route');
 var dashboardRouter = require('./dashboard/routes/dashboard.route');
+var dbRouter= require('./db/routes/routes.db');
 
 var app = express();
 
@@ -29,12 +33,12 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//app.use('/', indexRouter);
 app.use('/api/flow', flowRouter);
 app.use('/api/bpjs', bpjsRouter);
 app.use('/api/dashboard', dashboardRouter);
 app.use('/api/moodle', moodleRouter);
+app.use('/api/db', dbRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -48,5 +52,25 @@ app.use(function (err, req, res, next) {
     res.locals.error = req.app.get('env') === 'development' ? err : {};
     res.status(err.status || 500).send({error: err})
 });
+
+// db activation
+const db= require('./config/database');
+//Test DB connection
+db.authenticate()
+    .then(()=> console.log( 'DATAbase connected...'))
+    .catch(err=> console.log('Error:'+err));
+
+db.sync({alter:true}).then(() => {
+    console.log(`Database & tables created!`)
+});
+//app.engine('handlebars', exphbs({defaultLayout: 'main'}) );
+//app.set('view engine', 'handlebars');
+
+app.get('/', (req, res)=> res.send('INDEX'));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// parse application/json
+app.use(bodyParser.json());
+
 
 module.exports = app;
