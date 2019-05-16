@@ -22,6 +22,8 @@ function deleteUserCoursePartner(userEmail, courseID, userPartnerID){
     console.log("Deleted partner to the user course");
 }
 
+
+
 module.exports = {
     getUserProfile,
 
@@ -34,4 +36,6 @@ module.exports = {
     getUserCoursePartner,
 
     deleteUserCoursePartner,
+
+
 };

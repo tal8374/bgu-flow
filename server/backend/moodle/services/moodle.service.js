@@ -1,3 +1,7 @@
+const dbCourses = require("../../db/controllers/courses");
+const dbAssignments = require("../../db/controllers/assignments");
+const dbForumMessages = require("../../db/controllers/forums")
+
 const request = require('request');
 
 const handlers = {
@@ -17,8 +21,12 @@ function eventLaunch(req) {
     handlers[eventName](req.body);
 }
 
+
 function course(body) {
+    dbCourses.addNewCourse(body);
     console.log(JSON.parse(Object.keys(body)[0]));
+
+
 
     // request.post(
     //     'http://localhost:7000/insert-event',
@@ -31,16 +39,19 @@ function course(body) {
 }
 
 function assignment(body){
+    dbAssignments.addAssignment(body);
     console.log(JSON.parse(Object.keys(body)[0]));
 
-    request.post(
-        'http://localhost:7000/insert-event',
-        {json: JSON.parse(Object.keys(body)[0])},
-        function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-            }
-        }
-    );
+    // request.post(
+    //     'http://localhost:7000/insert-event',
+    //     {json: JSON.parse(Object.keys(body)[0])},
+    //     function (error, response, body) {
+    //         if (!error && response.statusCode == 200) {
+    //         }
+    //     }
+    // );
+
+
 }
 
 function announcement(body){
@@ -57,16 +68,17 @@ function announcement(body){
 }
 
 function forumMessage(body){
+    dbForumMessages.addNewForumMessage(body);
     console.log(JSON.parse(Object.keys(body)[0]));
 
-    request.post(
-        'http://localhost:7000/insert-event',
-        {json: JSON.parse(Object.keys(body)[0])},
-        function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-            }
-        }
-    );
+    // request.post(
+    //     'http://localhost:7000/insert-event',
+    //     {json: JSON.parse(Object.keys(body)[0])},
+    //     function (error, response, body) {
+    //         if (!error && response.statusCode == 200) {
+    //         }
+    //     }
+    // );
 }
 
 function unit(body){

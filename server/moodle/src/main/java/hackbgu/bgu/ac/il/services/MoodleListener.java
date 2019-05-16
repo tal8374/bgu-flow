@@ -124,20 +124,20 @@ public class MoodleListener implements Runnable{
 				long diffPublish = TimeUnit.MINUTES.convert(date.getTime() - timemodified.getTime(), TimeUnit.MILLISECONDS);
 
 //				System.out.println(diffDuedate);
-//					if ( diffDuedate == 3600) {
+					if ( diffDuedate == 3600) {
 						event = createAssignmentAlert24HoursEvent(course, assignment);
 						sendEvent(new BEvent("Assignment24HoursAlert"), event);
-//					} else if (diffDuedate == 60) {
+					} else if (diffDuedate == 60) {
 						event = createAssignmentAlert60MinEvent(course, assignment);
 						sendEvent(new BEvent("Assignment60MinutesAlert"), event);
-//					} else if (diffDuedate == 10) {
+					} else if (diffDuedate == 10) {
 						event = createAssignmentAlert10MinEvent(course, assignment);
 						sendEvent(new BEvent("Assignment10MinutesAlert"), event);
-//					}
-//					if (diffPublish == diffDuedate) {
+					}
+					if (diffPublish == diffDuedate) {
 						event = createAssignmentAlertHalfTimeEvent(course, assignment);
 						sendEvent(new BEvent("AssignmentHalfTimeAlert"), event);
-//					}
+					}
 
 //				sendEvent(new BEvent("AssignmentAdded", event));
 //				List<String> userEvents = new ArrayList<>();
@@ -269,6 +269,8 @@ public class MoodleListener implements Runnable{
 	private String createAssignmentEvent(Course course, Assignment assignment) {
 		return "{\"eventName\": \"Assignment\"," +
 				"\"data\": {" +
+				"\"AssignmentId\": \"" + assignment.id + "\"," +
+				"\"CourseId\": \"" + course.id + "\"," +
 				"\"selectedCourse\": \"" + course.fullname + "\"," +
 				"\"AssignmentName\": \"" + assignment.name + "\"," +
 				"\"publishedDate\": \"" + assignment.timemodified + "\"," +
@@ -292,6 +294,9 @@ public class MoodleListener implements Runnable{
 	private String createForumEvent(Course course, Forum forum, Message message){
 		return "{\"eventName\": \"Forum_Message\"," +
 				"\"data\": {" +
+				"\"forumId\": \"" + forum.id + "\"," +
+				"\"courseId\": \"" + course.id + "\"," +
+				"\"userName\": \"" + message.userfullname + "\"," +
 				"\"selectedCourse\": \"" + course.fullname + "\"," +
 				"\"forumName\": \"" + forum.name + "\"," +
 				"\"subject\": \"" + message.subject + "\"," +

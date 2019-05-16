@@ -18,23 +18,27 @@ function allCourses (req,res) {
 
 //add new record to courses table
 //router.post('/add', (req,res)=>
-function addNewCourse(req,res){
-    console.log(req.body);
-    //console.log(req);
-    const data=req.body;
-
-    if (data!=null){
-        let {course_id, course_name}=data;
+function addNewCourse(data) {
+    const course = JSON.parse(Object.keys(data)[0]);
+    let course_name = course.data.selectedCourse;
+    let course_id = course.data.courseId;
+    // console.log(req.body);
+    // //console.log(req);
+    // const data=req.body;
+    //
+    // if (data!=null){
+    //     let {course_id, course_name}=data;
         // insert into table
-        model.Courses.create({
-            course_id,
-            course_name
-        })
-            .then(newCourse=>res.redirect('/courses'))
-            .catch(err=>console.log);}
-    else{
-        console.log("no data to add");
-        res.sendStatus(200);}
+    model.Courses.create({
+        course_id,
+        course_name
+    })
+        .then(newCourse => res.redirect('/courses'))
+        .catch(err => console.log);
+// }
+    // else{
+    //     console.log("no data to add");
+    //     res.sendStatus(200);}
 }
 
 // return the name of course by his id
@@ -78,6 +82,4 @@ module.exports= {
     allCourses,
     addNewCourse,
     allStudentsInCourse,
-
-
 };

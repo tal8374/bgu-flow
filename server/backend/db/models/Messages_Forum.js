@@ -13,6 +13,14 @@ module.exports= (db, DataTypes)=> {
             allowNull: false,
             type: DataTypes.STRING
         },
+        forum_name: {
+            allowNull: false,
+            type: DataTypes.STRING
+        },
+        course_name: {
+            allowNull: false,
+            type: DataTypes.STRING
+        },
         user_name: {
             allowNull: false,
             type: DataTypes.STRING
@@ -25,6 +33,10 @@ module.exports= (db, DataTypes)=> {
             allowNull: false,
             type: DataTypes.STRING
         },
+        date: {
+            allowNull: false,
+            type: DataTypes.STRING
+        }
     },{timestamps: false});
     Messages_Forums.associate=function(models) {
         Messages_Forums.belongsTo(models.Courses, {

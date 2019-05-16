@@ -12,4 +12,7 @@ router
     .put('/user/:userEmail/user-course-partners/:userPartnerID', dashboardController.updateUserCoursePartner)
     .delete('/user/:userEmail/user-course-partners/:userPartnerID', dashboardController.deleteUserCoursePartner)
 
+router
+    .post('/login',dashboardController.logIn )
+
 module.exports = router;

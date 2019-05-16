@@ -21,8 +21,9 @@ module.exports= (db,DataTypes)=> {
                 //deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
             }*/
         },
-        name: {type: DataTypes.STRING},
-        due_date: {allowNull: false, type: DataTypes.DATE},
+        assignment_name: {type: DataTypes.STRING},
+        course_name: {type: DataTypes.STRING},
+        due_date: {allowNull: false, type: DataTypes.STRING},
 
     },{timestamps: false , omitNull:true});
     Assignment.associate=function(models)

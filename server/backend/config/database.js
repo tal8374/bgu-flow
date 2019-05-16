@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-module.exports = new Sequelize('BguFlowDB', 'postgres', '1234',  {
+module.exports = new Sequelize('D', 'postgres', '1234',  {
     host: 'localhost',
     dialect: 'postgres',
     operatorsAliases: false,

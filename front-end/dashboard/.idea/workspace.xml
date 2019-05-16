@@ -2,25 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57ff07e7-2ac2-4372-b691-2162dce51a75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../server/moodle/src/main/java/hackbgu/bgu/ac/il/model/Submission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flow/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../flow/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flow/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../flow/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flow/src/assets/js/Actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../flow/src/assets/js/Actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flow/src/assets/js/Format.js" beforeDir="false" afterPath="$PROJECT_DIR$/../flow/src/assets/js/Format.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flow/src/assets/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../flow/src/assets/js/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/backend/config/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/backend/config/database.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/backend/dashboard/controllers/dashboard.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/backend/dashboard/controllers/dashboard.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/backend/dashboard/routes/dashboard.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/backend/dashboard/routes/dashboard.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/backend/dashboard/services/dashboard.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/backend/dashboard/services/dashboard.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/backend/db/controllers/courses.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/backend/db/controllers/courses.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/backend/moodle/services/moodle.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/backend/moodle/services/moodle.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/backend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/bpjs/BPWorkBench.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/bpjs/src/main/java/flow/bgu/ac/il/InsertEventServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/bpjs/src/main/java/flow/bgu/ac/il/InsertEventServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/moodle/src/main/java/hackbgu/bgu/ac/il/model/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/moodle/src/main/java/hackbgu/bgu/ac/il/model/Assignment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/moodle/src/main/java/hackbgu/bgu/ac/il/services/MoodleListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/moodle/src/main/java/hackbgu/bgu/ac/il/services/MoodleListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/moodle/src/main/java/hackbgu/bgu/ac/il/services/MoodleRestClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/moodle/src/main/java/hackbgu/bgu/ac/il/services/MoodleRestClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/moodle/src/main/java/hackbgu/bgu/ac/il/services/MoodleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/moodle/src/main/java/hackbgu/bgu/ac/il/services/MoodleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/moodle/src/main/java/hackbgu/bgu/ac/il/services/TypeReferenceSerializationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/moodle/src/main/java/hackbgu/bgu/ac/il/services/TypeReferenceSerializationHelper.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -37,7 +29,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/user/user.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
+            <state relative-caret-position="510">
               <caret line="30" column="14" selection-start-line="27" selection-start-column="7" selection-end-line="30" selection-end-column="14" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
@@ -49,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/login/login.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="238">
+              <caret line="14" column="12" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="13" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -70,7 +62,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="714">
               <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
@@ -169,10 +161,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-21" />
-    <option name="y" value="-21" />
-    <option name="width" value="4650" />
-    <option name="height" value="2514" />
+    <option name="x" value="576" />
+    <option name="y" value="309" />
+    <option name="width" value="3456" />
+    <option name="height" value="1854" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -180,7 +172,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,6 +208,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -230,7 +222,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\bgu-flow\bgu-flow\front-end\dashboard\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -283,7 +275,9 @@
       <workItem from="1545996619596" duration="1310000" />
       <workItem from="1546008421124" duration="7412000" />
       <workItem from="1554635596534" duration="6089000" />
-      <workItem from="1557658835133" duration="886000" />
+      <workItem from="1557658835133" duration="4289000" />
+      <workItem from="1557908443391" duration="119000" />
+      <workItem from="1557908592209" duration="627000" />
     </task>
     <task id="LOCAL-00001" summary="Creating user info section.">
       <created>1546436931023</created>
@@ -310,18 +304,18 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30313000" />
+    <option name="totallyTimeSpent" value="34462000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1292" height="692" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29968202" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20190778" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.42917848" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -330,7 +324,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.40957448" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.31205675" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -502,7 +496,7 @@
     <entry file="file://$PROJECT_DIR$/src/app/shared/services/user.service.ts" />
     <entry file="file://$PROJECT_DIR$/src/app/user/user.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
+        <state relative-caret-position="510">
           <caret line="30" column="14" selection-start-line="27" selection-start-column="7" selection-end-line="30" selection-end-column="14" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
@@ -519,7 +513,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
+        <state relative-caret-position="714">
           <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
@@ -540,8 +534,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/login/login.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="238">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="13" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
