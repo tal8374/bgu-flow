@@ -55,7 +55,7 @@ public class MoodleListener implements Runnable{
 		   processUser(moodleService, user);
 	   }
    }
-   
+
    public static void main(String[] args){
 	   final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 		scheduler.scheduleAtFixedRate(new MoodleListener(), 2, 60, TimeUnit.SECONDS);
@@ -84,10 +84,19 @@ public class MoodleListener implements Runnable{
 //				}
 //			}
 //		}
+		String userKey = "user"+user.username;
+		if (!sentEvents.containsKey(userKey)) {
+			String event = createUserEvent(user);
+			sendEvent(new BEvent("User"), event);
+			List<String> userEvents = new ArrayList<>();
+			userEvents.add(event);
+			sentEvents.put(userKey, userEvents);
+		}
+
 		for (Course course : userWithEvents.courses) {
 
-			String event = createCourseEvent(course);
-			String userKey = "user"+user.username;
+			String event = createCourseEvent(user,course);
+//			String userKey = "user"+user.username;
 			if (sentEvents.containsKey(userKey)){
 				if (!sentEvents.get(userKey).contains(event)){
 					sendEvent(new BEvent("CourseAdded"), event);
@@ -105,7 +114,7 @@ public class MoodleListener implements Runnable{
 		for (Course course : userWithEvents.courses){
 			for(Assignment assignment : course.assignments){
 				String event = createAssignmentEvent(course, assignment);
-				String userKey = "user"+user.username;
+//				String userKey = "user"+user.username;
 				if (sentEvents.containsKey(userKey)){
 					if (!sentEvents.get(userKey).contains(event)){
 						sendEvent(new BEvent("AssignmentAdded", event), event);
@@ -117,9 +126,6 @@ public class MoodleListener implements Runnable{
 				Date date = new Date();
 				Date timemodified = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US).parse(assignment.timemodified);
 				Date duedate = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy",  Locale.US).parse(assignment.duedate);
-//				System.out.println(date);
-//				System.out.println(timemodified);
-//				System.out.println(duedate);
 				long diffDuedate = TimeUnit.MINUTES.convert(duedate.getTime() - date.getTime(), TimeUnit.MILLISECONDS);
 				long diffPublish = TimeUnit.MINUTES.convert(date.getTime() - timemodified.getTime(), TimeUnit.MILLISECONDS);
 
@@ -147,7 +153,7 @@ public class MoodleListener implements Runnable{
 
 			for(Resource resource : course.resources){
 				String event = createResourceEvent(course, resource);
-				String userKey = "user"+user.username;
+//				String userKey = "user"+user.username;
 				if (sentEvents.containsKey(userKey)){
 					if (!sentEvents.get(userKey).contains(event)){
 						sendEvent(new BEvent("UnitAdded"), event);
@@ -160,7 +166,7 @@ public class MoodleListener implements Runnable{
 				if(forum.name.equals("Announcements")){
 					for(Message message : forum.messages){
 						String event = createAnnouncementEvent(course, message);
-						String userKey = "user"+user.username;
+//						String userKey = "user"+user.username;
 						if (sentEvents.containsKey(userKey)){
 							if (!sentEvents.get(userKey).contains(event)){
 								sendEvent(new BEvent("AnnouncementAdded"), event);
@@ -177,7 +183,7 @@ public class MoodleListener implements Runnable{
 				}else{
 					for(Message message : forum.messages){
 						String event = createForumEvent(course, forum, message);
-						String userKey = "user"+user.username;
+//						String userKey = "user"+user.username;
 						if (sentEvents.containsKey(userKey)){
 							if (!sentEvents.get(userKey).contains(event)){
 								sendEvent(new BEvent("ForumMessageAdded"), event);
@@ -257,11 +263,12 @@ public class MoodleListener implements Runnable{
 //        clientEndPoint.sendMessage(event);
 //	 }
 
-	private String createCourseEvent(Course course){
+	private String createCourseEvent(User user, Course course){
 		return "{\"eventName\": \"Course\"," +
 				"\"data\": {" +
 				"\"selectedCourse\": \"" + course.fullname + "\"," +
-				"\"courseId\": \"" + course.id + "\"" +
+				"\"courseId\": \"" + course.id + "\"," +
+				"\"userEmail\": \"" + user.email + "\"" +
 				"}" +
 				"}";
 	}
@@ -282,6 +289,8 @@ public class MoodleListener implements Runnable{
 	private String createAnnouncementEvent(Course course, Message message){
 		return "{\"eventName\": \"Announcement\"," +
 				"\"data\": {" +
+				"\"messageId\": \"" + message.id + "\"," +
+				"\"courseId\": \"" + course.id + "\"," +
 				"\"selectedCourse\": \"" + course.fullname + "\"," +
 				"\"userName\": \"" + message.userfullname + "\"," +
 				"\"subject\": \"" + message.subject + "\"," +
@@ -294,6 +303,7 @@ public class MoodleListener implements Runnable{
 	private String createForumEvent(Course course, Forum forum, Message message){
 		return "{\"eventName\": \"Forum_Message\"," +
 				"\"data\": {" +
+				"\"messageId\": \"" + message.id + "\"," +
 				"\"forumId\": \"" + forum.id + "\"," +
 				"\"courseId\": \"" + course.id + "\"," +
 				"\"userName\": \"" + message.userfullname + "\"," +
@@ -359,6 +369,18 @@ public class MoodleListener implements Runnable{
 				"}" +
 				"}";
 	}
+
+	private String createUserEvent(User user){
+		return "{\"eventName\": \"User\"," +
+				"\"data\": {" +
+				"\"userEmail\": \"" + user.email + "\"," +
+				"\"userName\": \"" + user.username + "\"," +
+				"\"userFirstName\": \"" + user.firstname + "\"," +
+				"\"userLastName\": \"" + user.lastname + "\"" +
+				"}" +
+				"}";
+	}
+
 
 	@Override
 	public void run() {

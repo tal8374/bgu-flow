@@ -3,7 +3,7 @@ const router= express.Router();
 //const db= require(appRoot + '/config/database');
 const user= require('../models/Users');
 const course= require('../models/Courses');
-const userCourses=require('../models/User_Course');
+const User_Course=require('../models/User_Course');
 const model=require('../models');
 
 //router.get('/', (req,res)=>
@@ -15,25 +15,43 @@ function allUserCourses (req,res) {
 }
 
 //router.post('/add', (req,res)=> {
-function addUsersCourse(req,res){
-    console.log(req.body);
-    const data=req.body;
-    //console.log(data);
-    if (data!=null) {
-        let {user_email, course_id} = data;
-        console.log({user_email, course_id});
-        // insert into table
-        model.User_Course.create({
-            user_email
-            ,course_id})
-            .then(newuserCourse => res.send('true'))
-            .catch(err => res.send(err));
-    }
-    else
-        {
-            console.log(data);
-            res.sendStatus(200);
-        }
+async function addUsersCourse(body){
+    const userCourse = JSON.parse(Object.keys(body)[0]);
+    let course_name = userCourse.data.selectedCourse;
+    let course_id = userCourse.data.courseId;
+    let user_email = userCourse.data.userEmail;
+    // console.log(req.body);
+    // //console.log(req);
+    // const data=req.body;
+    //
+    // if (data!=null){
+    //     let {course_id, course_name}=data;
+    // insert into table
+    model.User_Course.create({
+        user_email,
+        course_id,
+        course_name
+    })
+        .then(newUserCourse => res.redirect('/user_courses'))
+        .catch(err => console.log);
+    // console.log(req.body);
+    // const data=req.body;
+    // //console.log(data);
+    // if (data!=null) {
+    //     let {user_email, course_id} = data;
+    //     console.log({user_email, course_id});
+    //     // insert into table
+    //     model.User_Course.create({
+    //         user_email
+    //         ,course_id})
+    //         .then(newuserCourse => res.send('true'))
+    //         .catch(err => res.send(err));
+    // }
+    // else
+    //     {
+    //         console.log(data);
+    //         res.sendStatus(200);
+    //     }
 
 }
 // return all the names and ids of some the courses of some user

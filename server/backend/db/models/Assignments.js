@@ -2,7 +2,7 @@ const Sequelize= require('sequelize');
 const db= require(appRoot + '/config/database');
 //const Course=require('./Courses');
 
-module.exports= (db,DataTypes)=> {
+module.exports= (db, DataTypes)=> {
     const Assignment=db.define('Assignments',{
         assignment_id: {
             type: DataTypes.STRING,

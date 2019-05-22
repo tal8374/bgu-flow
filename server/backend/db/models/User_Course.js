@@ -31,6 +31,9 @@ module.exports= (db, DataTypes)=> {
                 // This declares when to check the foreign key constraint. PostgreSQL only.
                 deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
             }*/
+        },
+        course_name: {
+            type: DataTypes.STRING,
         }
 
     },{timestamps: false});

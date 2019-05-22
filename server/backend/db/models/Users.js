@@ -8,6 +8,7 @@ module.exports= (db, DataTypes)=> {
             type: DataTypes.STRING,
             primaryKey: true
         },
+        user_name: DataTypes.STRING,
         first_name: DataTypes.STRING,
         last_name: DataTypes.STRING,
         phone_number: DataTypes.STRING,

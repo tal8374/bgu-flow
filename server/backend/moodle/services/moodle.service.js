@@ -1,6 +1,11 @@
 const dbCourses = require("../../db/controllers/courses");
 const dbAssignments = require("../../db/controllers/assignments");
-const dbForumMessages = require("../../db/controllers/forums")
+const dbForumMessages = require("../../db/controllers/forums");
+const dbUsers = require("../../db/controllers/users");
+const dbUserCourses = require("../../db/controllers/userCourses");
+const dbAnnouncements = require("../../db/controllers/announcements");
+
+
 
 const request = require('request');
 
@@ -13,7 +18,8 @@ const handlers = {
     'Assignment24HoursAlert': assignmentAlert,
     'Assignment60MinutesAlert': assignmentAlert,
     'Assignment10MinutesAlert': assignmentAlert,
-    'AssignmentHalfTimeAlert': assignmentAlert
+    'AssignmentHalfTimeAlert': assignmentAlert,
+    'User': user
 };
 
 function eventLaunch(req) {
@@ -24,6 +30,7 @@ function eventLaunch(req) {
 
 function course(body) {
     dbCourses.addNewCourse(body);
+    dbUserCourses.addUsersCourse(body);
     console.log(JSON.parse(Object.keys(body)[0]));
 
 
@@ -55,16 +62,17 @@ function assignment(body){
 }
 
 function announcement(body){
+    dbAnnouncements.addAnnouncement(body);
     console.log(JSON.parse(Object.keys(body)[0]));
 
-    request.post(
-        'http://localhost:7000/insert-event',
-        {json: JSON.parse(Object.keys(body)[0])},
-        function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-            }
-        }
-    );
+    // request.post(
+    //     'http://localhost:7000/insert-event',
+    //     {json: JSON.parse(Object.keys(body)[0])},
+    //     function (error, response, body) {
+    //         if (!error && response.statusCode == 200) {
+    //         }
+    //     }
+    // );
 }
 
 function forumMessage(body){
@@ -92,6 +100,19 @@ function unit(body){
             }
         }
     );
+}
+function user(body){
+    dbUsers.addNewUser(body);
+    console.log(JSON.parse(Object.keys(body)[0]));
+
+    // request.post(
+    //     'http://localhost:7000/insert-event',
+    //     {json: JSON.parse(Object.keys(body)[0])},
+    //     function (error, response, body) {
+    //         if (!error && response.statusCode == 200) {
+    //         }
+    //     }
+    // );
 }
 
 function assignmentAlert(body){

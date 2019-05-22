@@ -14,25 +14,32 @@ function allUsers(req,res) {
 
 //add new record to users table
 //router.post('/add', (req,res)=> {
-function addNewUser (req, res){
-        console.log(req.body);
-        //console.log(req);
-        const data=req.body;
-
-        if (data!=null){
-        let { email,first_name,last_name,phone_number}=data;
+async function addNewUser (body){
+        const user = JSON.parse(Object.keys(body)[0]);
+        let email = user.data.userEmail;
+        let user_name = user.data.userName;
+        let first_name = user.data.userFirstName;
+        let last_name = user.data.userLastName;
+        let phone_number = "";
+        // console.log(req.body);
+        // //console.log(req);
+        // const data=req.body;
+        //
+        // if (data!=null){
+        // let { email,first_name,last_name,phone_number}=data;
         // insert into table
         model.Users.create({
                 email,
+                user_name,
                 first_name,
                 last_name,
                 phone_number,
         })
             .then(newUser=>res.redirect('/users'))
-            .catch(err=>console.log);}
-        else{
-                console.log(data);
-                res.sendStatus(200);}
+            .catch(err=>console.log);
+        // else{
+        //         console.log(data);
+        //         res.sendStatus(200);}
 }
 
 // select users by his email

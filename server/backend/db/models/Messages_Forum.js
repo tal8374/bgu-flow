@@ -1,12 +1,16 @@
-const Sequelize = require('sequelize');
+const Sequelize= require('sequelize');
 const db= require(appRoot + '/config/database');
-
+//const Course=require('./Courses');
 
 module.exports= (db, DataTypes)=> {
-    const Messages_Forums= db.define('Messages_Forums',{
-        forum_id: {
+    const Message_Forum= db.define('Messages_Forums',{
+        message_id: {
             allowNull: false,
             primaryKey: true,
+            type: DataTypes.STRING
+        },
+        forum_id: {
+            allowNull: false,
             type: DataTypes.STRING
         },
         course_id: {
@@ -38,12 +42,12 @@ module.exports= (db, DataTypes)=> {
             type: DataTypes.STRING
         }
     },{timestamps: false});
-    Messages_Forums.associate=function(models) {
-        Messages_Forums.belongsTo(models.Courses, {
+    Message_Forum.associate=function(models) {
+        Message_Forum.belongsTo(models.Courses, {
             foreignKey: 'course_id',
 
         });
     };
-    Messages_Forums.sync();
-    return Messages_Forums;
+    Message_Forum.sync();
+    return Message_Forum;
 };
