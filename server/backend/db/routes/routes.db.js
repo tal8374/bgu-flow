@@ -1,7 +1,6 @@
 const assignmentsController=require('../controllers/assignments');
 const coursePartnersController= require('../controllers/coursePartners');
 const coursesController=require('../controllers/courses');
-const flowsController=require('../controllers/flows');
 const userCoursesController=require('../controllers/userCourses');
 const userFlowController=require('../controllers/userFlow');
 const userController=require('../controllers/users');

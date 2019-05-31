@@ -3,8 +3,11 @@ const router= express.Router();
 //const db= require('../config/database');
 const model=require('../models');
 
-// get all the users
-//router.get('/', (req,res)=>
+/**
+ * return all the users in the db
+ * @param req
+ * @param res
+ */
 function allUsers(req,res) {
         model.Users.findAll()
             .then(users => res.send(users))
@@ -13,7 +16,11 @@ function allUsers(req,res) {
 }
 
 //add new record to users table
-//router.post('/add', (req,res)=> {
+/**
+ * add new user to the users table
+ * @param body- all the user detail in body - email, user_name, first_name, last_name, phone_number
+ * @returns {Promise<void>}
+ */
 async function addNewUser (body){
         const user = JSON.parse(Object.keys(body)[0]);
         let email = user.data.userEmail;
@@ -21,13 +28,6 @@ async function addNewUser (body){
         let first_name = user.data.userFirstName;
         let last_name = user.data.userLastName;
         let phone_number = "";
-        // console.log(req.body);
-        // //console.log(req);
-        // const data=req.body;
-        //
-        // if (data!=null){
-        // let { email,first_name,last_name,phone_number}=data;
-        // insert into table
         model.Users.create({
                 email,
                 user_name,
@@ -37,13 +37,13 @@ async function addNewUser (body){
         })
             .then(newUser=>res.redirect('/users'))
             .catch(err=>console.log);
-        // else{
-        //         console.log(data);
-        //         res.sendStatus(200);}
 }
 
-// select users by his email
-//router.get('/findUser/:email',(req,res)=>{
+/**
+ * return all the user details by his email
+ * @param req- the user email
+ * @param res
+ */
 function userDetails (req,res)
 {
         const data=req.params.email;

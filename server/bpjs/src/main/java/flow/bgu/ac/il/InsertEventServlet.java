@@ -26,39 +26,32 @@ public class InsertEventServlet extends HttpServlet {
     private static final long serialVersionUID = -1598336877581962216L;
 
     /**
-     * Handles save request and prints XML.
+     * Handling post request for inserting new event
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        System.out.println("insert event");
 
         InsertEventBody insertEventBody = createInsertBody(request);
 
         Map<String, String> eventData = insertEventBody.data;
 
-        Gson gson = new Gson();
-        String json = gson.toJson(eventData);
-
-//        System.out.println("-----------");
-        System.out.println(json);
-//        System.out.println(insertEventBody);
-//        System.out.println(insertEventBody.eventName);
-
         if(SaveServlet.bprog != null) {
             SaveServlet.bprog.enqueueExternalEvent(new BEvent(insertEventBody.eventName,
-                    json));
+                    eventData));
         }
-
-
-//        SaveServlet.bprog.enqueueExternalEvent(new BEvent(insertEventBody.eventName, eventDataStr));
-//                "{\"" + eventData.keySet().iterator().next() + "\": \""
-//                        + eventData.values().iterator().next() + "\"}"));
-//                "{\"selectedCourse\": \"Course2\"}"));
-
-        System.out.println();
     }
 
+    /**
+     * Handling get request
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/xml;charset=UTF-8");
@@ -70,9 +63,14 @@ public class InsertEventServlet extends HttpServlet {
         response.setStatus(HttpServletResponse.SC_OK);
     }
 
+    /**
+     * Handling post body request with insert event
+     * @param request
+     * @return
+     * @throws IOException
+     */
     private InsertEventBody createInsertBody(HttpServletRequest request) throws IOException {
         String body = IOUtils.toString(request.getReader());
-//        body = String.join("", body.split("\n"));
 
         Gson gson = new Gson();
         return gson.fromJson(body, InsertEventBody.class);

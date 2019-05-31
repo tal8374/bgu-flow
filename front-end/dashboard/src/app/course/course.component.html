@@ -2,16 +2,16 @@
     <div class="row">
         <div class="card">
             <div class="header">
-                <h4 style="text-align: center; margin-bottom: 15px" class="title">Course Team Member for - {{
-                    currentCourse }}</h4>
+                <h4 *ngIf="currentCourse" style="text-align: center; margin-bottom: 15px" class="title">Course Team Member for - {{
+                    currentCourse.course_name }}</h4>
                 <div class="form-group">
                     <select (change)="onSelectCourse($event.target.value)" class="form-control">
-                        <option *ngFor="let course of courses">{{ course }}</option>
+                        <option *ngFor="let course of courses">{{ course.course_name }}</option>
                     </select>
                 </div>
             </div>
             <div class="content">
-                <ul class="list-unstyled team-members">
+                <ul *ngIf="courseTeamMembers" class="list-unstyled team-members">
                     <li *ngFor="let teamMember of courseTeamMembers">
                         <div class="row">
                             <div class="col-xs-3">
@@ -21,7 +21,7 @@
                                 </div>
                             </div>
                             <div class="col-xs-6" style="margin-top: 15px">
-                                {{ teamMember }}
+                                {{ teamMember.first_name + ' ' + teamMember.last_name}}
                             </div>
                             <div class="col-xs-3 text-right">
                                 <button class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i>

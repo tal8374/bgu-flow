@@ -1,12 +1,24 @@
 const flowServices = require('../services/flow.service');
 const request = require('request');
 
+/**
+ * Getting all the flows
+ * @param req
+ * @param res
+ * @returns {*|void|boolean}
+ */
 function list(req, res) {
     flowServices.getFlows();
 
     return res.send('respond with a list of flows');
 }
 
+/**
+ * Creating a new flow
+ * @param req
+ * @param res
+ * @returns {*|void|boolean}
+ */
 function createFlow(req, res) {
     request.post(
         'http://localhost:7000/save',
@@ -21,6 +33,12 @@ function createFlow(req, res) {
     return res.send('flow was created successfully');
 }
 
+/**
+ * Getting all user's flows
+ * @param req
+ * @param res
+ * @returns {*|void|boolean}
+ */
 function listUserFlows(req, res) {
     let userEmail = req.params.userEmail;
 
@@ -29,6 +47,12 @@ function listUserFlows(req, res) {
     return res.send(JSON.stringify(userFlows));
 }
 
+/**
+ * Getting a flow
+ * @param req
+ * @param res
+ * @returns {*|void|boolean}
+ */
 function getFlow(req, res) {
     let flowID = req.params.flowID;
 
@@ -37,6 +61,12 @@ function getFlow(req, res) {
     return res.send(JSON.stringify(userFlow));
 }
 
+/**
+ * Updating a flow
+ * @param req
+ * @param res
+ * @returns {*|void|boolean}
+ */
 function updateFlow(req, res) {
     let flowID = req.params.flowID;
 

@@ -2827,21 +2827,40 @@ EditorUi.prototype.edgeHandlers = {
 // 'bp.log.info("logging equals title "+e.name.equals(t));' +
 // 'bp.log.info("logging equals data "+e.data.selectedCourse.equals("Course2"));' +
 
+// EditorUi.prototype.syncTemplate = 'bp.sync({syncdata})';
+// EditorUi.prototype.eventTemplate = 'bp.Event("title", payload)';
+// EditorUi.prototype.eventSetTemplate = 'bp.EventSet("id", function(evt) {' +
+//   'var e = bp.Event(evt.name, JSON.parse(evt.data));' +
+//   'var t = "title";' +
+//   'var r = (!e.name.equals(t)) ? false : payloadQuery;'+
+//   'bp.log.info("logging r "+r);' +
+//   'return r; })';
+// EditorUi.prototype.payloadQueryTemplate = 'e.data.key.equals("value")';
+
 EditorUi.prototype.syncTemplate = 'bp.sync({syncdata})';
 EditorUi.prototype.eventTemplate = 'bp.Event("title", payload)';
 EditorUi.prototype.eventSetTemplate = 'bp.EventSet("id", function(evt) {' +
-  'var e = bp.Event(evt.name, JSON.parse(evt.data));' +
+  'var e = bp.Event(evt.name, evt.data);' +
   'var t = "title";' +
-  'var r = (!e.name.equals(t)) ? false : payloadQuery;'+
-  'bp.log.info("logging r "+r);' +
+  'var p = payloadQuery;' +
+  'var r = (!e.name.equals(t)) ? false : p;'+
   'return r; })';
-EditorUi.prototype.payloadQueryTemplate = 'e.data.key.equals("value")';
+EditorUi.prototype.payloadQueryTemplate = 'e.data.getOrDefault ? e.data.getOrDefault("key", "").equals("value") : false';
+
+// EditorUi.prototype.syncTemplate = 'bp.sync({syncdata})';
+// EditorUi.prototype.eventTemplate = 'bp.Event("title", payload)';
+// EditorUi.prototype.eventSetTemplate = 'bp.EventSet("id", function(evt) {return (evt.name!="title") ? false : payloadQuery })';
+// EditorUi.prototype.payloadQueryTemplate = 'evt.data.key=="value"';
 
 
 function getRequestSync(cell, editorUI) {
   let eventTemplate = editorUI.eventTemplate;
   let payload = cell.payload ? cell.payload : {};
-  eventTemplate = eventTemplate.replace('title', cell.title);
+
+  let title = cell.title;
+
+
+  eventTemplate = eventTemplate.replace('title', title);
   eventTemplate = eventTemplate.replace('payload', JSON.stringify(payload));
 
   return eventTemplate;
@@ -2852,6 +2871,11 @@ function getWaitForSync(cell, editorUI) {
   let eventSetData = [];
 
   cell.title = replaceAll(cell.title, ' ', '_');
+  cell.title = replaceAll(cell.title, 'block_', '');
+  cell.title = replaceAll(cell.title, 'block', '');
+  cell.title = replaceAll(cell.title, 'wait_', '');
+  cell.title = replaceAll(cell.title, 'wait', '');
+  cell.title = cell.title.trim();
   console.log(cell.title)
 
   eventSetTemplate = eventSetTemplate.replace('title', cell.title);
@@ -2968,8 +2992,6 @@ EditorUi.prototype.createCellsCode = function () {
   for(let i = 0; i < cells.length;i++) {
     const cell = cells[i];
 
-    if(cell.type === 'general') continue;
-
     let value = this.graph.getModel().getValue(cell);
 
     if (!mxUtils.isNode(value)) {
@@ -2977,6 +2999,13 @@ EditorUi.prototype.createCellsCode = function () {
       const obj = doc.createElement('object');
       obj.setAttribute('label', value || '');
       value = obj;
+    }
+
+    if(cell.type === 'general') {
+      // value.setAttribute("code", "");
+      // this.graph.getModel().setValue(cell, value);
+
+      continue;
     }
 
     let code = this.syncTemplate;
@@ -3003,11 +3032,26 @@ EditorUi.prototype.createCellsCode = function () {
       syncdata += 'block: ' + cell.sync.block;
     }
 
+    console.log(cell.sync.block.length)
+    console.log(cell.sync.waitFor.length)
+
+    if(cell.sync.block.length >= 1 && cell.sync.waitFor.length === 0) {
+      // Each block sync should have wait
+
+      return false;
+    }
+
+
     code = code.replace('syncdata', syncdata);
+
+    console.log(code)
 
     value.setAttribute("code", code);
     this.graph.getModel().setValue(cell, value);
+
   }
+
+  return true;
 };
 
 EditorUi.prototype.sendGraphToBackend = function () {
@@ -3075,9 +3119,16 @@ EditorUi.prototype.saveFile = function (forceDialog) {
 
   this.updateNodeSyncWithDownEdge();
 
-  this.createCellsCode();
+  let isCorrect = this.createCellsCode();
 
-  this.sendGraphToBackend();
+  console.log(isCorrect)
+
+  if(isCorrect) {
+    this.sendGraphToBackend();
+  } else {
+    alert('Graph is not saved. Each block node should have wait node beneath');
+  }
+
 };
 
 /**

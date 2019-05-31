@@ -1,4 +1,4 @@
-/* global bp */
+    /* global bp */
 importPackage(Packages.com.mxgraph.model);
 
 function SubmissionAddedAll() {

@@ -11,14 +11,27 @@ import { Http } from '@angular/http';
 export class UserComponent implements OnInit {
 
     profile = {
-        userName: 'michael23',
-        email: 'email@gmail.com',
-        firstName: 'Chet',
-        lastName: 'Faker',
+        userName: '',
+        email: '',
+        firstName: '',
+        lastName: '',
+        phoneNumber: ''
     };
 
     constructor(private http: Http) {
+        this.http.get('http://localhost:8000/api/db/users/shachareli92@gmail.com')
+            .subscribe(res => {
 
+                console.log(res['_body'])
+                console.log(res)
+                let body = JSON.parse(res['_body']);
+
+                this.profile.userName = body['user_name'];
+                this.profile.email = body['email'];
+                this.profile.firstName = body['first_name'];
+                this.profile.lastName = body['last_name'];
+                this.profile.phoneNumber = body['phone_number'];
+            })
     }
 
     ngOnInit() {

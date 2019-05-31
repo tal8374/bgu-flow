@@ -6,7 +6,11 @@ const course= require('../models/Courses');
 const User_Course=require('../models/User_Course');
 const model=require('../models');
 
-//router.get('/', (req,res)=>
+/**
+ * return all the rows in table allUserCourses
+ * @param empty req
+ * @param res- all the rows in table allUserCourses
+ */
 function allUserCourses (req,res) {
     model.User_Course.findAll()
         .then(usersCourses => res.send(usersCourses))
@@ -14,19 +18,17 @@ function allUserCourses (req,res) {
         .catch(err => console.log(err));
 }
 
-//router.post('/add', (req,res)=> {
+/**
+ * add new row to table userCourse
+ * @param body- the req from the user so in the body (JSON.parse(Object.keys(body)[0])) with - course_name,  course_id,user_email
+ * @returns {Promise<void>}
+ */
 async function addUsersCourse(body){
     const userCourse = JSON.parse(Object.keys(body)[0]);
     let course_name = userCourse.data.selectedCourse;
     let course_id = userCourse.data.courseId;
     let user_email = userCourse.data.userEmail;
-    // console.log(req.body);
-    // //console.log(req);
-    // const data=req.body;
-    //
-    // if (data!=null){
-    //     let {course_id, course_name}=data;
-    // insert into table
+
     model.User_Course.create({
         user_email,
         course_id,
@@ -34,28 +36,16 @@ async function addUsersCourse(body){
     })
         .then(newUserCourse => res.redirect('/user_courses'))
         .catch(err => console.log);
-    // console.log(req.body);
-    // const data=req.body;
-    // //console.log(data);
-    // if (data!=null) {
-    //     let {user_email, course_id} = data;
-    //     console.log({user_email, course_id});
-    //     // insert into table
-    //     model.User_Course.create({
-    //         user_email
-    //         ,course_id})
-    //         .then(newuserCourse => res.send('true'))
-    //         .catch(err => res.send(err));
-    // }
-    // else
-    //     {
-    //         console.log(data);
-    //         res.sendStatus(200);
-    //     }
+
 
 }
-// return all the names and ids of some the courses of some user
-//router.get('/:user_email', (req,res)=>{
+
+
+/**
+ * return all the courses of a user
+ * @param req- user_email in req.params
+ * @param res- all the course_id and course_name of courses a user sign to
+ */
 function usersCourse(req,res) {
 const user_email= req.params.user_email;
     let courseID=[];

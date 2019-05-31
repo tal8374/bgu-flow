@@ -13,7 +13,7 @@ import {UpgradeComponent} from './upgrade/upgrade.component';
 export const AppRoutes: Routes = [
     {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'user',
         pathMatch: 'full',
     },
     {

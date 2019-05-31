@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Http} from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
     selector: 'course-cmp',
@@ -13,11 +15,22 @@ export class CourseComponent implements OnInit {
     isAddingPartner;
     newPartnerEmail;
 
-    constructor() {
-        this.courses = ['Course 1', 'Course 2', 'Course 3', 'Course 4', 'Course 5'];
-        this.courseTeamMembers = ['Partner 1', 'Partner 2', 'Partner 3', 'Partner 4'];
-        this.currentCourse = this.courses[0];
+    constructor(private http: Http) {
         this.isAddingPartner = false;
+
+        this.initCourses();
+    }
+
+    initCourses() {
+        this.http.get('http://localhost:8000/api/db/userCourses/shachareli92@gmail.com')
+            .map(res => res.json())
+            .subscribe(res => {
+                if (res.length > 0) {
+                    this.onSelectCourse(res[0]);
+                }
+
+                this.courses = res;
+            })
     }
 
     ngOnInit() {
@@ -25,11 +38,31 @@ export class CourseComponent implements OnInit {
 
     onSelectCourse(course) {
         this.currentCourse = course;
+
+        this.http.get('http://localhost:8000/api/db/coursePartners/2/shachareli92@gmail.com')
+            .map(res => res.json())
+            .subscribe(res => {
+                console.log(res)
+
+                this.courseTeamMembers = res;
+            })
     }
 
     onAddPartner() {
         this.isAddingPartner = false;
-        this.courseTeamMembers.push(this.newPartnerEmail)
+
+        let body = {
+            user_email: 'shachareli92@gmail.com',
+            course: this.currentCourse['course_id'],
+            partner_email: this.newPartnerEmail
+        }
+
+        let _this = this;
+
+        this.http.post('http://localhost:8000/api/db/coursePartners/add', body)
+            .subscribe(res => {
+                _this.onSelectCourse(_this.currentCourse)
+            })
     }
 
     onAddPartnerPlus() {

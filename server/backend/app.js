@@ -8,7 +8,6 @@ global.appRoot = path.resolve(__dirname);
 
 
 //var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var flowRouter = require('./flow/routes/flow.route');
 var bpjsRouter = require('./bpjs/routes/bpjs.route');
 var moodleRouter = require('./moodle/routes/moodle.route');

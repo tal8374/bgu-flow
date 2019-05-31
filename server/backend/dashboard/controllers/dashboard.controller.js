@@ -1,5 +1,11 @@
 var bpjsServices = require('../services/dashboard.service');
 
+/**
+ * Getting user's profile
+ * @param req
+ * @param res
+ * @returns {*|void|boolean}
+ */
 function getUserProfile(req, res) {
     let userEmail = req.params.userEmail;
 
@@ -8,6 +14,12 @@ function getUserProfile(req, res) {
     return res.send(JSON.stringify(userProfile));
 }
 
+/**
+ * Updating user's profile
+ * @param req
+ * @param res
+ * @returns {*|void|boolean}
+ */
 function updateUserProfile(req, res) {
     let userEmail = req.params.userEmail;
     let userNewProfile = req.body.userNewProfile;
@@ -17,6 +29,12 @@ function updateUserProfile(req, res) {
     return res.send("User profile was updated.");
 }
 
+/**
+ * Get user's partners
+ * @param req
+ * @param res
+ * @returns {*|void|boolean}
+ */
 function getUserCoursePartners(req, res) {
     let userEmail = req.params.userEmail;
     let courseID = req.params.courseID;
@@ -26,6 +44,12 @@ function getUserCoursePartners(req, res) {
     return res.send("User partner was added.");
 }
 
+/**
+ * Update user's course partner
+ * @param req
+ * @param res
+ * @returns {*|void|boolean}
+ */
 function updateUserCoursePartner(req, res) {
     let userEmail = req.params.userEmail;
     let courseID = req.params.courseID;
@@ -37,6 +61,12 @@ function updateUserCoursePartner(req, res) {
     return res.send("User partner was added.");
 }
 
+/**
+ * get user's coruse partner
+ * @param req
+ * @param res
+ * @returns {*|void|boolean}
+ */
 function getUserCoursePartner(req, res) {
     let userEmail = req.params.userEmail;
     let courseID = req.params.courseID;
@@ -47,6 +77,12 @@ function getUserCoursePartner(req, res) {
     return res.send(JSON.stringify(userPartnerPayload));
 }
 
+/**
+ * Deletes user's course partner
+ * @param req
+ * @param res
+ * @returns {*|void|boolean}
+ */
 function deleteUserCoursePartner(req, res) {
     let userEmail = req.params.userEmail;
     let courseID = req.params.courseID;
@@ -56,6 +92,13 @@ function deleteUserCoursePartner(req, res) {
 
     return res.send("User partner was deleted");
 }
+
+
+/**
+ * Loggs in
+ * @param req
+ * @param res
+ */
 function logIn(req, res){
     usernameToCheck = req.body.email;
     pwdToCheck = req.body.password;

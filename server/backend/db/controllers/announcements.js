@@ -3,6 +3,11 @@ const router= express.Router();
 const announcement= require('../models/Announcements');
 const model=require('../models');
 
+/**
+ * fucntion that add new row to announcement table
+ * @param req from the user
+ * @returns {Promise<void>}
+ */
 async function addAnnouncement (data){
     const announcement = JSON.parse(Object.keys(data)[0]).data;
     console.log("temp33");

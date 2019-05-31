@@ -3,7 +3,11 @@ const router= express.Router();
 const model=require('../models');
 
 
-//router.get('/', (req,res)=>
+/**
+ * return all the rowd from table UserFlows
+ * @param req
+ * @param res- all the rows in UserFlows
+ */
 function allUserFlows(req, res) {
     model.User_Flows.findAll()
         .then(usersCourses => res.send(usersCourses))
@@ -11,13 +15,18 @@ function allUserFlows(req, res) {
         .catch(err => console.log(err))
 }
 
-//router.post('/add', (req,res))=>
+/**
+ * add a new flow to userFlows table and to Flows table
+ * @param req- all the flow details and email user in the body- flow_id, flow_data, creationDate, lastModified, email
+ * @param res
+ */
 function addUserFlow (req, res){
-    const flow_id= req.body.flow_id;
-    const flow_data= req.body.data;
-    const creationDate= req.body.creationDate;
-    const lastModified= req.body.lastModified;
-    const email= req.body.user_email;
+    const details = JSON.parse(Object.keys(data)[0]);
+    const flow_id= details.data.flow_id;
+    const flow_data= details.data.data;
+    const creationDate= details.data.creationDate;
+    const lastModified= details.data.lastModified;
+    const email= details.data.user_email;
 
     let flow= {
         flow_id: flow_id,

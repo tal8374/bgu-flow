@@ -5,6 +5,11 @@ const assignment= require('../models/Assignments');
 const model=require('../models');
 
 
+/**
+ * fucntion that return all the rows in Assignment table
+ * @param req from the user
+ * @returns {Promise<void>}
+ */
 function returnAll (req,res){
     model.Assignments.findAll()
         .then(users=>res.send(users))
@@ -13,7 +18,12 @@ function returnAll (req,res){
 }
 
 
-// return all the assignments in some course
+
+/**
+ * fucntion that return all the rows in Assignment table
+ * @param req from the user
+ * @returns {Promise<void>}
+ */
 function courseAssigments(req, res){
     //console.log(req.params.course_id);
     const data=req.params.course_id;
@@ -28,7 +38,17 @@ function courseAssigments(req, res){
     }
 }
 
-//router.post('/add', async(req,res)=>
+
+/**
+ * fucntion that add new rows to assigments table
+ * @param req that contain in the body :
+ * assignment_id
+ * course_id
+ * course_name
+ * assignment_name
+ * due_date
+ * @returns {Promise<void>}
+ */
 async function addAssignment (data){
     const assignment = JSON.parse(Object.keys(data)[0]);
     let assignment_id = assignment.data.AssignmentId;

@@ -2,7 +2,7 @@ const request = require('request');
 
 const eventHandlers = {
     'send_mail': sendMail,
-    'Whatsapp':sendSms,
+    'sms':sendSms,
     'Add schedule': sechedule,
 };
 

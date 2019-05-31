@@ -4,7 +4,11 @@ const model=require('../models');
 let partners;
 let i;
 
-//router.get('/', (req,res)=>
+/**
+ * function that return all the rows in all coursesPartners table
+ * @param empty req
+ * @param  res with  all coursesPartners table
+ */
 function allCoursesPartners (req,res) {
     model.Course_Partners.findAll()
         .then(users => res.send(users))
@@ -12,7 +16,11 @@ function allCoursesPartners (req,res) {
         .catch(err => console.log(err));
 }
 
-//router.post('/add', async(req,res)=> {
+/**
+ * function that return all the rows in all coursesPartners table
+ * @param req with details of the ne partner :  user_email, course, partner_email
+ * @param  res with  all coursesPartners table
+ */
 async function addNewPartner(req,res){
     //console.log(req.body);
     const data=req.body;
@@ -34,7 +42,11 @@ async function addNewPartner(req,res){
 
 }
 
-//router.get('/:course_id/:user_email',(req,res)=>
+/**
+ * return all the partners of a user in certain course
+ * @param req with the course_id and user_id in the params
+ * @param res all the partners details
+ */
 function usersPartner(req,res){
     //console.log(req.params.course_id);
     const course_id=req.params.course_id;

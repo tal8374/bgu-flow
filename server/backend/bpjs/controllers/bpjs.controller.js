@@ -11,6 +11,8 @@ function eventLaunch(req, res) {
         data: JSON.parse(Object.keys(req.body)[0])
     };
 
+    console.log(Object.keys(req.body)[0])
+
     iftttService.handleEvent(payload);
 
     return res.send('respond with ' + componentID);

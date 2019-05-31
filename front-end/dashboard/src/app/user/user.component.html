@@ -7,7 +7,7 @@
             <div>
                 <div class="author">
                     <img class="avatar border-white" src="assets/img/faces/face-2.jpg" alt="..."/>
-                    <h4 class="title">Chet Faker<br/>
+                    <h4 class="title">{{profile.firstName +" " + profile.lastName}}<br/>
                     </h4>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>First Name</label>
-                            <input type="text" class="form-control border-input" placeholder="Company"
+                            <input type="text" class="form-control border-input" placeholder="First Name"
                                    [(ngModel)]="profile.firstName" name="firstName">
                         </div>
                     </div>
@@ -45,6 +45,17 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="number" class="form-control border-input" placeholder="Phone Number"
+                                   [(ngModel)]="profile.phoneNumber" name="phone">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="text-center">
                     <button (click)="updateProfile()" style="margin-bottom: 15px;" type="submit" class="btn btn-wd">Update
                         Profile

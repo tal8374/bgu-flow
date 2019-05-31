@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="card card-user">
+            <div class="image">
+                <img src="assets/img/background.jpg" alt="..."/>
+            </div>
+            <div>
+                <div class="author">
+                    <img class="avatar border-white" src="assets/img/faces/face-2.jpg" alt="..."/>
+                    <h4 class="title">Chet Faker<br/>
+                    </h4>
+                </div>
+            </div>
+            <form style="margin: 20px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control border-input" placeholder="Username"
+                                   [(ngModel)]="profile.userName" name="userName">
+                        </div>
+                    </div>
+                    <div class="col-md-6    ">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input [(ngModel)]="profile.email" type="email" class="form-control border-input"
+                                   name="email" placeholder="Email">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control border-input" placeholder="Company"
+                                   [(ngModel)]="profile.firstName" name="firstName">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control border-input" placeholder="Last Name"
+                                   [(ngModel)]="profile.lastName" name="lastName">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button (click)="updateProfile()" style="margin-bottom: 15px;" type="submit" class="btn btn-wd">Update
+                        Profile
+                    </button>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+</div>
