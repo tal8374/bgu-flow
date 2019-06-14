@@ -2,9 +2,9 @@ var myconfig = {
   sidebar: {
     actionPalette: {
       name: 'action',
-      title: 'Do Action',
+      title: 'Action',
       type: 'action',
-      header: 'Do: ',
+      header:'',
       content: {
         sms: {
           name: 'sms',
@@ -22,68 +22,8 @@ var myconfig = {
           title: 'sms',
           showLabel: null,
           showTitle: null,
-          tags: 'sms'
+          tags:'sms'
         },
-        email: {
-          name: 'email',
-          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
-          width: 120,
-          height: 60,
-          image: {
-            src: 'https://us.123rf.com/450wm/jovanas/jovanas1603/jovanas160300244/53038597-black-email-icon.jpg?ver=6',
-            style: {
-              height: '60px',
-              width: '60px',
-            }
-          },
-          title: 'Email',
-          showLabel: null,
-          showTitle: null,
-          tags: 'Email'
-        },
-        addSchedule: {
-          name: 'addSchedule',
-          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
-          width: 120,
-          height: 60,
-          image: {
-            src: 'https://cdn4.iconfinder.com/data/icons/medical-icons-rounded-vector/1250/path_appointment-512.png',
-            style: {
-              height: '60px',
-              width: '60px',
-            }
-          },
-          title: 'Add schedule',
-          showLabel: null,
-          showTitle: null,
-          tags: 'Add schedule'
-        },
-        downloadFile: {
-          name: 'downloadFile',
-          header: 'download',
-          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
-          width: 200,
-          height: 40,
-          image: {
-            src: 'https://cdn4.iconfinder.com/data/icons/basic-work-elements/154/download-load-file-512.png',
-            style: {
-              height: '60px',
-              width: '80px',
-            }
-          },
-          title: 'download File',
-          showLabel: null,
-          showTitle: null,
-          tags: 'download File'
-        }
-      }
-    },
-    listenPalette: {
-      name: 'listen',
-      title: 'Wait For Action',
-      type: 'listen',
-      header: 'Wait For: ',
-      content: {
         Assignment24HoursAlert: {
           name: 'Assignment24HoursAlert',
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
@@ -147,11 +87,71 @@ var myconfig = {
               width: '60px',
             }
           },
-          title: 'send assignment half time alert',
+          title: 'Assignment Half Time Alert',
           showLabel: null,
           showTitle: null,
           tags: 'Assignment Half Time Alert'
         },
+        email: {
+          name: 'email',
+          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
+          width: 120,
+          height: 60,
+          image: {
+            src: 'https://us.123rf.com/450wm/jovanas/jovanas1603/jovanas160300244/53038597-black-email-icon.jpg?ver=6',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
+          title: 'Email',
+          showLabel: null,
+          showTitle: null,
+          tags: 'Email'
+        },
+        addSchedule: {
+          name: 'addSchedule',
+          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
+          width: 120,
+          height: 60,
+          image: {
+            src: 'https://cdn4.iconfinder.com/data/icons/medical-icons-rounded-vector/1250/path_appointment-512.png',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
+          title: 'Add schedule',
+          showLabel: null,
+          showTitle: null,
+          tags: 'Add schedule'
+        },
+        downloadFile: {
+          name: 'downloadFile',
+          header: 'download',
+          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
+          width: 200,
+          height: 40,
+          image: {
+            src: 'https://cdn4.iconfinder.com/data/icons/basic-work-elements/154/download-load-file-512.png',
+            style: {
+              height: '60px',
+              width: '80px',
+            }
+          },
+          title: 'download File',
+          showLabel: null,
+          showTitle: null,
+          tags: 'download File'
+        }
+      }
+    },
+    listenPalette: {
+      name: 'listen',
+      title: 'Listen',
+      type: 'listen',
+      header: '',
+      content: {
         forumMessage: {
           name: 'forumMessage',
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
@@ -288,23 +288,23 @@ var myconfig = {
           showTitle: null,
           tags: 'Reached Date'
         },
-        announcement: {
+        facebookMessage: {
           id: 'face',
-          name: 'announcement',
+          name: 'facebookMessage',
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
           height: 60,
           image: {
-            src: 'data:image/png;base64,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',
+            src: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAolBMVEU8Wpr//////v/T2ugnSo+qtscwT5f4+/48Wpn///07WZs5VpE0VZl+jrTc4+9rf6whRoksTZFccp+6xdru9fr///owTo47W5cmRIw8VI09U5JWbaBGYJk7U5cvUZGmsdDEz+Dk7fYgRoQeP4pqeqY+V6IQN3/R1+iptMy2vMxXapQwUJbp6vVTbKCJlrhgc5ysv9OZo8OHl7VMYpGdqMF0h7MR1na4AAAD6ElEQVR4nO3da1PbOBiGYb+KIZJinKTYUSCHBbaUdum2C9v+/7+2csJC4spxhrSNH/FcH0oP0xnfI1uOfJgkCREREREREREREREREREREREREdFbpXX9NzX2t23KL2Btop2uflirtbYhepG4Y2/n6zkftbi1vnK5TNPxIGAxuNDIo6i1cy5L3fDh/C4v+kEyXBx7M19P29v70exb3peKkgBlZNhwgHafPwizm8fcZ5iVpx918h5zL3V+cslGj8V6pExo+J4GUYbZsTf2VWziBvO8GrbmOOxCbadfxChTtgQCF6Yf/b5pqpkk0sKpD1S+ry0Qs9C6xf2jH7/WPRS10E/+2b/ij8DgCTCGQt94k/tJxkRbqHV2JkpJ+zGIWmjdNPcHoWmdRmELEz2UnR9j4Avt5HzvPtTCIvbCd3tOMqiFevkg5V4niv8L4VZP40+7V0ulWc1DT8tDXwh3nSbt7dpL/b+o9QivV8UK8CrG6NrsGMTV6G0OKeBVjHGx+2Rvan+Am2laC+X66nzD1QxuDKvTYbCwmldKOZlP0/EmuKm0ubD6MN7/OrHYF/KT3WMo30+dtXCnh5rGQn8i7E0Tq9EDd4yhyLfMrm7YYGsuVPId7swQsqsQ7zNoCAvx7SyM/zhkIYQ3fhxGUxgKBC6sHpR5WS/YSdFw08mPbOg4bHqUqEOcTrR7eQZoUigVbgxck9EQH1IXdmszl36N33Q18YdrMtWTUt2/EuUGN6PpaC1N0w9FWYZXT0pmf462TUc3g+7vpdmw17vrvTAN19qMlPmPrgHWG9lZwz4ZaAz8DcCngKpw/xsVtUIjs+7PNYcU+v84j7tQmT7A05eHFRYZwFx60F56PYl7DMXk6bG3v91BhdKLvNDI1fjY29/usMLzyAtF/ljGPdMYeYi+8EsWd6GSs8gLRd53f2lxYOHf0RfOIy9UCEuLw+bSz0uAxP2vYgR8Tru/eEpOz6oXK56VquFloOArNPnUdX8Mk/oYluHH9JWSolf3zxig0M2/zt69+OuThAv9wN59SGvGt0n3d9Nsdd/i2elJ89tO68Wgfv4lcRAP11i99UZ2Y6EfQ1+ot1gLceNi2/1Jw8nD77sIC/p2fgwb75CyEAML8bEQHwvxsRAfC/GxEB8L8bEQHwvxsRAfC/GxEB8L8bEQHwvxsRAfC/GxEB8L8bEQHwvxsRAfC/GxEB8L8bEQHwvxsRDf6Vt4K+j5mw+2vyXPRFJYvdkVFkth9lHC31bZN3I3OfbW/QxaX1xeBr9z9PIC4I3Ydlrfbr5RugHiddG9NI1T99/3JSIiIiIiIiIiIiIiIiIiIiIiIvoF/gNOD0/GLLNI1AAAAABJRU5ErkJggg==',
             style: {
               height: '60px',
               width: '60px',
             }
           },
-          title: 'Announcement',
+          title: 'Message in facebook',
           showLabel: null,
           showTitle: null,
-          tags: 'announcement'
+          tags: 'Message in facebook'
         },
         lectureUplode: {
           name: 'lectureUplode',
@@ -361,9 +361,9 @@ var myconfig = {
     },
     blockPalette: {
       name: 'block',
-      title: 'Block Action',
+      title: 'Block',
       type: 'block',
-      header: 'Block Action: ',
+      header: '',
       content: {
         sms: {
           name: 'sms',
@@ -416,7 +416,7 @@ var myconfig = {
           showTitle: null,
           tags: 'Add schedule'
         },
-        blockdownload: {
+       blockdownload: {
           name: 'blockdownload',
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
           width: 120,
@@ -432,6 +432,23 @@ var myconfig = {
           showLabel: null,
           showTitle: null,
           tags: 'block download'
+        },
+        blockfacebook: {
+          name: 'blockfacebook',
+          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
+          width: 120,
+          height: 60,
+          image: {
+            src: 'http://www.browsecontrol.com/wp-content/uploads/2014/09/block-facebook.png',
+            style: {
+              height: '60px',
+              width: '60px',
+            }
+          },
+          title: 'block facebook message',
+          showLabel: null,
+          showTitle: null,
+          tags: 'block facebook message'
         },
       }
     },

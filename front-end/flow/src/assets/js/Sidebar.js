@@ -78,8 +78,8 @@ function Sidebar(editorUi, container) {
 Sidebar.prototype.init = function () {
   // this.addSearchPalette(true);
   this.addEventPalette(true, 'general');
-  this.addEventPalette(true, 'listen');
   this.addEventPalette(true, 'action');
+  this.addEventPalette(true, 'listen');
   this.addEventPalette(true, 'block');
   //this.addEventPalette(true, 'execute');
   //this.createButtonElement( 'Submit');
@@ -790,8 +790,7 @@ Sidebar.prototype.getEventPalette = function (paleteeName, type) {
 
     let value = '';
     value += this.createImageElement(contentData).outerHTML;
-    value += this.createInfoHeader(paleteeConfig, paleteeConfig.content[content].title,
-      paleteeConfig.type).outerHTML;
+    value += this.createInfoHeader(paleteeConfig).outerHTML;
 
     palette[contentData.name] = this.createVertexTemplateEntry(contentData.style, contentData.width,
       contentData.height, value, contentData.title, contentData.showLabel,contentData.showTitle,
@@ -812,17 +811,9 @@ Sidebar.prototype.createImageElement = function (payload) {
 };
 
 
-Sidebar.prototype.createInfoHeader = function (payload, title, type) {
+Sidebar.prototype.createInfoHeader = function (payload) {
   let headerElement = document.createElement('h5');
-  headerElement.innerText = payload.header + title;
-
-  if(type === 'action') {
-    headerElement.style.border = '2px solid green';
-  } else if(type === 'listen') {
-    headerElement.style.border = '2px solid yellow';
-  } else if(type === 'block') {
-    headerElement.style.border = '2px solid red';
-  }
+  headerElement.innerText = payload.header;
 
   return headerElement;
 };

@@ -32,48 +32,35 @@ Actions.prototype.init = function()
     };
   });
 
-  this.addAction('addAssignment24HoursAlertSubmit', function(data, node) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-
+  this.addAction('assignment24HoursAlertSubmit', function(data, node) {
     node.payload = {
-      selectedCourse: selectedCourse,
-    };
-  });
-
-  this.addAction('addAnnouncementSubmit', function(data, node) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-
-    node.payload = {
-      selectedCourse: selectedCourse,
+      from: data['from'].value,
+      to: data['to'].value,
+      message: data['message'].value
     };
   });
 
   this.addAction('assignment60MinutesAlertSubmit', function(data, node) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-
     node.payload = {
-      selectedCourse: selectedCourse,
+      from: data['from'].value,
+      to: data['to'].value,
+      message: data['message'].value
     };
   });
 
-  this.addAction('addAssignment10MinutesAlertActSubmit', function(data, node) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-
+  this.addAction('assignment10MinutesAlertSubmit', function(data, node) {
     node.payload = {
-      selectedCourse: selectedCourse,
+      from: data['from'].value,
+      to: data['to'].value,
+      message: data['message'].value
     };
   });
 
   this.addAction('assignmentHalfTimeAlertSubmit', function(data, node) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-
     node.payload = {
-      selectedCourse: selectedCourse,
+      from: data['from'].value,
+      to: data['to'].value,
+      message: data['message'].value
     };
   });
 
@@ -86,25 +73,17 @@ Actions.prototype.init = function()
   });
 
   this.addAction('sendWeeklyTask', function(data, node) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-
-    node.payload = {
-      selectedCourse: selectedCourse,
-    };
+    var course = data['course'].options[data['course'].options.selectedIndex].value;
   });
 
   this.addAction('reachedDateSubmit', function(data, node) {
     console.log(data.id)
     console.log(data)
     let date = document.getElementById(data['id']).value;
-    date = replaceAll(date, ' ', '_');
 
-    node.title = 'reached_date_' + date;
-
-    // node.payload = {
-    //   date: date,
-    // };
+    node.payload = {
+      date: date,
+    };
   });
 
   this.addAction('homeworkCheckedActSubmit', function(data, node) {
@@ -153,42 +132,6 @@ Actions.prototype.init = function()
   });
 
   this.addAction('receptionTimeActSubmit', function(data, node) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-
-    node.payload = {
-      selectedCourse: selectedCourse,
-    };
-  });
-
-  this.addAction('addAssignment24HoursAlertSubmit', function(data, node) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-
-    node.payload = {
-      selectedCourse: selectedCourse,
-    };
-  });
-
-  this.addAction('addAssignment60MinutesAlertSubmit', function(data, node) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-
-    node.payload = {
-      selectedCourse: selectedCourse,
-    };
-  });
-
-  this.addAction('addAssignment10MinutesAlertActSubmit', function(data, node) {
-    let courseSelectElement = data['courseSelectElement'];
-    let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
-
-    node.payload = {
-      selectedCourse: selectedCourse,
-    };
-  });
-
-  this.addAction('addAssignmentHalfTimeAlertSubmit', function(data, node) {
     let courseSelectElement = data['courseSelectElement'];
     let selectedCourse = courseSelectElement.options[courseSelectElement.selectedIndex].value;
 
