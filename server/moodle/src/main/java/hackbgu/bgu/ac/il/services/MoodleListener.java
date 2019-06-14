@@ -1,47 +1,17 @@
 package hackbgu.bgu.ac.il.services;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
 import hackbgu.bgu.ac.il.model.*;
-
-
-import java.io.BufferedReader;
 import java.io.IOException;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import com.google.gson.Gson;
-import il.ac.bgu.cs.bp.bpjs.execution.listeners.BProgramRunnerListenerAdapter;
 import il.ac.bgu.cs.bp.bpjs.model.BEvent;
-import org.apache.commons.io.IOUtils;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.w3c.dom.Document;
-
-import com.mxgraph.io.mxCodec;
-import com.mxgraph.model.mxCell;
-import com.mxgraph.model.mxGraphModel;
-import com.mxgraph.model.mxGraphModel.Filter;
-import com.mxgraph.util.mxXmlUtils;
-
-import il.ac.bgu.cs.bp.bpjs.execution.BProgramRunner;
-import il.ac.bgu.cs.bp.bpjs.execution.listeners.PrintBProgramRunnerListener;
-import il.ac.bgu.cs.bp.bpjs.model.BProgram;
 
 public class MoodleListener implements Runnable{
 	private SerializationUtils serializationUtils = new SerializationUtils();
@@ -52,7 +22,7 @@ public class MoodleListener implements Runnable{
 	 * @param username
 	 * @throws Exception
 	 */
-   public void pollMoodle(String username) throws Exception {
+	public void pollMoodle(String username) throws Exception {
 	   MoodleService moodleService = new MoodleServiceImpl();
 	   List<User> allUsers = serializationUtils.deserialize(moodleService.getAllUsers(), Users.class).users;
 	   for(User user: allUsers){
@@ -85,30 +55,19 @@ public class MoodleListener implements Runnable{
 
 		for (Course course : userWithEvents.courses) {
 			String event = createCourseEvent(user,course);
-			if (sentEvents.containsKey(userKey)){
 				if (!sentEvents.get(userKey).contains(event)){
 					sendEvent(new BEvent("CourseAdded"), event);
 					sentEvents.get(userKey).add(event);
 				}
-				continue;
-			}
-
-			sendEvent(new BEvent("CourseAdded"), event);
-			List<String> userEvents = new ArrayList<>();
-			userEvents.add(event);
-			sentEvents.put(userKey, userEvents);
 		}
 
 		for (Course course : userWithEvents.courses){
 			for(Assignment assignment : course.assignments){
 				String event = createAssignmentEvent(course, assignment);
-				if (sentEvents.containsKey(userKey)){
 					if (!sentEvents.get(userKey).contains(event)){
 						sendEvent(new BEvent("AssignmentAdded", event), event);
 						sentEvents.get(userKey).add(event);
 					}
-
-				}
 				Date date = new Date();
 				Date timemodified = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US).parse(assignment.timemodified);
 				Date duedate = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy",  Locale.US).parse(assignment.duedate);
@@ -145,22 +104,18 @@ public class MoodleListener implements Runnable{
 				if(forum.name.equals("Announcements")){
 					for(Message message : forum.messages){
 						String event = createAnnouncementEvent(course, message);
-						if (sentEvents.containsKey(userKey)){
 							if (!sentEvents.get(userKey).contains(event)){
 								sendEvent(new BEvent("AnnouncementAdded"), event);
 								sentEvents.get(userKey).add(event);
 							}
-						}
 					}
 				}else{
 					for(Message message : forum.messages){
 						String event = createForumEvent(course, forum, message);
-						if (sentEvents.containsKey(userKey)){
 							if (!sentEvents.get(userKey).contains(event)){
 								sendEvent(new BEvent("ForumMessageAdded"), event);
 								sentEvents.get(userKey).add(event);
 							}
-						}
 					}
 				}
 			}
@@ -181,7 +136,6 @@ public class MoodleListener implements Runnable{
 			String url = "http://localhost:8000/api/moodle/moodle-event/" + eventName;
 			HttpClient client = new DefaultHttpClient();
 			HttpPost post = new HttpPost(url);
-
 			post.setEntity(new StringEntity(eventStr));
 			post.setHeader("Content-type", "application/x-www-form-urlencoded");
 
@@ -276,7 +230,7 @@ public class MoodleListener implements Runnable{
 	 * @return
 	 */
 	private String createResourceEvent(Course course, Resource resource){
-		return "{\"eventName\": \"new_lecture\"," +
+		return "{\"eventName\": \"Unit\"," +
 				"\"data\": {" +
 				"\"selectedCourse\": \"" + course.fullname + "\"," +
 				"\"FileName\": \"" + resource.name + "\"," +
@@ -286,7 +240,7 @@ public class MoodleListener implements Runnable{
 	}
 
 	/**
-	 * create assignment event
+	 * create assignment alert 24 hours to deadline
 	 * @param course
 	 * @param assignment
 	 * @return
@@ -303,7 +257,7 @@ public class MoodleListener implements Runnable{
 	}
 
 	/**
-	 * create assignment event
+	 * create assignment alert 60 minutes to deadline
 	 * @param course
 	 * @param assignment
 	 * @return
@@ -376,6 +330,7 @@ public class MoodleListener implements Runnable{
 			pollMoodle("achiya");
 		} catch (Throwable e) {
 			System.out.println(e);
+			// Do Nothing
 		}
 	}
 }

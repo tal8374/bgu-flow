@@ -6,6 +6,7 @@ public enum MoodleOperation {
 	getUserByField("core_user_get_users_by_field"),
 	getAssignmentsByCourse("mod_assign_get_assignments"),
 	getAssignmentStatus("mod_assign_get_submission_status"),
+//	getSubmissionsForAssignment("mod_assign_get_submissions"),
 	getAllUsers("core_user_get_users"),
 	getForumsCourse("mod_forum_get_forums_by_courses"),
 	getMessagesByCourses("mod_forum_get_forum_discussions_paginated"),

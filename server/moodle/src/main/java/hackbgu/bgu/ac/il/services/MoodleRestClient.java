@@ -34,6 +34,11 @@ public class MoodleRestClient {
         con.setDoOutput(true);
         con.setUseCaches (false);
         con.setDoInput(true);
+//        DataOutputStream wr = new DataOutputStream (
+//                  con.getOutputStream ());
+//        wr.writeBytes (urlParameters);
+//        wr.flush ();
+//        wr.close ();
 
         //Get Response
         InputStream is =con.getInputStream();
@@ -52,5 +57,7 @@ public class MoodleRestClient {
     public static void main(String[] args) throws ProtocolException, IOException {
         MoodleRestClient client = new MoodleRestClient();
         client.sendRest(MoodleOperation.getUserByField.getOperation() + "&field=username&values%5B0%5D=mgenah");
+//        client.sendRest(MoodleOperation.listUserCourses.getOperation() + "&userid=" + 3);
+//        client.sendRest(MoodleOperation.getCourses.getOperation()+URLEncoder.encode("options[ids]["+0+"]", "UTF-8") + "=3");// + "&field=idnumber&values%5B0%5D=11111");
     }
 }

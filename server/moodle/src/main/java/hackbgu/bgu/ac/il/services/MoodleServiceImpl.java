@@ -1,23 +1,12 @@
 package hackbgu.bgu.ac.il.services;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import hackbgu.bgu.ac.il.model.*;
 import hackbgu.bgu.ac.il.model.Assignment;
-import il.ac.bgu.cs.bp.bpjs.model.BEvent;
-import jdk.nashorn.internal.ir.*;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -35,10 +24,10 @@ public class MoodleServiceImpl implements MoodleService {
 	 * @return
 	 * @throws Exception
 	 */
-//	public String listCoursesOfUser(String username) throws Exception {
-//		User user = getUserByUsername(username);
-//		return getCoursesOfUserById(user.id);
-//	}
+	public String listCoursesOfUser(String username) throws Exception {
+		User user = getUserByUsername(username);
+		return getCoursesOfUserById(user.id);
+	}
 
 	/**
 	 * extract user courses
@@ -98,8 +87,10 @@ public class MoodleServiceImpl implements MoodleService {
 		}
 		user.courses = courses;
 
+
 		return serializationUtils.serialize(user);
 	}
+
 	/**
 	 * get course forums
 	 * @param courseId
@@ -153,7 +144,7 @@ public class MoodleServiceImpl implements MoodleService {
 	}
 
 	/**
-	 * get assignment submissions of the user
+	 * get user assignment submissions
 	 * @param assignmentId
 	 * @param userId
 	 * @return
@@ -167,7 +158,7 @@ public class MoodleServiceImpl implements MoodleService {
 	}
 
 	/**
-	 * get course object by course ID
+	 * get courses
 	 * @param courseId
 	 * @return
 	 * @throws Exception
@@ -184,7 +175,7 @@ public class MoodleServiceImpl implements MoodleService {
 	}
 
 	/**
-	 * get all user from moodle
+	 * get users
 	 * @return
 	 * @throws IOException
 	 */
@@ -205,7 +196,7 @@ public class MoodleServiceImpl implements MoodleService {
 	}
 
 	/**
-	 * get user object by username
+	 * get user object by user name
 	 * @param username
 	 * @return
 	 * @throws Exception

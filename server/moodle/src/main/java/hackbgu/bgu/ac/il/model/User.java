@@ -9,6 +9,7 @@ public class User {
 	public String lastname;
 	public String email;
 	public List<String> courseIds;
+//	public List<String> courseIdNumbers;
 	public String officehours;
 	public List<Assignment> assignments;
 	public List<Course> courses;

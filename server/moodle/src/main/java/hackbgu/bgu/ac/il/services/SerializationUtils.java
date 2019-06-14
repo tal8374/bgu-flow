@@ -17,10 +17,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class SerializationUtils {
 	protected final ObjectMapper mapper;
-	
-//	public interface SubtypesRegistry {
-//		List<Class<?>> getSubtypes();
-//	}
 
 	public SerializationUtils() {
 		mapper = new ObjectMapper(); //This is thread safe
