@@ -3134,7 +3134,7 @@ EditorUi.prototype.saveFile = function (forceDialog) {
 /**
  * Saves the current graph under the given filename.
  */
-EditorUi.prototype.save = function (name) {
+EditorUi.prototype.deploy = function (name) {
   if (name != null) {
     if (this.editor.graph.isEditing()) {
       this.editor.graph.stopEditing();
@@ -3622,7 +3622,7 @@ EditorUi.prototype.createKeyHandler = function (editor) {
     keyHandler.bindAction(48, true, 'customZoom'); // Ctrl+0
     keyHandler.bindAction(82, true, 'turn'); // Ctrl+R
     keyHandler.bindAction(82, true, 'clearDefaultStyle', true); // Ctrl+Shift+R
-    keyHandler.bindAction(83, true, 'save'); // Ctrl+S
+    keyHandler.bindAction(83, true, 'deploy'); // Ctrl+S
     keyHandler.bindAction(83, true, 'saveAs', true); // Ctrl+Shift+S
     keyHandler.bindAction(65, true, 'selectAll'); // Ctrl+A
     keyHandler.bindAction(65, true, 'selectNone', true); // Ctrl+A

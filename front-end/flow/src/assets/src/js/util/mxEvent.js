@@ -983,7 +983,7 @@ var mxEvent =
 	 *
 	 * Specifies the event name for open.
 	 */
-	SAVE: 'save',
+	Deploy: 'deploy',
 
 	/**
 	 * Variable: BEFORE_ADD_VERTEX

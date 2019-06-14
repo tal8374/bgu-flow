@@ -951,7 +951,7 @@
 						y2 += spacing;
 					}
 
-					c.save();
+					c.deploy();
 
 					// Small hack to pass style along into subshape
 					var tmp = new shape();
@@ -1184,7 +1184,7 @@
 			{
 				var shape = new ctor();
 				shape.apply(this.state);
-				c.save();
+				c.deploy();
 				shape.paintVertexShape(c, x, y, w, size);
 				c.restore();
 			}

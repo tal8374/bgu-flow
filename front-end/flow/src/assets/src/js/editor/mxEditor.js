@@ -993,9 +993,9 @@ mxEditor.prototype.setModified = function (value)
  */
 mxEditor.prototype.addActions = function ()
 {
-	this.addAction('save', function(editor)
+	this.addAction('deploy', function(editor)
 	{
-		editor.save();
+		editor.deploy();
 	});
 	
 	this.addAction('print', function(editor)

@@ -15,7 +15,7 @@
  * mgr.save = function()
  * {
  *   mxLog.show();
- *   mxLog.debug('save');
+ *   mxLog.debug('deploy');
  * };
  * (end)
  * 
@@ -162,7 +162,7 @@ mxAutoSaveManager.prototype.setGraph = function(graph)
  * 
  * Empty hook that is called if the graph should be saved.
  */
-mxAutoSaveManager.prototype.save = function()
+mxAutoSaveManager.prototype.deploy = function()
 {
 	// empty
 };
@@ -181,7 +181,7 @@ mxAutoSaveManager.prototype.graphModelChanged = function(changes)
 		(this.ignoredChanges >= this.autoSaveThreshold &&
 		 dt > this.autoSaveThrottle))
 	{
-		this.save();
+		this.deploy();
 		this.reset();
 	}
 	else

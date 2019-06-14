@@ -132,7 +132,7 @@ mxImageExport.prototype.drawShape = function(state, canvas)
 {
 	if (state.shape instanceof mxShape && state.shape.checkBounds())
 	{
-		canvas.save();
+		canvas.deploy();
 		state.shape.paint(canvas);
 		canvas.restore();
 	}
@@ -147,7 +147,7 @@ mxImageExport.prototype.drawText = function(state, canvas)
 {
 	if (state.text != null && state.text.checkBounds())
 	{
-		canvas.save();
+		canvas.deploy();
 		state.text.paint(canvas);
 		canvas.restore();
 	}

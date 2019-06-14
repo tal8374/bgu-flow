@@ -121,14 +121,14 @@ mxXmlCanvas2D.prototype.createElement = function(name)
  * 
  * Saves the drawing state.
  */
-mxXmlCanvas2D.prototype.save = function()
+mxXmlCanvas2D.prototype.deploy = function()
 {
 	if (this.compressed)
 	{
-		mxAbstractCanvas2D.prototype.save.apply(this, arguments);
+		mxAbstractCanvas2D.prototype.deploy.apply(this, arguments);
 	}
 	
-	this.root.appendChild(this.createElement('save'));
+	this.root.appendChild(this.createElement('deploy'));
 };
 
 /**

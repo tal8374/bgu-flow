@@ -509,7 +509,7 @@ mxStencil.prototype.drawNode = function(canvas, shape, node, aspect, disableShad
 	var sy = aspect.height;
 	var minScale = Math.min(sx, sy);
 
-	if (name == 'save')
+	if (name == 'deploy')
 	{
 		canvas.save();
 	}

@@ -227,7 +227,7 @@ mxAbstractCanvas2D.prototype.rotatePoint = function(x, y, theta, cx, cy)
  * 
  * Saves the current state.
  */
-mxAbstractCanvas2D.prototype.save = function()
+mxAbstractCanvas2D.prototype.deploy = function()
 {
 	this.states.push(this.state);
 	this.state = mxUtils.clone(this.state);
