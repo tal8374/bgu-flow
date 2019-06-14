@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
     };
 
     constructor(private http: Http) {
-        this.http.get('http://localhost:8000/api/db/users/shachareli92@gmail.com')
+        this.http.get('http://localhost:8000/api/db/users/achiya@gmail.com')
             .subscribe(res => {
 
                 console.log(res['_body'])

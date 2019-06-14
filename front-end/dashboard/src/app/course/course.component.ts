@@ -22,7 +22,7 @@ export class CourseComponent implements OnInit {
     }
 
     initCourses() {
-        this.http.get('http://localhost:8000/api/db/userCourses/shachareli92@gmail.com')
+        this.http.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com')
             .map(res => res.json())
             .subscribe(res => {
                 if (res.length > 0) {
@@ -39,7 +39,7 @@ export class CourseComponent implements OnInit {
     onSelectCourse(course) {
         this.currentCourse = course;
 
-        this.http.get('http://localhost:8000/api/db/coursePartners/2/shachareli92@gmail.com')
+        this.http.get('http://localhost:8000/api/db/coursePartners/2/achiya@gmail.com')
             .map(res => res.json())
             .subscribe(res => {
                 console.log(res)
