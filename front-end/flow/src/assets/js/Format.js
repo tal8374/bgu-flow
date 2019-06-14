@@ -26,6 +26,7 @@ Format = function(editorUi, container)
 {
   this.editorUi = editorUi;
   this.container = container;
+
 };
 
 /**
@@ -4480,7 +4481,7 @@ ActionFormatPanel.prototype.addAssignmnetSubmiteddAct = function(container)
     response = JSON.parse(response)
     var select = document.getElementById(id);
 
-    console.log(response)
+   // console.log(response)
 
     if(!select || response.courses) return;
 
@@ -4495,17 +4496,11 @@ ActionFormatPanel.prototype.addAssignmnetSubmiteddAct = function(container)
   let courseSelectElement = this.createSelectElement(container, id, []);
   courseSelectElement.id = id;
 
-  //witch assignment
-
-  this.createLabelElement(container, 'assignment');
-
-  var id = guidGenerator();
-  let assignmentSelectElement = this.createSelectElement(container, id, []);
-
   var data = {courseSelectElement: courseSelectElement};
 
-  this.createButtonElement(container, 'OK');
-  return container;
+ this.createButtonElement(container, 'OK');
+ return container;
+
 };
 ActionFormatPanel.prototype.addCourseRegistrationAct = function(container)
 {

@@ -16,4 +16,9 @@
       "dom"
     ]
   }
+ /* "db": {
+    "userCourseQuery": "http://localhost:8000/api/db/userCourses/",
+    "email":"achiya@gmail.com"
+    import {db} from '../configuration.ts'
+  }*/
 }

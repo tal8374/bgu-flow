@@ -25,7 +25,7 @@ function returnAll (req,res){
  * @returns {Promise<void>}
  */
 function courseAssigments(req, res){
-    //console.log(req.params.course_id);
+    console.log(req.params.course_id);
     const data=req.params.course_id;
     if(data!=null) {
         model.Assignments.find({where: {course_id:data}})

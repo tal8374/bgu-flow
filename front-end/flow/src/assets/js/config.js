@@ -58,24 +58,6 @@ var myconfig = {
           showTitle: null,
           tags: 'Add schedule'
         },
-        downloadFile: {
-          name: 'downloadFile',
-          header: 'download',
-          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
-          width: 200,
-          height: 40,
-          image: {
-            src: 'https://cdn4.iconfinder.com/data/icons/basic-work-elements/154/download-load-file-512.png',
-            style: {
-              height: '60px',
-              width: '80px',
-            }
-          },
-          title: 'download File',
-          showLabel: null,
-          showTitle: null,
-          tags: 'download File'
-        }
       }
     },
     listenPalette: {
@@ -169,23 +151,6 @@ var myconfig = {
           showTitle: null,
           tags: 'Forum Message'
         },
-        receptionHours: {
-          name: 'receptionHours',
-          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
-          width: 120,
-          height: 60,
-          image: {
-            src: 'https://cdn4.iconfinder.com/data/icons/hotel-bold-line-3/48/135-512.png',
-            style: {
-              height: '60px',
-              width: '60px',
-            }
-          },
-          title: 'Reception Hours',
-          showLabel: null,
-          showTitle: null,
-          tags: 'Reception Hours'
-        },
         homeworkChecked: {
           name: 'homeworkChecked',
           style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
@@ -202,23 +167,6 @@ var myconfig = {
           showLabel: null,
           showTitle: null,
           tags: 'Homework Checked'
-        },
-        examChecked: {
-          name: 'examChecked',
-          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
-          width: 120,
-          height: 60,
-          image: {
-            src: 'https://png.icons8.com/metro/1600/exam.png',
-            style: {
-              height: '60px',
-              width: '60px',
-            }
-          },
-          title: 'Exam Checked',
-          showLabel: null,
-          showTitle: null,
-          tags: 'Exam Checked'
         },
         fileUpload: {
           name: 'fileUpload',
@@ -352,10 +300,10 @@ var myconfig = {
               width: '60px',
             }
           },
-          title: 'assignmnet Submitted',
+          title: 'assignmnet submitted',
           showLabel: null,
           showTitle: null,
-          tags: 'assignmnet Submitted'
+          tags: 'assignmnet submitted'
         },
       }
     },
@@ -415,23 +363,6 @@ var myconfig = {
           showLabel: null,
           showTitle: null,
           tags: 'Add schedule'
-        },
-        blockdownload: {
-          name: 'blockdownload',
-          style: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
-          width: 120,
-          height: 60,
-          image: {
-            src: 'https://planetgroup-mags.com/wp-content/uploads/2017/04/dont-download-300x246.png',
-            style: {
-              height: '60px',
-              width: '60px',
-            }
-          },
-          title: 'block download',
-          showLabel: null,
-          showTitle: null,
-          tags: 'block download'
         },
       }
     },
