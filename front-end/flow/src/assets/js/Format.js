@@ -3348,15 +3348,17 @@ ActionFormatPanel.prototype.getAct = function(cellTitle) {
   }
 
   cellTitle = cellTitle.toLowerCase();
+  cellTitle = cellTitle.replace(new RegExp('_', 'g'), ' ');
 
   var options = {
     'sms' : this.addSMSAct(this.createPanel()),
-    'send assignment 24 hours alert' : this.addAssignment24HoursAlertAct(this.createPanel()),
-    'send assignment 60 minutes alert' : this.addAssignment60MinutesAlertAct(this.createPanel()),
-    'send assignment 10 minutes alert' : this.addAssignment10MinutesAlertAct(this.createPanel()),
+    'assignment 24 hours alert' : this.addAssignment24HoursAlertAct(this.createPanel()),
+    'assignment 60 minutes alert' : this.addAssignment60MinutesAlertAct(this.createPanel()),
+    'assignment 10 minutes alert' : this.addAssignment10MinutesAlertAct(this.createPanel()),
     'send assignment half time alert' : this.addAssignmentHalfTimeAlertAct(this.createPanel()),
 
     'reception hours' : this.addReceptionTimeAct(this.createPanel()),
+    'announcement' : this.addAnouncementAct(this.createPanel()),
     'forum message' : this.addForumMessageAct(this.createPanel()),
     'email' : this.addEmailAct(this.createPanel()),
     'homework checked' : this.addHomeworkCheckedAct(this.createPanel()),
@@ -3373,6 +3375,10 @@ ActionFormatPanel.prototype.getAct = function(cellTitle) {
     'block sms':this.addBlockSMSAct(this.createPanel()),
     'block email':this.addBlockEmailAct(this.createPanel()),
   };
+
+  if(cellTitle.includes('reached')) {
+    return options['reached date'];
+  }
 
   return options[cellTitle];
 
@@ -3605,10 +3611,89 @@ ActionFormatPanel.prototype.addAssignment24HoursAlertAct = function(container)
   container.style.paddingTop = '4px';
   container.style.paddingBottom = '4px';
   container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
 
+  this.createLabelElement(container, 'Course');
+  var id = guidGenerator();
+
+  var client = new HttpClient();
+  client.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com', function(response) {
+    response = JSON.parse(response)
+    var select = document.getElementById(id);
+
+    console.log(response)
+
+    if(!select || response.courses) return;
+
+    for(let i = 0; i < response.length; i++) {
+
+      var opt = document.createElement('option');
+      opt.value = response[i]['course_name'];
+      opt.innerHTML = response[i]['course_name'];
+      select.appendChild(opt);
+    }
+  });
+
+  let courseSelectElement = this.createSelectElement(container, id, []);
+  courseSelectElement.id = id;
+
+  var data = {courseSelectElement: courseSelectElement};
+
+  this.createButtonElement(container, 'OK', 'addAssignment24HoursAlertSubmit', data);
 
   return container;
 };
+
+
+/**
+ * Adds the label menu items to the given menu and parent.
+ */
+ActionFormatPanel.prototype.addAnouncementAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
+
+  this.createLabelElement(container, 'Course');
+  var id = guidGenerator();
+
+  var client = new HttpClient();
+  client.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com', function(response) {
+    response = JSON.parse(response)
+    var select = document.getElementById(id);
+
+    console.log(response)
+
+    if(!select || response.courses) return;
+
+    for(let i = 0; i < response.length; i++) {
+
+      var opt = document.createElement('option');
+      opt.value = response[i]['course_name'];
+      opt.innerHTML = response[i]['course_name'];
+      select.appendChild(opt);
+    }
+  });
+
+  let courseSelectElement = this.createSelectElement(container, id, []);
+  courseSelectElement.id = id;
+
+  var data = {courseSelectElement: courseSelectElement};
+
+  this.createButtonElement(container, 'OK', 'addAnouncementSubmit', data);
+
+  return container;
+};
+
 
 /**
  * Adds the label menu items to the given menu and parent.
@@ -3622,7 +3707,37 @@ ActionFormatPanel.prototype.addAssignment60MinutesAlertAct = function(container)
   container.style.paddingTop = '4px';
   container.style.paddingBottom = '4px';
   container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
 
+  this.createLabelElement(container, 'Course');
+  var id = guidGenerator();
+
+  var client = new HttpClient();
+  client.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com', function(response) {
+    response = JSON.parse(response)
+    var select = document.getElementById(id);
+
+    console.log(response)
+
+    if(!select || response.courses) return;
+
+    for(let i = 0; i < response.length; i++) {
+
+      var opt = document.createElement('option');
+      opt.value = response[i]['course_name'];
+      opt.innerHTML = response[i]['course_name'];
+      select.appendChild(opt);
+    }
+  });
+
+  let courseSelectElement = this.createSelectElement(container, id, []);
+  courseSelectElement.id = id;
+
+  var data = {courseSelectElement: courseSelectElement};
+
+  this.createButtonElement(container, 'OK', 'assignment60MinutesAlertSubmit', data);
 
   return container;
 };
@@ -3639,7 +3754,37 @@ ActionFormatPanel.prototype.addAssignment10MinutesAlertAct = function(container)
   container.style.paddingTop = '4px';
   container.style.paddingBottom = '4px';
   container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
 
+  this.createLabelElement(container, 'Course');
+  var id = guidGenerator();
+
+  var client = new HttpClient();
+  client.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com', function(response) {
+    response = JSON.parse(response)
+    var select = document.getElementById(id);
+
+    console.log(response)
+
+    if(!select || response.courses) return;
+
+    for(let i = 0; i < response.length; i++) {
+
+      var opt = document.createElement('option');
+      opt.value = response[i]['course_name'];
+      opt.innerHTML = response[i]['course_name'];
+      select.appendChild(opt);
+    }
+  });
+
+  let courseSelectElement = this.createSelectElement(container, id, []);
+  courseSelectElement.id = id;
+
+  var data = {courseSelectElement: courseSelectElement};
+
+  this.createButtonElement(container, 'OK', 'addAssignment10MinutesAlertActSubmit', data);
 
   return container;
 };
@@ -3656,7 +3801,37 @@ ActionFormatPanel.prototype.addAssignmentHalfTimeAlertAct = function(container)
   container.style.paddingTop = '4px';
   container.style.paddingBottom = '4px';
   container.style.whiteSpace = 'normal';
+  //
+  var colorPanel = document.createElement('div');
+  colorPanel.style.fontWeight = 'bold';
 
+  this.createLabelElement(container, 'Course');
+  var id = guidGenerator();
+
+  var client = new HttpClient();
+  client.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com', function(response) {
+    response = JSON.parse(response)
+    var select = document.getElementById(id);
+
+    console.log(response)
+
+    if(!select || response.courses) return;
+
+    for(let i = 0; i < response.length; i++) {
+
+      var opt = document.createElement('option');
+      opt.value = response[i]['course_name'];
+      opt.innerHTML = response[i]['course_name'];
+      select.appendChild(opt);
+    }
+  });
+
+  let courseSelectElement = this.createSelectElement(container, id, []);
+  courseSelectElement.id = id;
+
+  var data = {courseSelectElement: courseSelectElement};
+
+  this.createButtonElement(container, 'OK', 'assignmentHalfTimeAlertSubmit', data);
 
   return container;
 };
@@ -3692,7 +3867,7 @@ ActionFormatPanel.prototype.addSMSAct = function(container)
     message: inputMessageElement,
   };
 
-  this.createButtonElement(container, 'Submit', 'smsSubmit', data);
+  this.createButtonElement(container, 'OK', 'smsSubmit', data);
 
   return container;
 };
@@ -3721,7 +3896,7 @@ ActionFormatPanel.prototype.addBlockSMSAct = function(container)
     to: inputToElement,
   };
 
-  this.createButtonElement(container, 'Submit');
+  this.createButtonElement(container, 'OK');
 
   return container;
 };
@@ -3845,7 +4020,7 @@ ActionFormatPanel.prototype.addEmailAct = function(container)
     message: inputMessageElement,
   };
 
-  this.createButtonElement(container, 'Submit', 'emailSubmit', data);
+  this.createButtonElement(container, 'OK', 'emailSubmit', data);
 
   return container;
 };
@@ -3875,7 +4050,7 @@ ActionFormatPanel.prototype.addBlockEmailAct = function(container)
     to: inputToElement,
   };
 
-  this.createButtonElement(container, 'Submit', 'emailSubmit', data);
+  this.createButtonElement(container, 'OK', 'emailSubmit', data);
 
   return container;
 };
@@ -3897,17 +4072,19 @@ ActionFormatPanel.prototype.addReceptionTimeAct = function(container)
   var id = guidGenerator();
 
   var client = new HttpClient();
-  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
+  client.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com', function(response) {
     response = JSON.parse(response)
     var select = document.getElementById(id);
 
-    if(!select) return;
+    console.log(response)
 
-    for(let i = 0; i < response.courses.length; i++) {
+    if(!select || response.courses) return;
+
+    for(let i = 0; i < response.length; i++) {
 
       var opt = document.createElement('option');
-      opt.value = response.courses[i];
-      opt.innerHTML = response.courses[i];
+      opt.value = response[i]['course_name'];
+      opt.innerHTML = response[i]['course_name'];
       select.appendChild(opt);
     }
   });
@@ -3917,7 +4094,7 @@ ActionFormatPanel.prototype.addReceptionTimeAct = function(container)
 
   var data = {courseSelectElement: courseSelectElement};
 
-  this.createButtonElement(container, 'Submit', 'receptionTimeActSubmit', data);
+  this.createButtonElement(container, 'OK', 'receptionTimeActSubmit', data);
 
   return container;
 };
@@ -3940,16 +4117,19 @@ ActionFormatPanel.prototype.addHomeworkCheckedAct = function(container)
   var id = guidGenerator();
 
   var client = new HttpClient();
-  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
+  client.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com', function(response) {
     response = JSON.parse(response)
     var select = document.getElementById(id);
-    if(!select) return;
 
-    for(let i = 0; i < response.courses.length; i++) {
+    console.log(response)
+
+    if(!select || response.courses) return;
+
+    for(let i = 0; i < response.length; i++) {
 
       var opt = document.createElement('option');
-      opt.value = response.courses[i];
-      opt.innerHTML = response.courses[i];
+      opt.value = response[i]['course_name'];
+      opt.innerHTML = response[i]['course_name'];
       select.appendChild(opt);
     }
   });
@@ -3959,7 +4139,7 @@ ActionFormatPanel.prototype.addHomeworkCheckedAct = function(container)
 
   var data = {courseSelectElement: courseSelectElement};
 
-  this.createButtonElement(container, 'Submit', 'homeworkCheckedActSubmit', data);
+  this.createButtonElement(container, 'OK', 'homeworkCheckedActSubmit', data);
 
   return container;
 };
@@ -3982,16 +4162,19 @@ ActionFormatPanel.prototype.addExamCheckedAct = function(container)
   var id = guidGenerator();
 
   var client = new HttpClient();
-  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
+  client.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com', function(response) {
     response = JSON.parse(response)
     var select = document.getElementById(id);
-    if(!select) return;
 
-    for(let i = 0; i < response.courses.length; i++) {
+    console.log(response)
+
+    if(!select || response.courses) return;
+
+    for(let i = 0; i < response.length; i++) {
 
       var opt = document.createElement('option');
-      opt.value = response.courses[i];
-      opt.innerHTML = response.courses[i];
+      opt.value = response[i]['course_name'];
+      opt.innerHTML = response[i]['course_name'];
       select.appendChild(opt);
     }
   });
@@ -4001,7 +4184,7 @@ ActionFormatPanel.prototype.addExamCheckedAct = function(container)
 
   var data = {courseSelectElement: courseSelectElement};
 
-  this.createButtonElement(container, 'Submit', 'examCheckedActSubmit', data);
+  this.createButtonElement(container, 'OK', 'examCheckedActSubmit', data);
 
   return container;
 };
@@ -4024,16 +4207,19 @@ ActionFormatPanel.prototype.addFileUploadAct = function(container)
   var id = guidGenerator();
 
   var client = new HttpClient();
-  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
+  client.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com', function(response) {
     response = JSON.parse(response)
     var select = document.getElementById(id);
-    if(!select) return;
 
-    for(let i = 0; i < response.courses.length; i++) {
+    console.log(response)
+
+    if(!select || response.courses) return;
+
+    for(let i = 0; i < response.length; i++) {
 
       var opt = document.createElement('option');
-      opt.value = response.courses[i];
-      opt.innerHTML = response.courses[i];
+      opt.value = response[i]['course_name'];
+      opt.innerHTML = response[i]['course_name'];
       select.appendChild(opt);
     }
   });
@@ -4043,7 +4229,7 @@ ActionFormatPanel.prototype.addFileUploadAct = function(container)
 
   var data = {courseSelectElement: courseSelectElement};
 
-  this.createButtonElement(container, 'Submit', 'fileUploadActSubmit', data);
+  this.createButtonElement(container, 'OK', 'fileUploadActSubmit', data);
 
   return container;
 };
@@ -4066,16 +4252,19 @@ ActionFormatPanel.prototype.addVideoUploadAct = function(container)
   var id = guidGenerator();
 
   var client = new HttpClient();
-  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
+  client.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com', function(response) {
     response = JSON.parse(response)
     var select = document.getElementById(id);
-    if(!select) return;
 
-    for(let i = 0; i < response.courses.length; i++) {
+    console.log(response)
+
+    if(!select || response.courses) return;
+
+    for(let i = 0; i < response.length; i++) {
 
       var opt = document.createElement('option');
-      opt.value = response.courses[i];
-      opt.innerHTML = response.courses[i];
+      opt.value = response[i]['course_name'];
+      opt.innerHTML = response[i]['course_name'];
       select.appendChild(opt);
     }
   });
@@ -4085,7 +4274,7 @@ ActionFormatPanel.prototype.addVideoUploadAct = function(container)
 
   var data = {courseSelectElement: courseSelectElement};
 
-  this.createButtonElement(container, 'Submit', 'videoUploadActSubmit', data);
+  this.createButtonElement(container, 'OK', 'videoUploadActSubmit', data);
 
   return container;
 };
@@ -4107,7 +4296,7 @@ ActionFormatPanel.prototype.addFacebookAct = function(container)
     url: inputURLElement,
   };
 
-  this.createButtonElement(container, 'Submit');
+  this.createButtonElement(container, 'OK');
 
   return container;
 };
@@ -4130,16 +4319,19 @@ ActionFormatPanel.prototype.addNewAssignmentAct = function(container)
   var id = guidGenerator();
 
   var client = new HttpClient();
-  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
+  client.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com', function(response) {
     response = JSON.parse(response)
     var select = document.getElementById(id);
-    if(!select) return;
 
-    for(let i = 0; i < response.courses.length; i++) {
+    console.log(response)
+
+    if(!select || response.courses) return;
+
+    for(let i = 0; i < response.length; i++) {
 
       var opt = document.createElement('option');
-      opt.value = response.courses[i];
-      opt.innerHTML = response.courses[i];
+      opt.value = response[i]['course_name'];
+      opt.innerHTML = response[i]['course_name'];
       select.appendChild(opt);
     }
   });
@@ -4149,7 +4341,7 @@ ActionFormatPanel.prototype.addNewAssignmentAct = function(container)
 
   var data = {courseSelectElement: courseSelectElement};
 
-  this.createButtonElement(container, 'Submit', 'sendWeeklyTaskActSubmit', data);
+  this.createButtonElement(container, 'OK', 'sendWeeklyTaskActSubmit', data);
 
   return container;
 };
@@ -4178,7 +4370,7 @@ ActionFormatPanel.prototype.addReachedDateAct = function(container)
 
   var data = {id: id};
 
-  this.createButtonElement(container, 'Submit', 'reachedDateSubmit', data);
+  this.createButtonElement(container, 'OK', 'reachedDateSubmit', data);
 
   return container;
 };
@@ -4200,16 +4392,19 @@ ActionFormatPanel.prototype.addNewLecturedAct = function(container)
   var id = guidGenerator();
 
   var client = new HttpClient();
-  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
+  client.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com', function(response) {
     response = JSON.parse(response)
     var select = document.getElementById(id);
-    if(!select) return;
 
-    for(let i = 0; i < response.courses.length; i++) {
+    console.log(response)
+
+    if(!select || response.courses) return;
+
+    for(let i = 0; i < response.length; i++) {
 
       var opt = document.createElement('option');
-      opt.value = response.courses[i];
-      opt.innerHTML = response.courses[i];
+      opt.value = response[i]['course_name'];
+      opt.innerHTML = response[i]['course_name'];
       select.appendChild(opt);
     }
   });
@@ -4218,7 +4413,7 @@ ActionFormatPanel.prototype.addNewLecturedAct = function(container)
 
   var data = {courseSelectElement: courseSelectElement};
 
-  this.createButtonElement(container, 'Submit');
+  this.createButtonElement(container, 'OK');
   return container;
 };
 ActionFormatPanel.prototype.addNewPracticedAct = function(container)
@@ -4239,16 +4434,19 @@ ActionFormatPanel.prototype.addNewPracticedAct = function(container)
   var id = guidGenerator();
 
   var client = new HttpClient();
-  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
+  client.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com', function(response) {
     response = JSON.parse(response)
     var select = document.getElementById(id);
-    if(!select) return;
 
-    for(let i = 0; i < response.courses.length; i++) {
+    console.log(response)
+
+    if(!select || response.courses) return;
+
+    for(let i = 0; i < response.length; i++) {
 
       var opt = document.createElement('option');
-      opt.value = response.courses[i];
-      opt.innerHTML = response.courses[i];
+      opt.value = response[i]['course_name'];
+      opt.innerHTML = response[i]['course_name'];
       select.appendChild(opt);
     }
   });
@@ -4257,7 +4455,7 @@ ActionFormatPanel.prototype.addNewPracticedAct = function(container)
 
   var data = {courseSelectElement: courseSelectElement};
 
-  this.createButtonElement(container, 'Submit');
+  this.createButtonElement(container, 'OK');
   return container;
 };
 ActionFormatPanel.prototype.addAssignmnetSubmiteddAct = function(container)
@@ -4278,16 +4476,19 @@ ActionFormatPanel.prototype.addAssignmnetSubmiteddAct = function(container)
   var id = guidGenerator();
 
   var client = new HttpClient();
-  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
+  client.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com', function(response) {
     response = JSON.parse(response)
     var select = document.getElementById(id);
-    if(!select) return;
 
-    for(let i = 0; i < response.courses.length; i++) {
+    console.log(response)
+
+    if(!select || response.courses) return;
+
+    for(let i = 0; i < response.length; i++) {
 
       var opt = document.createElement('option');
-      opt.value = response.courses[i];
-      opt.innerHTML = response.courses[i];
+      opt.value = response[i]['course_name'];
+      opt.innerHTML = response[i]['course_name'];
       select.appendChild(opt);
     }
   });
@@ -4303,7 +4504,7 @@ ActionFormatPanel.prototype.addAssignmnetSubmiteddAct = function(container)
 
   var data = {courseSelectElement: courseSelectElement};
 
-  this.createButtonElement(container, 'Submit');
+  this.createButtonElement(container, 'OK');
   return container;
 };
 ActionFormatPanel.prototype.addCourseRegistrationAct = function(container)
@@ -4356,39 +4557,32 @@ ActionFormatPanel.prototype.addForumMessageAct = function(container)
   colorPanel.style.fontWeight = 'bold';
 
   this.createLabelElement(container, 'Course');
-
-
   var id = guidGenerator();
 
   var client = new HttpClient();
-  client.get('http://localhost:8000/api/dashboard/user/someemail/course', function(response) {
+  client.get('http://localhost:8000/api/db/userCourses/achiya@gmail.com', function(response) {
     response = JSON.parse(response)
     var select = document.getElementById(id);
 
-    if(!select) return;
+    console.log(response)
 
-    for(let i = 0; i < response.courses.length; i++) {
+    if(!select || response.courses) return;
+
+    for(let i = 0; i < response.length; i++) {
 
       var opt = document.createElement('option');
-      opt.value = response.courses[i];
-      opt.innerHTML = response.courses[i];
+      opt.value = response[i]['course_name'];
+      opt.innerHTML = response[i]['course_name'];
       select.appendChild(opt);
     }
   });
 
-  let courseSelectElement = this.createSelectElement(container, id, ['Database', 'Programming']);
-  this.createLabelElement(container, 'Forum');
-  let forumSelectElement = this.createSelectElement(container, id, ['exam', 'general']);
+  let courseSelectElement = this.createSelectElement(container, id, []);
   courseSelectElement.id = id;
 
-  //..
+  var data = {courseSelectElement: courseSelectElement};
 
-
-  var data = {
-    courseSelectElement: courseSelectElement,
-  };
-
-  this.createButtonElement(container, 'Submit', 'forumMessageSubmit', data);
+  this.createButtonElement(container, 'OK', 'forumMessageSubmit', data);
 
   return container;
 };
