@@ -139,7 +139,7 @@
 					<archive>
 						<manifest>
 							<!-- Jar file entry point -->
-							<mainClass>hackbgu.bgu.ac.il.services.MoodleListener</mainClass>
+							<mainClass>services.MoodleListener</mainClass>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>dependency-jars/</classpathPrefix>
 						</manifest>
