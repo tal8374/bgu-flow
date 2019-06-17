@@ -34,17 +34,18 @@ function sendMail(payload) {
 }
 function sendSms(payload){
     request.post(
-        'https://maker.ifttt.com/trigger/phoneMessege/with/key/dxV-wuKUxcP9AWCS5J10PW',
+        'https://maker.ifttt.com/trigger/phone/with/key/dew4FCOfg1RSDzui4ViiyO',
         {
             json: {
                 "value1": payload.data.to,
-                "value2": payload.data.message,
+                "value2": payload.data.from,
+                "value3": payload.data.message,
             }
         },
         function (error, response, body) {
             if (!error && response.statusCode == 200) {
-                console.log(body)
-                console.log('Sms was sent')
+                console.log(body);
+                console.log('Sms was sent');
             }
         }
 
