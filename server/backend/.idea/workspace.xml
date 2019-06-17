@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="869545db-7e34-4361-8c94-71b7cf3adc33" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/src/app/course/course.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/src/app/course/course.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/src/app/user/user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/src/app/user/user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/src/app/sidebar/sidebar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/src/app/sidebar/sidebar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/dashboard/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/dashboard/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/flow/src/assets/styles/grapheditor.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/flow/src/assets/styles/grapheditor.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -211,9 +214,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="340" />
-    <option name="height" value="137" />
+    <option name="x" value="-18" />
+    <option name="width" value="1219" />
+    <option name="height" value="1310" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -411,10 +414,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7635135" visible="true" weight="0.14278187" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7635135" visible="true" weight="0.17911434" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.23648648" side_tool="true" weight="0.2718601" />
@@ -428,7 +430,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32978722" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5009914" side_tool="true" weight="0.3101983" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4990086" visible="true" weight="0.2990249" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4990086" visible="true" weight="0.39093485" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />

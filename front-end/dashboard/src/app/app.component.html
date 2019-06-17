@@ -1,13 +1,15 @@
 <div class="wrapper">
-    <div class="sidebar" data-background-color="white" data-active-color="danger">
-        <sidebar-cmp></sidebar-cmp>
+    <div class="sidebar" data-background-color="white" data-active-color="danger" >
+        <sidebar-cmp>
+        </sidebar-cmp>
     </div>
-    <div class="main-panel">
+    <div class="main-panel" style="margin-left:50px">
         <navbar-cmp></navbar-cmp>
-        <div class="content">
+        <div class="content" style="margin-left:50px">
             <router-outlet></router-outlet>
         </div>
         <footer-cmp></footer-cmp>
     </div>
 </div>
+
 <fixedplugin-cmp></fixedplugin-cmp>

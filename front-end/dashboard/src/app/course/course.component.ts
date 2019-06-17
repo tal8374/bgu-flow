@@ -52,7 +52,7 @@ export class CourseComponent implements OnInit {
         this.isAddingPartner = false;
 
         let body = {
-            user_email: 'shachareli92@gmail.com',
+            user_email: 'achiya@gmail.com',
             course: this.currentCourse['course_id'],
             partner_email: this.newPartnerEmail
         }

@@ -149,7 +149,7 @@ public class MoodleListener implements Runnable{
 	 * create course event
 	 * @param user
 	 * @param course
-	 * @return
+	 * @return course event
 	 */
 	private String createCourseEvent(User user, Course course){
 		return "{\"eventName\": \"Course\"," +
@@ -165,7 +165,7 @@ public class MoodleListener implements Runnable{
 	 * create assignment event
 	 * @param course
 	 * @param assignment
-	 * @return
+	 * @return assignment event
 	 */
 	private String createAssignmentEvent(Course course, Assignment assignment) {
 		return "{\"eventName\": \"new_assignmnet\"," +
@@ -184,7 +184,7 @@ public class MoodleListener implements Runnable{
 	 * create announcement event
 	 * @param course
 	 * @param message
-	 * @return
+	 * @return announcement event
 	 */
 	private String createAnnouncementEvent(Course course, Message message){
 		return "{\"eventName\": \"Announcement\"," +
@@ -205,7 +205,7 @@ public class MoodleListener implements Runnable{
 	 * @param course
 	 * @param forum
 	 * @param message
-	 * @return
+	 * @return message event
 	 */
 	private String createForumEvent(Course course, Forum forum, Message message){
 		return "{\"eventName\": \"Forum_Message\"," +
@@ -227,7 +227,7 @@ public class MoodleListener implements Runnable{
 	 * create resource event
 	 * @param course
 	 * @param resource
-	 * @return
+	 * @return resource event
 	 */
 	private String createResourceEvent(Course course, Resource resource){
 		return "{\"eventName\": \"Unit\"," +
@@ -240,10 +240,10 @@ public class MoodleListener implements Runnable{
 	}
 
 	/**
-	 * create assignment alert 24 hours to deadline
+	 * create assignment alert 24 hours to deadline event
 	 * @param course
 	 * @param assignment
-	 * @return
+	 * @return assignment alert 24 hours to deadline event
 	 */
 	private String createAssignmentAlert24HoursEvent(Course course, Assignment assignment) {
 		return "{\"eventName\": \"Assignment_24_Hours_Alert\"," +
@@ -257,10 +257,10 @@ public class MoodleListener implements Runnable{
 	}
 
 	/**
-	 * create assignment alert 60 minutes to deadline
+	 * create assignment alert 60 minutes to deadline event
 	 * @param course
 	 * @param assignment
-	 * @return
+	 * @return assignment alert 60 minutes to deadline event
 	 */
 	private String createAssignmentAlert60MinEvent(Course course, Assignment assignment) {
 		return "{\"eventName\": \"Assignment_60_Minutes_Alert\"," +
@@ -274,10 +274,10 @@ public class MoodleListener implements Runnable{
 	}
 
 	/**
-	 * create assignment alert 10 minutes to deadline
+	 * create assignment alert 10 minutes to deadline event
 	 * @param course
 	 * @param assignment
-	 * @return
+	 * @return assignment alert 10 minutes to deadline event
 	 */
 	private String createAssignmentAlert10MinEvent(Course course, Assignment assignment) {
 		return "{\"eventName\": \"Assignment_10_Minutes_Alert\"," +
@@ -291,10 +291,10 @@ public class MoodleListener implements Runnable{
 	}
 
 	/**
-	 * create assignment alert half time to deadline
+	 * create assignment alert half time to deadline event
 	 * @param course
 	 * @param assignment
-	 * @return
+	 * @return assignment alert half time to deadline event
 	 */
 	private String createAssignmentAlertHalfTimeEvent(Course course, Assignment assignment) {
 		return "{\"eventName\": \"Assignment_Half_Time_Alert\"," +
@@ -310,7 +310,7 @@ public class MoodleListener implements Runnable{
 	/**
 	 * create user event
 	 * @param user
-	 * @return
+	 * @return user event
 	 */
 	private String createUserEvent(User user){
 		return "{\"eventName\": \"User\"," +
