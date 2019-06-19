@@ -114,9 +114,8 @@ public class SaveServlet extends HttpServlet {
 
         rnr.addListener(new BProgramRunnerListenerAdapter() {
             public void eventSelected(BProgram bp, BEvent event) {
-                System.out.println("event name :" + event.name);
-
                 sendEvent(event);
+
             }
 
         });
@@ -135,12 +134,12 @@ public class SaveServlet extends HttpServlet {
 
         thread.start();
 
-        if(isTimeThreadOn == false) {
+        if (isTimeThreadOn == false) {
             threadTime = new Thread() {
                 public void run() {
                     while (!stop) {
                         try {
-                            thread.sleep(1000 * 60);
+                            thread.sleep(1000);
                             bprog.enqueueExternalEvent(new CurrentTime());
                         } catch (InterruptedException e) {
                             e.printStackTrace();
@@ -161,6 +160,7 @@ public class SaveServlet extends HttpServlet {
 
     /**
      * Handling get request
+     *
      * @param request
      * @param response
      * @throws ServletException
@@ -178,6 +178,7 @@ public class SaveServlet extends HttpServlet {
 
     /**
      * Handling http save body
+     *
      * @param request
      * @return
      * @throws IOException
@@ -191,6 +192,7 @@ public class SaveServlet extends HttpServlet {
 
     /**
      * Sending event to the backend
+     *
      * @param event
      */
     private void sendEvent(BEvent event) {

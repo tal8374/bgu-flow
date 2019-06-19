@@ -3357,7 +3357,6 @@ ActionFormatPanel.prototype.getAct = function(cellTitle) {
     'assignment 60 minutes alert' : this.addAssignment60MinutesAlertAct(this.createPanel()),
     'assignment 10 minutes alert' : this.addAssignment10MinutesAlertAct(this.createPanel()),
     'send assignment half time alert' : this.addAssignmentHalfTimeAlertAct(this.createPanel()),
-
     'reception hours' : this.addReceptionTimeAct(this.createPanel()),
     'announcement' : this.addAnouncementAct(this.createPanel()),
     'forum message' : this.addForumMessageAct(this.createPanel()),
@@ -3369,12 +3368,14 @@ ActionFormatPanel.prototype.getAct = function(cellTitle) {
     'message in facebook' : this.addFacebookAct(this.createPanel()),
     'new assignmnet' : this.addNewAssignmentAct(this.createPanel()),
     'course registration' : this.addCourseRegistrationAct(this.createPanel()),
+    'add schedule' : this.addScheduleAct(this.createPanel()),
     'reached date' : this.addReachedDateAct(this.createPanel()),
     'new lecture':this.addNewLecturedAct(this.createPanel()),
     'new practice':this.addNewPracticedAct(this.createPanel()),
     'assignmnet submitted':this.addAssignmnetSubmiteddAct(this.createPanel()),
     'block sms':this.addBlockSMSAct(this.createPanel()),
     'block email':this.addBlockEmailAct(this.createPanel()),
+    'block add schedule':this.addBlockScheduleAct(this.createPanel()),
   };
 
   if(cellTitle.includes('reached')) {
@@ -4056,6 +4057,7 @@ ActionFormatPanel.prototype.addBlockEmailAct = function(container)
   return container;
 };
 
+
 ActionFormatPanel.prototype.addReceptionTimeAct = function(container)
 {
   var ui = this.editorUi;
@@ -4347,6 +4349,104 @@ ActionFormatPanel.prototype.addNewAssignmentAct = function(container)
   return container;
 };
 
+
+ActionFormatPanel.prototype.addBlockScheduleAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+
+  // this.createLabelElement(container, 'Date And Time');
+  //
+  // let id = guidGenerator();
+  //
+  // var newChild = '<div  class="input-group date row" id="datetimepicker1" data-target-input="nearest">\n' +
+  //   '        <input class="col md-10" id="' + id +
+  //   '" type="text" class="form-control datetimepicker-input datetimepicker" data-target="#datetimepicker1" name="departure_date"/>\n' +
+  //   '        <span style="cursor: pointer"  class="input-group-addon" data-target="#datetimepicker1" data-toggle="datetimepicker">\n' +
+  //   '              <span class="fa fa-calendar col md-2"></span>';
+  // container.insertAdjacentHTML('beforeend', newChild);
+  //
+  // this.createLabelElement(container, 'Title');
+  //
+  // var titleElement = this.createInputElement(container, 'title');
+  //
+  // this.createLabelElement(container, 'Mail');
+  //
+  // var mailElement = this.createInputElement(container, 'mail');
+  //
+  // // var data = {
+  // //   from: inputFromElement,
+  // //   to: inputToElement,
+  // //   message: inputMessageElement,
+  // // };
+  //
+  //
+  // var data = {
+  //   id: id,
+  //   title: titleElement,
+  //   mail: mailElement
+  // };
+  //
+  this.createButtonElement(container, 'OK', 'blockAddScheduleSubmit', {});
+
+  return container;
+};
+
+
+ActionFormatPanel.prototype.addScheduleAct = function(container)
+{
+  var ui = this.editorUi;
+  var graph = ui.editor.graph;
+  var ss = this.format.getSelectionState();
+
+  container.style.paddingTop = '4px';
+  container.style.paddingBottom = '4px';
+  container.style.whiteSpace = 'normal';
+  //
+
+  this.createLabelElement(container, 'Date And Time');
+
+  let id = guidGenerator();
+
+  var newChild = '<div  class="input-group date row" id="datetimepicker1" data-target-input="nearest">\n' +
+    '        <input class="col md-10" id="' + id +
+    '" type="text" class="form-control datetimepicker-input datetimepicker" data-target="#datetimepicker1" name="departure_date"/>\n' +
+    '        <span style="cursor: pointer"  class="input-group-addon" data-target="#datetimepicker1" data-toggle="datetimepicker">\n' +
+    '              <span class="fa fa-calendar col md-2"></span>';
+  container.insertAdjacentHTML('beforeend', newChild);
+
+  this.createLabelElement(container, 'Title');
+
+  var titleElement = this.createInputElement(container, 'title');
+
+  this.createLabelElement(container, 'Mail');
+
+  var mailElement = this.createInputElement(container, 'mail');
+
+  // var data = {
+  //   from: inputFromElement,
+  //   to: inputToElement,
+  //   message: inputMessageElement,
+  // };
+
+
+  var data = {
+    id: id,
+    title: titleElement,
+    mail: mailElement
+  };
+
+  this.createButtonElement(container, 'OK', 'scheduleSubmit', data);
+
+  return container;
+};
+
 ActionFormatPanel.prototype.addReachedDateAct = function(container)
 {
   var ui = this.editorUi;
@@ -4417,6 +4517,7 @@ ActionFormatPanel.prototype.addNewLecturedAct = function(container)
   this.createButtonElement(container, 'OK');
   return container;
 };
+
 ActionFormatPanel.prototype.addNewPracticedAct = function(container)
 {
   var ui = this.editorUi;

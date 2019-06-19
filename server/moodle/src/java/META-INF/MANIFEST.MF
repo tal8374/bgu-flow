@@ -1,0 +1,54 @@
+Manifest-Version: 1.0
+Class-Path: commons-io-1.3.2.jar proto-google-common-protos-1.0.4.jar 
+ jetty-util-9.4.8.v20171121.jar rhino-1.7.7.2.jar log4j-api-2.9.0.jar 
+ websocket-common-9.4.8.v20171121.jar log4j-1.2.17.jar opencensus-api-
+ 0.10.0.jar firebase-admin-5.9.0.jar javax.activation-1.1.0.v201105071
+ 233.jar opencensus-contrib-grpc-metrics-0.10.0.jar BPjs-0.9.1.jar grp
+ c-core-1.9.0.jar gson-2.1.jar google-http-client-jackson2-1.23.0.jar 
+ jetty-servlets-9.4.8.v20171121.jar joda-time-2.9.2.jar netty-codec-ht
+ tp2-4.1.17.Final.jar netty-transport-4.1.17.Final.jar jackson-databin
+ d-2.9.4.jar commons-lang3-3.6.jar jetty-jmx-9.4.8.v20171121.jar googl
+ e-cloud-core-http-1.15.0.jar jetty-server-9.4.8.v20171121.jar websock
+ et-servlet-9.4.8.v20171121.jar google-auth-library-oauth2-http-0.8.0.
+ jar netty-common-4.1.17.Final.jar netty-resolver-4.1.17.Final.jar htt
+ pclient-4.0.1.jar google-api-client-1.23.0.jar jackson-core-asl-1.9.1
+ 1.jar protobuf-java-util-3.5.1.jar javax.transaction-api-1.2.jar jett
+ y-deploy-9.4.8.v20171121.jar jetty-webapp-9.4.8.v20171121.jar jetty-q
+ uickstart-9.4.8.v20171121.jar jetty-jaspi-9.4.8.v20171121.jar protobu
+ f-java-3.5.1.jar netty-codec-4.1.17.Final.jar netty-tcnative-boringss
+ l-static-2.0.7.Final.jar javax.servlet-api-3.1.0.jar google-cloud-sto
+ rage-1.15.0.jar slf4j-api-1.6.6.jar jetty-alpn-client-9.4.8.v20171121
+ .jar google-http-client-1.23.0.jar gax-1.16.0.jar jetty-jndi-9.4.8.v2
+ 0171121.jar jetty-http-9.4.8.v20171121.jar jgraphx-1.10.4.2.jar netty
+ -handler-4.1.17.Final.jar google-http-client-gson-1.23.0.jar javax.an
+ notation-api-1.2.jar http2-server-9.4.8.v20171121.jar auto-value-1.2.
+ jar api-common-1.2.0.jar google-api-client-gson-1.23.0.jar http2-comm
+ on-9.4.8.v20171121.jar javax.mail.glassfish-1.4.1.v201005082020.jar j
+ etty-io-9.4.8.v20171121.jar netty-buffer-4.1.17.Final.jar slf4j-simpl
+ e-1.7.25.jar javax.websocket-api-1.1.jar javax.security.auth.message-
+ 1.0.0.v201108011116.jar slf4j-log4j12-1.7.5.jar asm-commons-6.0.jar g
+ oogle-http-client-jackson-1.23.0.jar javax.websocket-client-api-1.0.j
+ ar proto-google-cloud-firestore-v1beta1-0.1.28.jar http2-hpack-9.4.8.
+ v20171121.jar javax-websocket-server-impl-9.4.8.v20171121.jar google-
+ api-services-storage-v1-rev114-1.23.0.jar jackson-core-2.9.4.jar gax-
+ grpc-1.16.0.jar grpc-netty-1.9.0.jar jetty-plus-9.4.8.v20171121.jar a
+ sm-tree-6.0.jar log4j-jcl-2.9.0.jar jetty-xml-9.4.8.v20171121.jar jsr
+ 305-1.3.9.jar asm-6.0.jar gax-httpjson-0.33.0.jar commons-codec-1.3.j
+ ar google-cloud-firestore-0.33.0-beta.jar error_prone_annotations-2.1
+ .2.jar jackson-annotations-2.9.0.jar guava-20.0.jar jetty-servlet-9.4
+ .8.v20171121.jar grpc-context-1.9.0.jar grpc-auth-1.9.0.jar netty-cod
+ ec-socks-4.1.17.Final.jar threetenbp-1.3.3.jar websocket-api-9.4.8.v2
+ 0171121.jar google-cloud-core-1.15.0.jar proto-google-iam-v1-0.1.28.j
+ ar grpc-stub-1.9.0.jar http2-client-9.4.8.v20171121.jar jetty-continu
+ ation-9.4.8.v20171121.jar log4j-core-2.9.0.jar google-oauth-client-1.
+ 23.0.jar jetty-rewrite-9.4.8.v20171121.jar json-20160810.jar google-a
+ uth-library-credentials-0.8.0.jar websocket-server-9.4.8.v20171121.ja
+ r instrumentation-api-0.4.3.jar commons-logging-1.2.jar javax-websock
+ et-client-impl-9.4.8.v20171121.jar grpc-protobuf-1.9.0.jar jetty-clie
+ nt-9.4.8.v20171121.jar jetty-annotations-9.4.8.v20171121.jar jetty-se
+ curity-9.4.8.v20171121.jar grpc-protobuf-lite-1.9.0.jar netty-handler
+ -proxy-4.1.17.Final.jar google-http-client-appengine-1.23.0.jar netty
+ -codec-http-4.1.17.Final.jar httpcore-4.0.1.jar websocket-client-9.4.
+ 8.v20171121.jar google-cloud-core-grpc-1.15.0.jar
+Main-Class: services.MoodleListener
+

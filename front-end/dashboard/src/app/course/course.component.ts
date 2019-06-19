@@ -37,9 +37,15 @@ export class CourseComponent implements OnInit {
     }
 
     onSelectCourse(course) {
-        this.currentCourse = course;
+        if(typeof course === 'string') {
+        console.log(this.courses.filter(currentCourse => currentCourse.course_name === course))
+            this.currentCourse = this.courses.filter(course => course.course_name === course)[0];
+        } else {
+            this.currentCourse = course;
+        }
+        console.log(course)
 
-        this.http.get('http://localhost:8000/api/db/coursePartners/2/achiya@gmail.com')
+        this.http.get('http://localhost:8000/api/db/coursePartners/' + this.currentCourse.course_id +  '/achiya@gmail.com')
             .map(res => res.json())
             .subscribe(res => {
                 console.log(res)

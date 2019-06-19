@@ -2860,7 +2860,14 @@ function getRequestSync(cell, editorUI) {
   let title = cell.title;
 
 
-  eventTemplate = eventTemplate.replace('title', title);
+  if(cell.title == 'Add schedule') {
+    eventTemplate = eventTemplate.replace('title', 'add_schedule');
+
+  } else {
+    eventTemplate = eventTemplate.replace('title', title);
+
+  }
+
   eventTemplate = eventTemplate.replace('payload', JSON.stringify(payload));
 
   return eventTemplate;
@@ -2876,12 +2883,12 @@ function getWaitForSync(cell, editorUI) {
   cell.title = replaceAll(cell.title, 'wait_', '');
   cell.title = replaceAll(cell.title, 'wait', '');
   cell.title = cell.title.trim();
-  console.log(cell.title)
 
   eventSetTemplate = eventSetTemplate.replace('title', cell.title);
   eventSetTemplate = eventSetTemplate.replace('id', cell.getId());
   for (let key in cell.payload) {
-    if (cell.payload.hasOwnProperty(key)) {
+    // if (cell.payload.hasOwnProperty(key)) {
+    if (cell.payload.hasOwnProperty(key) && ! cell.title.toLowerCase().includes('block')) {
       let payloadQueryTemplate = editorUI.payloadQueryTemplate;
 
       payloadQueryTemplate = payloadQueryTemplate.replace('key', key);

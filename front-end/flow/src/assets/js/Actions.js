@@ -102,9 +102,33 @@ Actions.prototype.init = function()
 
     node.title = 'reached_date_' + date;
 
-    // node.payload = {
-    //   date: date,
-    // };
+  });
+
+  this.addAction('scheduleSubmit', function(data, node) {
+
+    node.payload = {
+      mail: data['mail'].value,
+      title: data['title'].value,
+      date: document.getElementById(data['id']).value
+    };
+
+
+    //15 March at 7PM.
+  });
+
+  this.addAction('blockAddScheduleSubmit', function(data, node) {
+
+    node.title = 'Add schedule';
+
+    node.payload = {
+      mail: data['mail'].value,
+      title: data['title'].value,
+      date: document.getElementById(data['id']).value
+    };
+    //
+    // console.log(document.getElementById(data['id']).value)
+
+    //15 March at 7PM.
   });
 
   this.addAction('homeworkCheckedActSubmit', function(data, node) {

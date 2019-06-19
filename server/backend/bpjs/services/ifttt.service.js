@@ -3,11 +3,15 @@ const request = require('request');
 const eventHandlers = {
     'send_mail': sendMail,
     'sms':sendSms,
-    'Add schedule': sechedule,
+    'Add_schedule': sechedule,
 };
 
 function handleEvent(payload) {
     if (!eventHandlers[payload.componentID]) return;
+
+    console.log("******************************")
+    console.log('payload')
+    console.log(payload)
 
     eventHandlers[payload.componentID](payload)
 }
@@ -52,7 +56,26 @@ function sendSms(payload){
     );
 }
 function sechedule(payload){
-    console.log("in the function");
+    console.log('started!!!!!!!!!!')
+    request.post(
+        'https://maker.ifttt.com/trigger/calendarEvent/with/key/dew4FCOfg1RSDzui4ViiyO',
+        {
+            json: {
+                "value1": payload.data.date,
+                "value2": payload.data.title,
+                "value3": payload.data.mail,
+            }
+        },
+        function (error, response, body) {
+            console.log('done!!!!!!!!!!!!!!!')
+            console.log(error)
+            if (!error && response.statusCode == 200) {
+                console.log(body);
+                console.log('schedule sent');
+            }
+        }
+
+    );
 }
 module.exports = {
     handleEvent
